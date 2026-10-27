@@ -1,0 +1,7 @@
+<view wx:if="{{visible}}" class="fb-toast">
+	<view class="fb-toast-icon"></view>
+	<text class="fb-toast-text">{{text}}</text>
+	<view class="fb-toast-close" bindtap="onClose">
+		<view class="fb-toast-close-icon"></view>
+	</view>
+</view>

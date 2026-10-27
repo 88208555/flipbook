@@ -1,0 +1,8 @@
+/* Explicit viewport edges work in WXSS; centering never depends on the parent's content height. */
+.fb-page-loading{position:fixed;top:0;right:0;bottom:0;left:0;width:100%;height:100vh;z-index:3000;display:flex;align-items:center;justify-content:center;box-sizing:border-box}
+.fb-page-loading-brand{position:relative;display:flex;align-items:center;justify-content:center;flex:none;width:280rpx;height:280rpx}
+.fb-page-loading-logo{animation:fb-loading-breathe 1.2s ease-in-out infinite}
+.fb-page-loading-text{font-size:40rpx;font-weight:700;letter-spacing:.08em;line-height:1.5;white-space:nowrap;text-align:center}
+.fb-page-loading-image{position:absolute;top:0;left:0;display:block;width:280rpx;height:280rpx}
+@keyframes fb-loading-breathe{0%,100%{opacity:.3}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.fb-page-loading-logo{animation:none}}

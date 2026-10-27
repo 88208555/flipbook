@@ -1,0 +1,153 @@
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:head}--><!--{/if}-->
+<header class="fb-topbar">
+	<a class="fb-iconbtn" href="{$fb[backurl]}" aria-label="{lang flipbook:back}"><!--{eval echo flipbook\front_icon::svg('back');}--></a>
+	<h1 class="fb-topbar-title">{lang flipbook:style_title}</h1>
+	<button type="button" class="fb-iconbtn fb-iconbtn-more" data-fb-share="product" aria-label="{lang flipbook:action_share}">···</button>
+</header>
+
+<!--{if $fb[product]}-->
+<header class="fb-product-head">
+	<h1 class="fb-product-name">{$fb[product][name]}</h1>
+	<!--{if $fb[product][code]}--><p class="fb-product-meta">{$fb[product][code]}<!--{if $fb[product][colors]}--> · {$fb[product][colors][0][name]}<!--{/if}--></p><!--{/if}-->
+</header>
+
+<div class="fb-segment fb-segment-3" role="tablist">
+	<button type="button" class="fb-segment-item is-active" data-fb-pane="highlight" role="tab" aria-selected="true">{lang flipbook:pane_highlight}</button>
+	<button type="button" class="fb-segment-item" data-fb-pane="detail" role="tab" aria-selected="false">{lang flipbook:pane_detail}</button>
+	<button type="button" class="fb-segment-item" data-fb-pane="spec" role="tab" aria-selected="false">{lang flipbook:pane_spec}</button>
+</div>
+
+<section class="fb-pane is-active" data-fb-pane-body="highlight" role="tabpanel">
+	<!--{if $fb[product][groups][highlight]}-->
+		<!--{loop $fb[product][groups][highlight] $media}-->
+		<article class="fb-point">
+			<button type="button" class="fb-point-media" data-fb-viewer="{$media[image]}" data-fb-viewer-title="{$media[title]}" data-fb-viewer-group="highlight" aria-label="{lang flipbook:zoom}">
+			<!--{if $media[hasimage]}--><img src="{$media[image]}" alt="{$media[title]}" /><!--{else}--><span class="fb-empty"><!--{eval echo flipbook\front_icon::svg('empty');}--></span><!--{/if}-->
+			</button>
+			<div class="fb-point-body">
+				<h2 class="fb-point-title">{$media[title]}</h2>
+				<p class="fb-point-text">{$media[text]}</p>
+			</div>
+		</article>
+		<!--{/loop}-->
+		<button type="button" class="fb-link" data-fb-pane="detail">{lang flipbook:style_all_detail}<!--{eval echo flipbook\front_icon::svg('chevron_right','fb-icon-s');}--></button>
+	<!--{else}-->
+		<div class="fb-empty"><p class="fb-empty-title">{lang flipbook:media_empty}</p></div>
+	<!--{/if}-->
+</section>
+
+<section class="fb-pane" data-fb-pane-body="detail" role="tabpanel">
+	<!--{if $fb[product][groups][detail]}-->
+	<div class="fb-grid fb-grid-2 fb-grid-flat">
+		<!--{loop $fb[product][groups][detail] $media}-->
+		<article class="fb-detail">
+			<button type="button" class="fb-card-cover" data-fb-viewer="{$media[image]}" data-fb-viewer-title="{$media[title]}" data-fb-viewer-group="detail" aria-label="{lang flipbook:zoom}">
+			<!--{if $media[hasimage]}--><img src="{$media[image]}" alt="{$media[title]}" /><!--{else}--><span class="fb-empty"><!--{eval echo flipbook\front_icon::svg('empty');}--></span><!--{/if}-->
+			</button>
+			<div class="fb-detail-head">
+				<h2 class="fb-detail-title">{$media[title]}</h2>
+				<button type="button" class="fb-plus" data-fb-viewer="{$media[image]}" data-fb-viewer-title="{$media[title]}" data-fb-viewer-group="detail" aria-label="{lang flipbook:zoom}">+</button>
+			</div>
+			<p class="fb-detail-text">{$media[text]}</p>
+		</article>
+		<!--{/loop}-->
+	</div>
+	<p class="fb-hint">{lang flipbook:tap_to_zoom}</p>
+	<!--{else}-->
+	<div class="fb-empty"><p class="fb-empty-title">{lang flipbook:media_empty}</p></div>
+	<!--{/if}-->
+</section>
+
+<section class="fb-pane" data-fb-pane-body="spec" role="tabpanel">
+	<!--{if $fb[product][colors]}-->
+	<div class="fb-spec-block">
+		<span class="fb-label">{lang flipbook:spec_color}</span>
+		<div class="fb-colors">
+			<!--{loop $fb[product][colors] $color}-->
+			<span class="fb-color{if $color[active]} is-active{/if}">
+				<span class="fb-color-chip fb-tone-{$color[tone]}"><!--{if $color[active]}--><!--{eval echo flipbook\front_icon::svg('check','fb-icon-s');}--><!--{/if}--></span>
+				<span class="fb-color-name">{$color[name]}</span>
+			</span>
+			<!--{/loop}-->
+		</div>
+	</div>
+	<!--{/if}-->
+	<!--{if $fb[product][spec][sizes]}-->
+	<div class="fb-spec-block">
+		<span class="fb-label">{lang flipbook:spec_size}</span>
+		<div class="fb-sizes">
+			<!--{loop $fb[product][spec][sizes] $size}--><span class="fb-size{if $size == $fb[product][spec][sizes][0]} is-active{/if}">{$size}</span><!--{/loop}-->
+		</div>
+	</div>
+	<!--{/if}-->
+	<!--{if $fb[product][spec][sizetable]}-->
+	<div class="fb-spec-block">
+		<span class="fb-label">{lang flipbook:spec_table}</span>
+		<table class="fb-table">
+			<!--{loop $fb[product][spec][sizetable] $i $row}-->
+			<!--{if $i == 0}-->
+			<thead>
+			<tr>
+			<!--{loop $row $cell}-->
+			<th>{$cell}</th>
+			<!--{/loop}-->
+			</tr>
+			</thead>
+			<tbody>
+			<!--{else}-->
+			<tr>
+			<!--{loop $row $cell}-->
+			<td>{$cell}</td>
+			<!--{/loop}-->
+			</tr>
+			<!--{/if}-->
+			<!--{/loop}-->
+			</tbody>
+		</table>
+		<!--{if $fb[product][spec][sizeTableNote]}--><p class="fb-note"><!--{eval echo flipbook\front_helper::e($fb['product']['spec']['sizeTableNote']);}--></p><!--{/if}-->
+	</div>
+	<!--{/if}-->
+	<!--{if $fb[product][spec][model] || $fb[product][spec][fit]}-->
+	<div class="fb-model">
+		<span class="fb-model-avatar">
+		<!--{if $fb[product][groups][model][0][hasimage]}--><img src="{$fb[product][groups][model][0][image]}" alt="{$fb[product][spec][model]}" /><!--{else}--><!--{eval echo flipbook\front_icon::svg('visitor','fb-icon-l');}--><!--{/if}-->
+		</span>
+		<span class="fb-model-text">{lang flipbook:spec_model_label} {$fb[product][spec][model]}<!--{if $fb[product][spec][fit]}--> · {$fb[product][spec][fit]}<!--{/if}--></span>
+	</div>
+	<!--{/if}-->
+</section>
+
+<nav class="fb-actionbar">
+	<button type="button" class="fb-action{if $fb[product][favorited]} is-on{/if}" data-fb-favorite="product" data-fb-fav-id="{$fb[product][productid]}" data-fb-fav-on="{$fb[product][favorited]}"><!--{eval echo flipbook\front_icon::svg('bookmark');}--><span>{lang flipbook:style_favorite}</span></button>
+	<button type="button" class="fb-action" data-fb-share="product"><!--{eval echo flipbook\front_icon::svg('share');}--><span>{lang flipbook:style_share}</span></button>
+	<a class="fb-action" href="{if $fb[product][albums]}{$fb[product][albums][0][url]}{else}{$fb[backurl]}{/if}"><!--{eval echo flipbook\front_icon::svg('book');}--><span>{lang flipbook:style_back_album}</span></a>
+</nav>
+<!--{else}-->
+<section class="fb-empty">
+	<!--{eval echo flipbook\front_icon::svg('offline','fb-icon-l');}-->
+	<p class="fb-empty-title">{lang flipbook:content_gone}</p>
+	<p class="fb-empty-text">{lang flipbook:content_gone_hint}</p>
+	<a class="fb-btn fb-btn-ghost" href="{$fb[urls][index]}">{lang flipbook:back_home}</a>
+</section>
+<!--{/if}-->
+
+<div class="fb-mask" data-fb-close="viewer"></div>
+<section class="fb-viewer" data-fb-viewer-box aria-label="{lang flipbook:zoom}">
+	<div class="fb-viewer-bar">
+		<button type="button" class="fb-iconbtn" data-fb-close="viewer" aria-label="{lang flipbook:close}"><!--{eval echo flipbook\front_icon::svg('close');}--></button>
+		<h2 class="fb-viewer-title" data-fb-viewer-title>{lang flipbook:zoom}</h2>
+		<span class="fb-viewer-count" data-fb-viewer-count>01 / 01</span>
+	</div>
+	<div class="fb-viewer-stage">
+		<img class="fb-viewer-img" src="" alt="" data-fb-viewer-img />
+	</div>
+	<div class="fb-viewer-dots" data-fb-viewer-dots></div>
+	<div class="fb-viewer-thumbs" data-fb-viewer-thumbs></div>
+	<div class="fb-viewer-foot">
+		<p class="fb-menu-note fb-center">{lang flipbook:viewer_hint}</p>
+		<a class="fb-btn fb-btn-block" href="" download data-fb-viewer-save><!--{eval echo flipbook\front_icon::svg('save','fb-icon-s');}--><span>{lang flipbook:viewer_save}</span></a>
+	</div>
+</section>
+
+<!--{subtemplate flipbook:share}-->
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:foot}--><!--{/if}-->

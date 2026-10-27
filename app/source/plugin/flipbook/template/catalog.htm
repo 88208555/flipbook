@@ -1,0 +1,66 @@
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:head}--><!--{/if}-->
+<header class="fb-topbar fb-topbar-center">
+	<span class="fb-topbar-side"></span>
+	<h1 class="fb-topbar-title">{lang flipbook:catalog_page_title}</h1>
+	<span class="fb-topbar-side"></span>
+</header>
+
+<form class="fb-search" method="get" action="plugin.php">
+	<input type="hidden" name="id" value="flipbook:micro" /><input type="hidden" name="key" value="{if !empty($_GET[key]) && $_GET[key] == 'search'}search{else}catalog{/if}" />
+	<!--{if $fb[seriesid]}--><input type="hidden" name="seriesid" value="{$fb[seriesid]}" /><!--{/if}-->
+	<!--{if $fb[catid]}--><input type="hidden" name="catid" value="{$fb[catid]}" /><!--{/if}-->
+	<!--{eval echo flipbook\front_icon::svg('search','fb-icon-s');}-->
+	<input type="search" name="keyword" value="{$fb[keyword]}" placeholder="{lang flipbook:search_placeholder}" aria-label="{lang flipbook:search}" />
+</form>
+
+<div class="fb-filterbar">
+	<div class="fb-chips">
+		<a class="fb-chip{if !$fb[catid]} is-active{/if}" href="{$fb[filters][all]}">{lang flipbook:filter_all}</a>
+		<!--{loop $fb[categories] $category}-->
+		<a class="fb-chip{if $category[catid] == $fb[catid]} is-active{/if}" href="{$category[url]}">{$category[name]}</a>
+		<!--{/loop}-->
+	</div>
+	<!--{if $fb[series]}-->
+	<form class="fb-select" method="get" action="plugin.php">
+		<input type="hidden" name="id" value="flipbook:micro" /><input type="hidden" name="key" value="{if !empty($_GET[key]) && $_GET[key] == 'search'}search{else}catalog{/if}" />
+		<!--{if $fb[catid]}--><input type="hidden" name="catid" value="{$fb[catid]}" /><!--{/if}-->
+		<!--{if $fb[keyword]}--><input type="hidden" name="keyword" value="{$fb[keyword]}" /><!--{/if}-->
+		<select name="seriesid" aria-label="{lang flipbook:filter_series_all}" data-fb-autosubmit>
+			<option value="0">{lang flipbook:filter_series_all}</option>
+			<!--{loop $fb[series] $series}-->
+			<option value="{$series[seriesid]}"{if $series[seriesid] == $fb[seriesid]} selected="selected"{/if}>{$series[name]}</option>
+			<!--{/loop}-->
+		</select>
+		<!--{eval echo flipbook\front_icon::svg('chevron_down','fb-icon-s');}-->
+	</form>
+	<!--{/if}-->
+</div>
+
+<!--{if $fb[albums] || $fb[products]}-->
+<section class="fb-grid">
+	<!--{loop $fb[albums] $album}-->
+	<a class="fb-card" href="{$album[url]}">
+		<div class="fb-card-cover">
+		<!--{if $album[hascover]}--><img src="{$album[cover]}" alt="{$album[name]}" /><!--{else}--><div class="fb-empty"><!--{eval echo flipbook\front_icon::svg('empty');}--></div><!--{/if}-->
+		<!--{if $album[favorited]}--><span class="fb-card-flag"><!--{eval echo flipbook\front_icon::svg('bookmark','fb-icon-s');}--></span><!--{/if}-->
+		</div>
+		<div class="fb-card-body">
+			<h2 class="fb-card-title">{$album[name]}</h2>
+			<p class="fb-card-meta">{$album[pagecountpad]} {lang flipbook:unit_page}</p>
+		</div>
+	</a>
+	<!--{/loop}-->
+<!--{loop $fb[products] $product}-->
+<a class="fb-card" href="{$product[url]}"><div class="fb-card-cover"><img src="{$product[cover]}" alt="{$product[name]}" /></div><div class="fb-card-body"><h2 class="fb-card-title">{$product[name]}</h2><p class="fb-card-meta">{$product[code]}</p></div></a>
+<!--{/loop}-->
+</section>
+<!--{else}-->
+<section class="fb-empty">
+	<!--{eval echo flipbook\front_icon::svg('search','fb-icon-l');}-->
+	<p class="fb-empty-title">{lang flipbook:search_empty}</p>
+	<p class="fb-empty-text">{lang flipbook:search_empty_hint}</p>
+	<a class="fb-btn fb-btn-ghost" href="{$fb[filters][reset]}">{lang flipbook:filter_reset}</a>
+</section>
+<!--{/if}-->
+
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:foot}--><!--{/if}-->

@@ -1,0 +1,222 @@
+{
+  "source": "lucide-static",
+  "version": "1.61.0",
+  "license": "ISC; ../vendor/lucide/LICENSE",
+  "icons": {
+    "badge-percent": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\" />\n  <path d=\"m15 9-6 6\" />\n  <path d=\"M9 9h.01\" />\n  <path d=\"M15 15h.01\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/badge-percent.svg"
+    },
+    "banknote": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"20\" height=\"12\" x=\"2\" y=\"6\" rx=\"2\" />\n  <circle cx=\"12\" cy=\"12\" r=\"2\" />\n  <path d=\"M6 12h.01M18 12h.01\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/banknote.svg"
+    },
+    "circle-help": {
+      "viewBox": "0 0 24 24",
+      "body": "<circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\" />\n  <path d=\"M12 17h.01\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/circle-help.svg"
+    },
+    "circle-user-round": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M17.925 20.056a6 6 0 0 0-11.851.001\" />\n  <circle cx=\"12\" cy=\"11\" r=\"4\" />\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/circle-user-round.svg"
+    },
+    "clapperboard": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"m12.296 3.464 3.02 3.956\" />\n  <path d=\"M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z\" />\n  <path d=\"M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\" />\n  <path d=\"m6.18 5.276 3.1 3.899\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/clapperboard.svg"
+    },
+    "clipboard-list": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\" />\n  <path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\" />\n  <path d=\"M12 11h4\" />\n  <path d=\"M12 16h4\" />\n  <path d=\"M8 11h.01\" />\n  <path d=\"M8 16h.01\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/clipboard-list.svg"
+    },
+    "columns-2": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M12 3v18\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/columns-2.svg"
+    },
+    "columns-3": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M9 3v18\" />\n  <path d=\"M15 3v18\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/columns-3.svg"
+    },
+    "columns-4": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M7.5 3v18\" />\n  <path d=\"M12 3v18\" />\n  <path d=\"M16.5 3v18\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/columns-4.svg"
+    },
+    "contact-round": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M16 2v2\" />\n  <path d=\"M17.915 21a6 6 0 10-12 0\" />\n  <path d=\"M8 2v2\" />\n  <circle cx=\"12\" cy=\"11\" r=\"4\" />\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/contact-round.svg"
+    },
+    "file-text": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M10 9H8\" />\n  <path d=\"M16 13H8\" />\n  <path d=\"M16 17H8\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/file-text.svg"
+    },
+    "gallery-horizontal": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M2 3v18\" />\n  <rect width=\"12\" height=\"18\" x=\"6\" y=\"3\" rx=\"2\" />\n  <path d=\"M22 3v18\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/gallery-horizontal.svg"
+    },
+    "gallery-thumbnails": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"18\" height=\"14\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M4 21h1\" />\n  <path d=\"M9 21h1\" />\n  <path d=\"M14 21h1\" />\n  <path d=\"M19 21h1\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/gallery-thumbnails.svg"
+    },
+    "gauge": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"m12 14 4-4\" />\n  <path d=\"M3.34 19a10 10 0 1 1 17.32 0\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/gauge.svg"
+    },
+    "hash": {
+      "viewBox": "0 0 24 24",
+      "body": "<line x1=\"4\" x2=\"20\" y1=\"9\" y2=\"9\" />\n  <line x1=\"4\" x2=\"20\" y1=\"15\" y2=\"15\" />\n  <line x1=\"10\" x2=\"8\" y1=\"3\" y2=\"21\" />\n  <line x1=\"16\" x2=\"14\" y1=\"3\" y2=\"21\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/hash.svg"
+    },
+    "heading-1": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M4 12h8\" />\n  <path d=\"M4 18V6\" />\n  <path d=\"M12 18V6\" />\n  <path d=\"m17 12 3-2v8\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/heading-1.svg"
+    },
+    "heading-2": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M4 12h8\" />\n  <path d=\"M4 18V6\" />\n  <path d=\"M12 18V6\" />\n  <path d=\"M21 18h-4c0-4 4-3 4-6 0-1.5-2-2.5-4-1\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/heading-2.svg"
+    },
+    "heart": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/heart.svg"
+    },
+    "history": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\" />\n  <path d=\"M3 3v5h5\" />\n  <path d=\"M12 7v5l4 2\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/history.svg"
+    },
+    "image": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\" />\n  <circle cx=\"9\" cy=\"9\" r=\"2\" />\n  <path d=\"m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/image.svg"
+    },
+    "images": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16\" />\n  <path d=\"M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2\" />\n  <circle cx=\"13\" cy=\"7\" r=\"1\" fill=\"currentColor\" />\n  <rect x=\"8\" y=\"2\" width=\"14\" height=\"14\" rx=\"2\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/images.svg"
+    },
+    "key-round": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z\" />\n  <circle cx=\"16.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/key-round.svg"
+    },
+    "layers": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z\" />\n  <path d=\"M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12\" />\n  <path d=\"M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/layers.svg"
+    },
+    "layout-dashboard": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"7\" height=\"9\" x=\"3\" y=\"3\" rx=\"1\" />\n  <rect width=\"7\" height=\"5\" x=\"14\" y=\"3\" rx=\"1\" />\n  <rect width=\"7\" height=\"9\" x=\"14\" y=\"12\" rx=\"1\" />\n  <rect width=\"7\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/layout-dashboard.svg"
+    },
+    "list-filter": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M2 5h20\" />\n  <path d=\"M6 12h12\" />\n  <path d=\"M9 19h6\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/list-filter.svg"
+    },
+    "list-tree": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M8 5h13\" />\n  <path d=\"M13 12h8\" />\n  <path d=\"M13 19h8\" />\n  <path d=\"M3 10a2 2 0 0 0 2 2h3\" />\n  <path d=\"M3 5v12a2 2 0 0 0 2 2h3\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/list-tree.svg"
+    },
+    "log-in": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"m10 17 5-5-5-5\" />\n  <path d=\"M15 12H3\" />\n  <path d=\"M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/log-in.svg"
+    },
+    "message-square": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/message-square.svg"
+    },
+    "mouse-pointer-2": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/mouse-pointer-2.svg"
+    },
+    "palette": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z\" />\n  <circle cx=\"13.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\" />\n  <circle cx=\"17.5\" cy=\"10.5\" r=\".5\" fill=\"currentColor\" />\n  <circle cx=\"6.5\" cy=\"12.5\" r=\".5\" fill=\"currentColor\" />\n  <circle cx=\"8.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/palette.svg"
+    },
+    "panel-left": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M9 3v18\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/panel-left.svg"
+    },
+    "panels-top-left": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 9h18\" />\n  <path d=\"M9 21V9\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/panels-top-left.svg"
+    },
+    "rows-2": {
+      "viewBox": "0 0 24 24",
+      "body": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 12h18\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/rows-2.svg"
+    },
+    "ruler": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z\" />\n  <path d=\"m14.5 12.5 2-2\" />\n  <path d=\"m11.5 9.5 2-2\" />\n  <path d=\"m8.5 6.5 2-2\" />\n  <path d=\"m17.5 15.5 2-2\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/ruler.svg"
+    },
+    "search": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"m21 21-4.34-4.34\" />\n  <circle cx=\"11\" cy=\"11\" r=\"8\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/search.svg"
+    },
+    "separator-horizontal": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"m16 16-4 4-4-4\" />\n  <path d=\"M3 12h18\" />\n  <path d=\"m8 8 4-4 4 4\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/separator-horizontal.svg"
+    },
+    "shirt": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/shirt.svg"
+    },
+    "smile": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M15 10V9\" />\n  <path d=\"M16.472 15a6 6 0 01-8.943 0\" />\n  <path d=\"M9 10V9\" />\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/smile.svg"
+    },
+    "space": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/space.svg"
+    },
+    "table-properties": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M15 3v18\" />\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M21 9H3\" />\n  <path d=\"M21 15H3\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/table-properties.svg"
+    },
+    "type": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"M12 4v16\" />\n  <path d=\"M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2\" />\n  <path d=\"M9 20h6\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/type.svg"
+    },
+    "user-round": {
+      "viewBox": "0 0 24 24",
+      "body": "<circle cx=\"12\" cy=\"8\" r=\"5\" />\n  <path d=\"M20 21a8 8 0 0 0-16 0\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/user-round.svg"
+    },
+    "video": {
+      "viewBox": "0 0 24 24",
+      "body": "<path d=\"m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5\" />\n  <rect x=\"2\" y=\"6\" width=\"14\" height=\"12\" rx=\"2\" />\n",
+      "source": "https://unpkg.com/lucide-static@1.61.0/icons/video.svg"
+    }
+  }
+}

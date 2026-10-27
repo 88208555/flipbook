@@ -1,0 +1,21 @@
+<view wx:if="{{visible}}" class="fb-share-modal" catchtouchmove="onStop">
+ <view class="fb-share-dialog" style="{{dialogMaxHeight ? 'max-height:' + dialogMaxHeight + 'px' : ''}}">
+  <view class="fb-share-heading"><text>分享商品</text><view class="fb-share-close" aria-role="button" aria-label="关闭" bindtap="onClose">×</view></view>
+  <scroll-view scroll-y class="fb-share-preview" style="{{previewHeight ? 'height:' + previewHeight + 'px' : ''}}">
+   <view wx:if="{{loading}}" class="fb-share-status">正在加载商品…</view>
+   <view wx:elif="{{error}}" class="fb-share-status">{{error}}<button bindtap="load">重试</button></view>
+   <view wx:elif="{{product}}" class="fb-share-product" style="background:{{settings.bg}};color:{{settings.color}};border-radius:{{settings.radius}}px">
+    <view class="fb-share-image-wrap" style="border-radius:{{settings.radius}}px">
+     <image class="fb-share-product-image" src="{{imageUrl}}" mode="widthFix" bindload="onImageLoaded"/>
+     <text wx:if="{{settings.showPrice && product.price.value}}" class="fb-share-price">{{product.price.currency && product.price.currency !== 'CNY' ? product.price.currency + ' ' : '¥'}}{{product.price.value}}</text>
+    </view>
+    <view class="fb-share-product-info">
+     <view class="fb-share-product-text"><text class="fb-share-product-name">{{title}}</text><text class="fb-share-product-subtitle">{{subtitle}}</text><text class="fb-share-description">{{description}}</text></view>
+     <view class="fb-share-code"><image class="fb-share-qr" src="{{qrUrl}}" mode="aspectFit" bindload="onQrLoaded" binderror="onQrError"/><text class="fb-share-hint">{{qrError || settings.qrHint}}</text></view>
+    </view>
+   </view>
+  </scroll-view>
+  <view class="fb-share-buttons"><button class="fb-share-action is-primary" open-type="share" bindtap="onFriendShare" disabled="{{!product}}">分享给好友</button><button class="fb-share-action" bindtap="onSave" loading="{{saving}}" disabled="{{!product || !qrReady}}">保存海报</button></view>
+ </view>
+</view>
+<canvas canvas-id="product-poster" class="fb-share-canvas" style="width:750px;height:{{posterHeight}}px"/>

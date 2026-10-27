@@ -1,0 +1,88 @@
+<!--{if $fb[share][targets]}-->
+<button type="button" class="fb-mask" data-fb-close="share" aria-label="{lang flipbook:close}" tabindex="-1"></button>
+<section class="fb-sheet fb-sheet-share" id="fb-sheet-share" data-fb-sheet="share" aria-label="{lang flipbook:share_title}">
+	<div class="fb-sheet-head">
+		<h2 class="fb-sheet-title">{lang flipbook:share_title}</h2>
+		<button type="button" class="fb-iconbtn" data-fb-close="share" aria-label="{lang flipbook:close}"><!--{eval echo flipbook\front_icon::svg('close');}--></button>
+	</div>
+	<div class="fb-sheet-body">
+		<div class="fb-share-target">
+			<span class="fb-share-cover" data-fb-share-cover>
+			<!--{loop $fb[share][targets] $target}-->
+				<!--{if $target[hascover]}--><img src="{$target[cover]}" alt="{$target[title]}" data-fb-share-cover-item="{$target[key]}"{if $target[key] != $fb[share][scope]} hidden{/if} /><!--{/if}-->
+			<!--{/loop}-->
+			</span>
+			<span class="fb-share-target-body">
+				<!--{loop $fb[share][targets] $target}-->
+				<span data-fb-share-text="{$target[key]}"{if $target[key] != $fb[share][scope]} hidden{/if}>
+					<span class="fb-share-target-title">{$target[title]}</span>
+					<span class="fb-share-target-meta">{$target[meta]}</span>
+				</span>
+				<!--{/loop}-->
+			</span>
+		</div>
+
+		<div class="fb-segment fb-segment-wide">
+		<!--{if $fb[share][targets][album]}-->
+			<button type="button" class="fb-segment-item{if $fb[share][scope] == 'album'} is-active{/if}" data-fb-share-scope="album"
+				data-fb-share-title="{$fb[share][targets][album][title]}"
+				data-fb-share-meta="{$fb[share][targets][album][meta]}"
+				data-fb-share-cover="{$fb[share][targets][album][cover]}"
+				data-fb-share-hascover="{$fb[share][targets][album][hascover]}"
+				data-fb-share-targetid="{$fb[share][targets][album][targetid]}"
+				data-fb-share-url="{$fb[share][targets][album][url]}"
+				data-fb-poster-image="{$fb[share][targets][album][poster][image]}"
+				data-fb-poster-title="{$fb[share][targets][album][poster][title]}"
+				data-fb-poster-meta="{$fb[share][targets][album][poster][meta]}"
+				data-fb-poster-points="{$fb[share][targets][album][poster][points]}"
+				data-fb-poster-brand="{$fb[share][targets][album][poster][brand]}">{lang flipbook:share_whole}</button>
+		<!--{/if}-->
+		<!--{if $fb[share][targets][product]}-->
+			<button type="button" class="fb-segment-item{if $fb[share][scope] == 'product'} is-active{/if}" data-fb-share-scope="product"
+				data-fb-share-title="{$fb[share][targets][product][title]}"
+				data-fb-share-meta="{$fb[share][targets][product][meta]}"
+				data-fb-share-cover="{$fb[share][targets][product][cover]}"
+				data-fb-share-hascover="{$fb[share][targets][product][hascover]}"
+				data-fb-share-targetid="{$fb[share][targets][product][targetid]}"
+				data-fb-share-url="{$fb[share][targets][product][url]}"
+				data-fb-poster-image="{$fb[share][targets][product][poster][image]}"
+				data-fb-poster-title="{$fb[share][targets][product][poster][title]}"
+				data-fb-poster-meta="{$fb[share][targets][product][poster][meta]}"
+				data-fb-poster-points="{$fb[share][targets][product][poster][points]}"
+				data-fb-poster-brand="{$fb[share][targets][product][poster][brand]}">{lang flipbook:share_current}</button>
+		<!--{/if}-->
+		</div>
+
+		<div class="fb-share-grid">
+			<button type="button" class="fb-share-cell" data-fb-share-copy="friend"><span class="fb-share-icon"><!--{eval echo flipbook\front_icon::svg('next');}--></span><span class="fb-share-label">{lang flipbook:share_friend}</span></button>
+			<button type="button" class="fb-share-cell" data-fb-share-copy="moments"><span class="fb-share-icon"><!--{eval echo flipbook\front_icon::svg('eye');}--></span><span class="fb-share-label">{lang flipbook:share_moments}</span></button>
+			<button type="button" class="fb-share-cell" data-fb-share-copy="link"><span class="fb-share-icon"><!--{eval echo flipbook\front_icon::svg('share');}--></span><span class="fb-share-label">{lang flipbook:share_link}</span></button>
+			<button type="button" class="fb-share-cell" data-fb-poster><span class="fb-share-icon"><!--{eval echo flipbook\front_icon::svg('save');}--></span><span class="fb-share-label">{lang flipbook:share_poster}</span></button>
+		</div>
+	</div>
+	<div class="fb-sheet-foot fb-sheet-foot-block">
+		<button type="button" class="fb-btn fb-btn-ghost fb-btn-block" data-fb-close="share">{lang flipbook:cancel}</button>
+	</div>
+</section>
+
+<button type="button" class="fb-mask" data-fb-close="poster" aria-label="{lang flipbook:close}" tabindex="-1"></button>
+<section class="fb-poster" data-fb-sheet="poster" aria-label="{lang flipbook:poster_title}"
+	data-fb-poster-loading="{lang flipbook:poster_generating}"
+	data-fb-poster-failed="{lang flipbook:poster_failed}"
+	data-fb-poster-filename="{lang flipbook:poster_file}">
+	<div class="fb-poster-bar">
+		<button type="button" class="fb-iconbtn" data-fb-close="poster" aria-label="{lang flipbook:close}"><!--{eval echo flipbook\front_icon::svg('close');}--></button>
+		<h2 class="fb-viewer-title">{lang flipbook:poster_title}</h2>
+		<span class="fb-viewer-count" data-fb-poster-state></span>
+	</div>
+	<div class="fb-poster-stage">
+		<img class="fb-poster-img" src="" alt="{lang flipbook:poster_title}" data-fb-poster-img />
+	</div>
+	<div class="fb-poster-foot">
+		<p class="fb-menu-note">{lang flipbook:poster_hint}</p>
+		<a class="fb-btn fb-btn-block" href="" download="{lang flipbook:poster_file}.png" data-fb-poster-save><!--{eval echo flipbook\front_icon::svg('save','fb-icon-s');}--><span>{lang flipbook:poster_save}</span></a>
+		<button type="button" class="fb-btn fb-btn-block" data-fb-poster-retry hidden>{lang flipbook:poster_retry}</button>
+		<button type="button" class="fb-menu-note" data-fb-close="poster" data-fb-poster-cancel hidden>{lang flipbook:cancel}</button>
+	</div>
+</section>
+<!--{/if}-->

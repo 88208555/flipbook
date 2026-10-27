@@ -1,0 +1,104 @@
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:head}--><!--{/if}-->
+<header class="fb-topbar fb-topbar-center">
+	<span class="fb-topbar-side"></span>
+	<h1 class="fb-topbar-title">{lang flipbook:nav_favorites}</h1>
+	<div class="fb-topbar-side fb-topbar-side-end">
+	<!--{if $fb[logged] && $fb[counts][total]}-->
+	<button type="button" class="fb-topbar-action" data-fb-manage data-fb-manage-label="{lang flipbook:favorite_manage}" data-fb-manage-done="{lang flipbook:favorite_manage_done}">{lang flipbook:favorite_manage}</button>
+	<!--{/if}-->
+	</div>
+</header>
+
+<!--{if !$fb[logged]}-->
+<section class="fb-empty">
+	<!--{eval echo flipbook\front_icon::svg('locked','fb-icon-l');}-->
+	<p class="fb-empty-title">{lang flipbook:login_required}</p>
+	<p class="fb-empty-text">{lang flipbook:login_required_hint}</p>
+	<a class="fb-btn" href="{$fb[loginurl]}">{lang flipbook:login_action}</a>
+	<a class="fb-btn fb-btn-ghost" href="{$fb[urls][index]}">{lang flipbook:back_home}</a>
+</section>
+<!--{else}-->
+<!--{if !empty($fb_micro_embed) && $fb[logged] && $fb[counts][total]}-->
+<button class="fb-micro-manage fb-topbar-action" data-fb-manage data-fb-manage-label="{lang flipbook:favorite_manage}" data-fb-manage-done="{lang flipbook:favorite_manage_done}">{lang flipbook:favorite_manage}</button>
+<!--{/if}-->
+<div class="fb-segment">
+	<a class="fb-segment-item{if $fb[tab] == 'product'} is-active{/if}" href="{$fb[taburls][product]}">{lang flipbook:unit_style} {$fb[countpad][product]}</a>
+	<a class="fb-segment-item{if $fb[tab] == 'album'} is-active{/if}" href="{$fb[taburls][album]}">{lang flipbook:unit_album_tab} {$fb[countpad][album]}</a>
+</div>
+
+<!--{if $fb[counts][total]}-->
+<form class="fb-sort" method="get" action="plugin.php">
+	<input type="hidden" name="id" value="flipbook:micro" /><input type="hidden" name="key" value="favorites" />
+	<input type="hidden" name="tab" value="{$fb[tab]}" />
+	<label class="fb-sort-field">
+		<select name="order" data-fb-autosubmit aria-label="{lang flipbook:favorite_sort_recent}">
+			<option value="recent"{if $fb[order] == 'recent'} selected{/if}>{lang flipbook:favorite_sort_recent}</option>
+			<option value="oldest"{if $fb[order] == 'oldest'} selected{/if}>{lang flipbook:favorite_sort_oldest}</option>
+			<option value="name"{if $fb[order] == 'name'} selected{/if}>{lang flipbook:favorite_sort_name}</option>
+		</select>
+		<!--{eval echo flipbook\front_icon::svg('chevron_down','fb-icon-s');}-->
+	</label>
+</form>
+<!--{/if}-->
+
+<div data-fb-fav-list>
+<!--{if $fb[tab] == 'product'}-->
+<!--{if $fb[favorites][products]}-->
+<section class="fb-grid">
+	<!--{loop $fb[favorites][products] $product}-->
+	<a class="fb-card fb-pick" href="{$product[url]}" data-fb-fav-item="{$product[productid]}" data-fb-fav-type="product">
+		<div class="fb-card-cover">
+		<!--{if $product[hascover]}--><img src="{$product[cover]}" alt="{$product[name]}" /><!--{else}--><div class="fb-empty"><!--{eval echo flipbook\front_icon::svg('empty');}--></div><!--{/if}-->
+		<span class="fb-card-flag"><!--{eval echo flipbook\front_icon::svg('bookmark','fb-icon-s');}--></span>
+		<span class="fb-card-check" data-fb-pick><!--{eval echo flipbook\front_icon::svg('check','fb-icon-s');}--></span>
+		</div>
+		<div class="fb-card-body">
+			<h2 class="fb-card-title">{$product[name]}</h2>
+			<p class="fb-card-meta">{if $product[color]}{$product[color]}{else}{$product[code]}{/if}</p>
+		</div>
+	</a>
+	<!--{/loop}-->
+</section>
+<!--{else}-->
+<section class="fb-empty">
+		<!--{eval echo flipbook\front_icon::svg('bookmark','fb-icon-l');}-->
+		<p class="fb-empty-title">{lang flipbook:favorite_empty_style}</p>
+		<p class="fb-empty-text">{lang flipbook:favorite_empty_hint}</p>
+		<a class="fb-btn" href="{$fb[urls][index]}">{lang flipbook:go_discover}</a>
+	</section>
+	<!--{/if}-->
+	<!--{else}-->
+	<!--{if $fb[favorites][albums]}-->
+	<section class="fb-grid">
+	<!--{loop $fb[favorites][albums] $album}-->
+	<a class="fb-card fb-pick" href="{$album[url]}" data-fb-fav-item="{$album[albumid]}" data-fb-fav-type="album">
+		<div class="fb-card-cover">
+		<!--{if $album[hascover]}--><img src="{$album[cover]}" alt="{$album[name]}" /><!--{else}--><div class="fb-empty"><!--{eval echo flipbook\front_icon::svg('empty');}--></div><!--{/if}-->
+		<span class="fb-card-flag"><!--{eval echo flipbook\front_icon::svg('bookmark','fb-icon-s');}--></span>
+		<span class="fb-card-check" data-fb-pick><!--{eval echo flipbook\front_icon::svg('check','fb-icon-s');}--></span>
+		</div>
+		<div class="fb-card-body">
+			<h2 class="fb-card-title">{$album[name]}</h2>
+			<p class="fb-card-meta">{$album[pagecountpad]} {lang flipbook:unit_page}</p>
+		</div>
+	</a>
+	<!--{/loop}-->
+	</section>
+	<!--{else}-->
+	<section class="fb-empty">
+		<!--{eval echo flipbook\front_icon::svg('bookmark','fb-icon-l');}-->
+		<p class="fb-empty-title">{lang flipbook:favorite_empty_album}</p>
+		<p class="fb-empty-text">{lang flipbook:favorite_empty_album_hint}</p>
+		<a class="fb-btn" href="{$fb[urls][index]}">{lang flipbook:go_discover}</a>
+	</section>
+	<!--{/if}-->
+<!--{/if}-->
+</div>
+
+<div class="fb-managebar" data-fb-manage-bar hidden>
+	<span class="fb-managebar-count" data-fb-manage-count>{lang flipbook:favorite_selected} 0</span>
+	<button type="button" class="fb-btn" data-fb-manage-remove disabled>{lang flipbook:favorite_remove}</button>
+</div>
+<!--{/if}-->
+
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:foot}--><!--{/if}-->

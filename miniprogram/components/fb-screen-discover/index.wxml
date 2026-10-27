@@ -1,0 +1,55 @@
+<view class="fb-screen" style="{{regionStyles.gallery}};--fb-status-h:{{statusBar}}px;">
+	<view wx:if="{{!embedded}}" class="fb-topbar fb-topbar-float">
+		<view class="fb-back"></view>
+		<text class="fb-logo">FLIPBOOK</text>
+	</view>
+
+	<block wx:if="{{status == 2}}">
+		<swiper class="fb-hero" vertical circular="{{false}}" current="{{current}}" bindchange="onSwiperChange" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+			<swiper-item wx:for="{{hero}}" wx:key="albumid">
+				<video wx:if="{{item.hasvideo && !ended[index]}}" id="hero-vid{{index}}" class="fb-hero-video" src="{{item.video}}" poster="{{item.cover}}" autoplay="{{current === index && !ended[index]}}" data-index="{{index}}" bindended="onVideoEnded" loop="{{false}}" controls="{{false}}" show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" show-fullscreen-btn="{{false}}" object-fit="cover" muted="{{muted}}" data-id="{{item.albumid}}"></video>
+				<view wx:if="{{item.hasvideo}}" class="fb-hero-enter" data-id="{{item.albumid}}" catchtap="onOpenHero"></view>
+				<image wx:if="{{!item.hasvideo || ended[index]}}" class="fb-hero-img" src="{{item.hasvideo ? (item.firstframe || item.cover) : item.cover}}" mode="aspectFill" data-id="{{item.albumid}}" bindtap="onOpenHero"></image>
+    <view wx:if="{{caption.enabled !== 0}}" data-fb-region="caption" class="fb-hero-info" style="{{captionStyle}};{{regionStyles.caption}}" data-id="{{item.albumid}}" bindtap="onCaptionTap"><text wx:if="{{caption.showTitle !== 0}}" data-fb-region="title" class="fb-hero-name" style="font-size:inherit;color:inherit;{{regionStyles.title}}">{{item.name}}</text><view wx:if="{{caption.showSubtitle !== 0 || (caption.showCode !== 0 && item.code)}}" class="fb-hero-sub" style="{{subtitleStyle}}"><text wx:if="{{caption.showCode !== 0 && item.code}}" data-fb-region="code" class="fb-code-tag" style="{{regionStyles.code}}">{{item.code}}</text><text wx:if="{{caption.showSubtitle !== 0}}" data-fb-region="subtitle" style="{{regionStyles.subtitle}}">{{item.subtitle}}</text></view><text wx:if="{{caption.showExtra !== 0}}" data-fb-region="extra" class="fb-hero-sub" wx:for="{{item.overlayLines}}" wx:for-item="line" wx:key="index" style="{{regionStyles.extra}}">{{line}}</text></view>
+    <image wx:if="{{floating.enabled && item.floatingImage.src}}" class="fb-product-floating" style="{{floatingStyle}};{{regionStyles.floatingImage}}" src="{{item.floatingImage.src}}" mode="aspectFit" data-link="{{item.floatingImage.link}}" catchtap="onPresentationLink"/>
+
+				
+			</swiper-item>
+		</swiper>
+
+
+		<view wx:if="{{actions.enabled}}" style="{{actions.style}}" class="fb-fab {{fabOpen ? 'is-open' : ''}}">
+			<view class="fb-fab-list">
+				<view class="fb-fab-item" bindtap="onFavorite">
+					<view class="fb-icon fb-icon-bookmark"></view>
+				</view>
+				<button class="fb-fab-item" bindtap="onSharePanel">
+					<view class="fb-icon fb-icon-share"></view>
+				</button>
+			<view wx:if="{{hero[current].hasvideo}}" class="fb-fab-item" bindtap="onToggleMute"><view class="fb-icon {{muted ? 'fb-icon-volume-off' : 'fb-icon-volume-on'}}"></view></view>
+			<view wx:for="{{actions.items}}" wx:key="id" class="fb-fab-item" style="{{item.style}}" data-link="{{item.link}}" bindtap="onCustomAction"><view class="fb-icon" style="{{item.iconStyle}}"></view></view>
+</view>
+			<view class="fb-fab-main" bindtap="onToggleFab">
+				<view class="fb-icon fb-icon-plus"></view>
+			</view>
+		</view>
+	</block>
+
+	<view wx:elif="{{status == 1}}" class="fb-empty" style="{{regionStyles.empty}}">
+		
+	</view>
+
+	<view wx:elif="{{status == 3}}" class="fb-empty" style="{{regionStyles.empty}}">
+		<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">暂无画册</text>
+		<text class="fb-empty-text" style="{{regionStyles.emptyText}}">后台发布画册后，这里会自动出现最新内容</text>
+		<button class="fb-btn" bindtap="onRetry" style="{{regionStyles.button}}">刷新</button>
+	</view>
+
+	<view wx:else class="fb-empty" style="{{regionStyles.empty}}">
+		<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">加载失败</text>
+		<text class="fb-empty-text" style="{{regionStyles.emptyText}}">请检查网络或接口地址</text>
+		<button class="fb-btn" bindtap="onRetry" style="{{regionStyles.button}}">重新加载</button>
+	</view>
+</view>
+
+<fb-toast />

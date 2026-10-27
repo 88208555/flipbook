@@ -1,0 +1,48 @@
+<view class="fb-page fb-tab-page" style="--fb-status-h:{{statusBar}}px;">
+	<view wx:if="{{!embedded}}" class="fb-topbar">
+		<view class="fb-back"></view>
+		<text class="fb-topbar-title">收藏</text>
+		<view wx:if="{{!embedded}}" class="fb-topbar-side">
+			<text class="fb-topbar-action" bindtap="onManage">管理</text>
+		</view>
+	</view>
+
+	<block wx:if="{{status == 2}}">
+		<view class="fb-fav-tabs fb-content" style="{{regionStyles.toolbar}}">
+			<view class="fb-fav-tab {{tab == 'product' ? 'is-active' : ''}}" data-tab="product" bindtap="onTab" style="{{regionStyles.tabItem}};{{tab === 'product' ? regionStyles.tabActive : ''}}">款式 {{counts.product}}</view>
+			<view class="fb-fav-tab {{tab == 'album' ? 'is-active' : ''}}" data-tab="album" bindtap="onTab" style="{{regionStyles.tabItem}};{{tab === 'album' ? regionStyles.tabActive : ''}}">画册 {{counts.album}}</view>
+		</view>
+		<view class="fb-fav-sort" style="{{regionStyles.sort}}">最近收藏 ▾</view>
+
+		<view wx:if="{{!logged}}" class="fb-empty" style="{{regionStyles.empty}};{{regionStyles.loginTip}}">
+			<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">登录后查看收藏</text>
+			<text class="fb-empty-text" style="{{regionStyles.emptyText}}">登录后可同步保存的款式与画册</text>
+			<button class="fb-btn" bindtap="onLogin" style="{{regionStyles.button}}">去登录</button>
+			<button class="fb-btn fb-btn-ghost" bindtap="onDiscover" style="{{regionStyles.button}};{{regionStyles.secondaryButton}}">去发现</button>
+		</view>
+
+  <view wx:elif="{{(tab === 'product' && products.length) || (tab === 'album' && albums.length)}}" class="fb-grid" style="{{regionStyles.list}}">
+   <view class="fb-card" wx:for="{{tab === 'product' ? products : albums}}" wx:key="index" style="{{regionStyles.card}}">
+    <view data-type="{{tab}}" data-id="{{tab === 'product' ? item.productid : item.albumid}}" bindtap="onOpen"><view class="fb-card-cover" style="{{regionStyles.cardCover}}"><image src="{{item.cover}}" mode="aspectFill" /></view><text class="fb-card-title" style="{{regionStyles.cardTitle}}">{{item.name}}</text><text wx:if="{{item.meta || item.code || item.subtitle}}" class="fb-card-meta" style="{{regionStyles.cardMeta}}">{{item.meta || item.code || item.subtitle}}</text></view>
+    <button class="fb-btn fb-btn-ghost" data-type="{{tab}}" data-id="{{tab === 'product' ? item.productid : item.albumid}}" bindtap="onRemove" style="{{regionStyles.button}};{{regionStyles.secondaryButton}};{{regionStyles.remove}}">取消收藏</button>
+   </view>
+  </view>
+		<view wx:else class="fb-empty" style="{{regionStyles.empty}}">
+			<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">还没有收藏</text>
+			<text class="fb-empty-text" style="{{regionStyles.emptyText}}">喜欢的款式，可以收藏在这里</text>
+			<button class="fb-btn" bindtap="onDiscover" style="{{regionStyles.button}}">去发现</button>
+		</view>
+	</block>
+
+	<view wx:elif="{{status == 1}}" class="fb-empty" style="{{regionStyles.empty}}">
+		
+	</view>
+
+	<view wx:else class="fb-empty" style="{{regionStyles.empty}}">
+		<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">加载失败</text>
+		<text class="fb-empty-text" style="{{regionStyles.emptyText}}">请检查网络或接口地址</text>
+		<button class="fb-btn" bindtap="onRetry" style="{{regionStyles.button}}">重新加载</button>
+	</view>
+</view>
+
+<fb-toast />

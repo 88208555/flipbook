@@ -1,0 +1,1 @@
+<fb-page-loading id="page-loading" visible="{{pageLoadingVisible}}" logo="{{pageLoadingLogo}}"/>

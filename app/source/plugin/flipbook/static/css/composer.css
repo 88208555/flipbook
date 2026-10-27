@@ -1,0 +1,81 @@
+/* Structure only. Appearance, dimensions and spacing come from each component's props. */
+.fc-node,.fc-node *{box-sizing:border-box}
+.fc-node{min-width:0;flex:none;position:relative}
+.fc-text{white-space:pre-wrap;overflow-wrap:anywhere}
+.fc-image{display:block;width:100%;height:auto;max-width:100%;border-radius:inherit}
+.fc-node>video{height:100%}
+.fc-repeat-row{min-width:0;display:contents}
+.fc-gallery{position:relative;width:100%;height:100%;overflow:hidden;border-radius:inherit}
+.fc-gallery-track{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;touch-action:pan-y pinch-zoom;cursor:grab;user-select:none;-webkit-user-select:none}
+.fc-gallery-track.fc-gallery-dragging{scroll-snap-type:none;scroll-behavior:auto;cursor:grabbing}
+.fc-gallery-track::-webkit-scrollbar{display:none}
+.fc-gallery-slide{flex:0 0 100%;width:100%;height:100%;min-width:0;min-height:0;scroll-snap-align:start}
+.fc-gallery-media{display:block;width:100%;height:100%;object-fit:inherit}
+.fc-skus{display:flex;width:100%;overflow-x:auto;align-items:flex-start;scrollbar-width:none}
+.fc-sku-strip{display:flex;min-width:100%;width:100%;align-items:flex-start}.fc-sku{flex:none;min-width:0}
+.fc-node button,.fc-node input,.fc-node select{font:inherit;color:inherit;background:transparent;border:0;padding:0;margin:0;border-radius:0}
+.fc-button{display:block;width:100%;text-align:inherit;cursor:pointer}
+.fc-search{display:flex;width:100%;align-items:center}
+.fc-search input{flex:1;min-width:0;width:0}
+.fc-search button{flex:none;display:flex;align-items:center}
+.fc-links{display:flex;align-items:center;flex-wrap:wrap;justify-content:inherit;gap:inherit}
+.fc-links a{color:inherit;text-decoration:inherit}
+.fc-select{display:block;width:100%;font:inherit;color:inherit;background:transparent;border:0}
+.fc-info-row{display:flex;justify-content:space-between}
+.fc-table-row{display:flex}.fc-table-row>span{flex:1;min-width:0}
+.fc-content{font:inherit;color:inherit;overflow-wrap:anywhere}
+.fc-content img{display:block;width:100%;height:auto}
+.fc-node[hidden]{display:none}
+.fb-compose-main{flex:1;min-height:0;overflow-y:auto;position:relative;scrollbar-width:none}
+.fb-compose-main::-webkit-scrollbar{display:none}
+
+/* Viewport geometry is structural: the configured footer always stays at its bottom. */
+.fb-micro-app{height:100dvh;min-height:0;display:flex;flex-direction:column;overflow:hidden;position:relative;box-sizing:border-box}
+.fb-compose-main{display:flex;flex-direction:column;box-sizing:border-box;overscroll-behavior:contain}
+.fc-page-nav{position:relative;display:flex;align-items:center;flex:none;box-sizing:border-box}
+.fc-page-nav a{color:inherit;text-decoration:none;font:inherit;display:block;min-width:0}
+.fc-page-logo img{display:block;object-fit:contain}
+.fc-page-footer{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;display:flex;align-items:center;box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px);z-index:100}
+.fc-page-footer a{display:flex;flex:1;min-width:0;align-items:center;justify-content:center;flex-direction:column;font:inherit;text-decoration:none}
+.fc-page-footer svg{width:1em;height:1em;flex:none}
+.fc-login-tabs{display:flex;width:100%}.fc-login-tabs button{flex:1;min-width:0;width:0;cursor:pointer}.fc-login{display:flex;flex-direction:column}.fc-login-fields{display:flex;flex-direction:column;gap:inherit}.fc-login [hidden]{display:none}
+.fc-login [data-fb-login-form]{display:flex;flex-direction:column;gap:inherit}
+.fc-login input,.fc-login select,.fc-login button{width:100%;height:auto;min-height:1em;line-height:inherit;box-sizing:border-box}
+.fc-login button:disabled{opacity:.45;cursor:default}
+.fc-login input::placeholder{color:inherit;opacity:.6}.fc-login p{margin:0;padding:0;font:inherit}
+.fc-node .fc-content *{font:inherit;color:inherit;margin:0;padding:0;border:0;background:transparent;text-align:inherit}
+
+.fc-node.fc-input input{width:100%;height:auto;min-height:1em;box-sizing:border-box;font:inherit;color:inherit;background:transparent}
+
+.fc-content a{text-decoration:inherit}
+.fc-viewer{box-sizing:border-box;width:100dvw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;overflow:hidden}
+.fc-viewer[open]{display:flex;flex-direction:column}
+.fc-viewer nav{display:flex;flex:none;order:2;justify-content:center;align-items:center}
+.fc-viewer button{flex:1;min-width:0;white-space:nowrap;font:inherit;color:inherit;border:0;margin:0;cursor:pointer}
+.fc-viewer img{display:block;flex:1;min-width:0;min-height:0;width:100%;height:0;object-fit:contain}
+
+.fc-node>progress{width:100%;accent-color:currentColor}
+
+.fc-gallery-track[data-fc-axis=vertical]{flex-direction:column;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;touch-action:pan-x pinch-zoom;overscroll-behavior:contain}
+
+.fc-search input::-webkit-search-cancel-button,.fc-search input::-webkit-search-decoration{display:none}
+.fc-choice-trigger{display:flex;align-items:center;justify-content:center;width:100%;height:100%;cursor:pointer}
+.fc-choice-dialog{position:fixed;top:auto;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;max-height:100dvh;margin:0;border:0;box-sizing:border-box;overflow:auto}
+.fc-choice-dialog::backdrop{background:var(--fc-choice-mask)}
+.fc-choice-head{display:flex;align-items:center;justify-content:space-between;gap:inherit}
+.fc-choice-options{display:flex;flex-direction:column;gap:inherit}
+.fc-choice-option{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;cursor:pointer}
+.fc-fab-main,.fc-fab-item{display:flex;align-items:center;justify-content:center;cursor:pointer}
+.fc-fab-list{position:absolute;bottom:calc(100% + var(--fc-fab-gap));left:0;display:flex;flex-direction:column;gap:inherit}
+.fc-fab-list[hidden]{display:none}
+
+.fc-fab-item[hidden]{display:none}
+
+.fc-choice-dialog[open]{display:flex;flex-direction:column}
+.fc-button svg{flex:none}
+
+.fc-search input{outline:none}
+[data-type=search]:focus-within{--fc-search-current:var(--fc-search-focus)}
+
+/* Loading errors belong after the list; pagination itself has no visible counter. */
+.fc-list-retry{display:block;width:100%;text-align:center;font:inherit;color:inherit;background:transparent;border:0;cursor:pointer}

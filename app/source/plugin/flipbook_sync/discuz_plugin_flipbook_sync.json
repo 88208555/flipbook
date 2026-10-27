@@ -1,0 +1,56 @@
+{
+  "Title": "Discuz! Plugin",
+  "Data": {
+    "plugin": {
+      "available": "1",
+      "adminid": "1",
+      "name": "产品数据同步",
+      "identifier": "flipbook_sync",
+      "description": "域名独立长期密钥、产品列表 API 与接收端一键同步",
+      "datatables": "flipbook_sync_key,flipbook_sync_source,flipbook_sync_map,flipbook_sync_job,flipbook_sync_log,flipbook_sync_setting,flipbook_sync_draft",
+      "directory": "flipbook_sync/",
+      "copyright": "",
+      "version": "0.2.0",
+      "__modules": [
+        {
+          "name": "admincp",
+          "menu": "域名授权",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "0",
+          "url": ""
+        },
+        {
+          "name": "receive",
+          "menu": "数据源",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "1",
+          "url": ""
+        },
+        {
+          "name": "guide",
+          "menu": "调用说明",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "2",
+          "url": ""
+        },
+        {
+          "name": "api",
+          "menu": "",
+          "type": "1",
+          "adminid": "0",
+          "displayorder": "-1",
+          "url": ""
+        }
+      ]
+    },
+    "version": "X5.0",
+    "var": [],
+    "intro": "需先安装工装画册 flipbook。为各授权域名提供独立服务端调用密钥，同类项目可一键同步产品资料及原站图片地址。",
+    "installfile": "install.php",
+    "uninstallfile": "uninstall.php",
+    "upgradefile": "install.php"
+  }
+}

@@ -1,0 +1,16 @@
+const api=require('../../utils/api'),commerce=require('../../utils/commerce'),page=require('../../utils/page'),loading=require('../../utils/page-loading');
+Page({
+ data:{statusBar:20,items:[],order:null,error:'',busy:false,loading:false,status:'',hasMore:false,page:1,statusOptions:[{key:'',label:'全部'},{key:'pending',label:'待支付'},{key:'paid',label:'已付款'},{key:'shipped',label:'已发货'},{key:'closed',label:'已关闭'}]},
+ onLoad(query){this.key='orders';this.orderid=Number(query.orderid)||0;this.initialNotice=query.notice==='verify'?'请刷新订单，核对支付结果':'';this.setData({statusBar:page.statusBar()});},
+ onShow(){loading.enter(this);this.load();},onHide(){loading.leave(this);},onUnload(){loading.leave(this);},
+ async load(append=false){if(this.loading)return;this.loading=true;this.setData({loading:true,error:''});try{
+  if(this.orderid){const result=await api.commerce('order',{orderid:this.orderid});if(!result.ok)throw Error(result.message);this.setData({order:commerce.decorate(result.order),error:this.initialNotice||''});this.initialNotice='';}
+  else{const number=append?this.data.page+1:1,result=await api.commerce('orders',{page:number,status:this.data.status});if(!result.ok)throw Error(result.message);const list=result.orders;this.setData({items:(append?this.data.items:[]).concat(list.items.filter(item=>!append||!this.data.items.some(old=>Number(old.id)===Number(item.id))).map(commerce.decorate)),page:list.page,hasMore:list.page*list.pageSize<list.total});}
+ }catch(error){this.setData({error:commerce.message(error)});}finally{this.loading=false;this.setData({loading:false});}},
+ onStatus(event){if(this.loading||this.data.busy)return;this.orderid=0;this.setData({status:event.currentTarget.dataset.status,order:null},()=>this.load());},
+ onOrder(event){wx.navigateTo({url:'/pages/orders/index?orderid='+event.currentTarget.dataset.id});},
+ async onRefresh(){if(!this.orderid){this.load();return;}if(this.data.busy)return;this.setData({busy:true,error:''});try{const result=await api.commerce('refresh',{orderid:this.orderid});if(!result.ok)throw Error(result.message);this.setData({order:commerce.decorate(result.order)});}catch(error){this.setData({error:commerce.message(error)});}finally{this.setData({busy:false});}},
+ async onPay(event){if(this.data.busy)return;const id=Number(event.currentTarget.dataset.id)||this.orderid;this.setData({busy:true,error:''});try{await commerce.payOrder(id);await this.load();}catch(error){await this.load();this.setData({error:commerce.message(error)});}finally{this.setData({busy:false});}},
+ onClose(event){const id=Number(event.currentTarget.dataset.id)||this.orderid;if(this.data.busy)return;wx.showModal({title:'关闭未支付订单',content:'确认关闭此订单？关闭后可重新选择商品下单。',success:async res=>{if(!res.confirm)return;this.setData({busy:true,error:''});try{const result=await api.commerce('close',{orderid:id});if(!result.ok)throw Error(result.message);await this.load();}catch(error){this.setData({error:commerce.message(error)});}finally{this.setData({busy:false});}}});},
+ onReachBottom(){if(!this.orderid&&this.data.hasMore&&!this.loading)return this.load(true);},onAll(){if(this.loading)return;this.orderid=0;this.setData({order:null},()=>this.load());},onBack(){page.back('/pages/mine/index');},
+});

@@ -1,0 +1,35 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const vm=require('node:vm');
+const {JSDOM}=require(process.env.JSDOM_PATH||'/tmp/flipbook-editor-dom/node_modules/jsdom');
+const micro=require('../miniprogram/utils/micro');
+const props={source:'home',sectionsDetached:1,caption:{enabled:0,showCode:0},regions:{gallery:{radius:15,gapLeft:15},subtitle:{enabled:0}},coverNav:0};
+const config={actions:{enabled:1,left:10,bottom:10,size:40,items:[{icon:'grid',label:'Owned action',link:'page:catalog'}]},nav:{enabled:1,height:44,firstGap:0,logo:{},back:{}},components:[{id:'detail',type:'product_detail',props}]};
+const before=JSON.stringify(config),view=micro.prepare(config,{key:'detail',productid:1}),detail=view.nodes[0];
+assert.equal(detail.type,'product_detail');assert.equal(detail.source,'detail');assert.equal(detail.query.productid,1);assert.equal(detail.actions.enabled,0);
+assert.equal(detail.query._memberOptions.caption.enabled,0);assert.deepEqual(detail.query._memberOptions.regions,props.regions);
+for(const key of ['_separateProductInfo','_separateHighlights','_separateDetails'])assert.equal(detail.query[key],true);
+assert.equal(JSON.stringify(config),before);assert.equal(view.fullScreen,false);assert.equal(view.firstGap,'0rpx');
+console.log('PASS product_detail fixes the read source, preserves caption/region settings and detached sections, and leaves stored actions unchanged');
+const schema=require('../app/source/plugin/flipbook/static/config/component-regions.json');
+for(const type of [...Object.keys(schema),'business','album_list','favorite_list','member_center','history_list','reading_preference']) {
+ const node=micro.prepareNode({type,props:{source:'detail'}},0,{_actions:micro.prepareActions(config.actions)});
+ assert.equal(!!node.actions.enabled,type==='social',type+' menu visibility');
+ if(type==='social')assert.equal(node.source,'home');
+}
+const nested=micro.prepare(Object.assign({},config,{components:[{type:'tab',props:{tabs:[{children:[{type:'product_detail',props:{sectionsDetached:1}}]}]}}]}),{});
+assert.equal(nested.nodes[0].tabs[0].children[0].type,'product_detail');assert.equal(nested.nodes[0].tabs[0].children[0].query._separateDetails,true);
+console.log('PASS only social(home) receives enabled runtime actions, including recursively nested components');
+const renderSource=fs.readFileSync('miniprogram/components/fb-render/index.wxml','utf8'),renderDom=new JSDOM(renderSource),read=renderDom.window.document.querySelector('fb-screen-read');
+const expression=value=>value.replace(/^\{\{|\}\}$/g,'');
+assert.equal(vm.runInNewContext(expression(read.closest('block').getAttribute('wx:elif')),{node:detail}),true);
+assert.equal(vm.runInNewContext(expression(read.getAttribute('wx:elif')),{node:detail}),true);
+assert.equal(read.hasAttribute('actions'),false);assert.equal(renderDom.window.document.querySelectorAll('.fb-fab').length,0);
+const readDom=new JSDOM(fs.readFileSync('miniprogram/components/fb-screen-read/index.wxml','utf8'));assert.equal(readDom.window.document.querySelectorAll('.fb-fab').length,0);
+const homeDom=new JSDOM(fs.readFileSync('miniprogram/components/fb-screen-discover/index.wxml','utf8'));assert.equal(homeDom.window.document.querySelectorAll('.fb-fab').length,1);
+for(const dom of [renderDom,readDom,homeDom])dom.window.close();
+console.log('PASS the native renderer routes product_detail to read; only the home social screen contains a floating action menu');
+global.getApp=()=>({globalData:{statusBarHeight:20}});global.wx={getStorageSync:()=>'',setStorageSync(){}};
+const page=require('../miniprogram/utils/micro-page'),controller=Object.assign({},page,{data:{nodes:[detail]},scrollTop:0,selectComponent(){return{selectComponent(id){return id==='#business-read'?{innerScrollTop:40}:null;}};}});
+controller.onPullStart({touches:[{clientY:100}]});assert.equal(controller.canPull,false);
+console.log('PASS product_detail keeps nested-reader scroll ownership during pull-to-refresh');

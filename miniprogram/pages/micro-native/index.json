@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "default",
+  "navigationBarTitleText": "工装画册",
+  "navigationBarBackgroundColor": "#0B0B0C",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "fb-render": "/components/fb-render/index",
+    "fb-share": "/components/fb-share/index"
+  }
+}

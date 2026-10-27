@@ -1,0 +1,164 @@
+/* Shared controls for plugin administration. Page styles own layout only. */
+body[data-fb-admin]{--fb-admin-control-height:36px;--fb-admin-font-size:13px;--fb-admin-text:#30343b;--fb-admin-border:#d9dfe8;--fb-admin-radius:4px;--fb-admin-surface:#fff;--fb-admin-hover:#f4f6f9;--fb-admin-focus:#8cafff}
+body[data-fb-admin] :is(input,select,textarea,button,a.fb-admin-button,a.fb-admin-tab):where(:not(#fbmp-frame *)){box-sizing:border-box}
+body[data-fb-admin] :is(input:not([type=hidden]):not([type=checkbox]):not([type=radio]):not([type=file]),select):where(:not(#fbmp-frame *)){height:var(--fb-admin-control-height)!important;min-height:var(--fb-admin-control-height)!important;border:1px solid var(--fb-admin-border)!important;border-radius:var(--fb-admin-radius)!important;padding:0 10px!important;color:var(--fb-admin-text)!important;background-color:var(--fb-admin-surface)!important;font-family:inherit!important;font-size:var(--fb-admin-font-size)!important;font-weight:400!important;line-height:normal!important;vertical-align:middle;box-shadow:none!important}
+body[data-fb-admin] select:where(:not(#fbmp-frame *)){-webkit-appearance:none!important;appearance:none!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%236b7280' stroke-width='1.5'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-size:16px 16px!important;background-position:right 8px center!important;padding-right:30px!important}
+body[data-fb-admin] select[multiple]:where(:not(#fbmp-frame *)){background-image:none!important}
+body[data-fb-admin] textarea:where(:not(#fbmp-frame *)){border:1px solid var(--fb-admin-border)!important;border-radius:var(--fb-admin-radius)!important;padding:8px 10px!important;background:var(--fb-admin-surface)!important;color:var(--fb-admin-text)!important;font-family:inherit!important;font-size:var(--fb-admin-font-size)!important;font-weight:400!important;line-height:1.6!important;min-height:calc(var(--fb-admin-control-height)*2);resize:vertical;box-shadow:none!important}
+body[data-fb-admin] :is(input,textarea,select):where(:not(#fbmp-frame *)):focus-visible{outline:1px solid var(--fb-admin-focus)!important;outline-offset:0}
+body[data-fb-admin] input[type=color]:where(:not(#fbmp-frame *)){width:var(--fb-admin-control-height)!important;min-width:var(--fb-admin-control-height)!important;padding:3px!important;flex:0 0 var(--fb-admin-control-height)!important}
+body[data-fb-admin] input:is([type=checkbox],[type=radio]):where(:not(#fbmp-frame *)){-webkit-appearance:none!important;appearance:none!important;display:inline-block!important;position:static!important;flex:0 0 16px!important;width:16px!important;height:16px!important;min-width:16px!important;min-height:16px!important;margin:0!important;padding:0!important;border:1px solid #aeb6c3!important;border-radius:3px!important;background:#fff!important;vertical-align:middle;box-shadow:none!important;cursor:pointer}
+body[data-fb-admin] input[type=radio]:where(:not(#fbmp-frame *)){border-radius:50%!important}
+body[data-fb-admin] input:is([type=checkbox],[type=radio]):where(:not(#fbmp-frame *))::before,body[data-fb-admin] input:is([type=checkbox],[type=radio]):where(:not(#fbmp-frame *))::after{content:none!important;display:none!important}
+body[data-fb-admin] input[type=checkbox]:where(:not(#fbmp-frame *)):checked{background:#30343b url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='m3 8 3 3 7-7'/%3E%3C/svg%3E") center/14px 14px no-repeat!important;border-color:#30343b!important}
+body[data-fb-admin] input[type=radio]:where(:not(#fbmp-frame *)):checked{background:radial-gradient(circle,#30343b 0 4px,#fff 4.5px)!important;border-color:#30343b!important}
+body[data-fb-admin] label:has(>input:is([type=checkbox],[type=radio])):where(:not(#fbmp-frame *)){display:inline-flex!important;align-items:center!important;gap:8px!important;min-height:var(--fb-admin-control-height)!important;margin:0 16px 0 0!important;font-size:var(--fb-admin-font-size)!important;line-height:normal!important;color:var(--fb-admin-text)!important;vertical-align:middle}
+body[data-fb-admin] :is(.fbmp-check,.fb-admin-choice-row){min-height:var(--fb-admin-control-height)!important;align-items:center}
+body[data-fb-admin] :is(.fb-admin-button,button.fb-admin-button,input[type=submit],input[type=button],a.btn):where(:not(.fbmp-add):not([role=switch]):not([hidden])):where(:not(#fbmp-frame *)){display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:0!important;flex-shrink:0;height:var(--fb-admin-control-height)!important;min-height:var(--fb-admin-control-height)!important;width:auto;min-width:0;padding:0 14px!important;border:1px solid var(--fb-admin-border)!important;border-radius:var(--fb-admin-radius)!important;background:var(--fb-admin-surface)!important;background-image:none!important;color:var(--fb-admin-text)!important;font-family:inherit!important;font-size:var(--fb-admin-font-size)!important;font-weight:400!important;line-height:normal!important;text-decoration:none!important;text-shadow:none!important;box-shadow:none!important;white-space:nowrap;vertical-align:middle;cursor:pointer}
+body[data-fb-admin] .fb-admin-button:not([role=switch]):hover,body[data-fb-admin] a.btn:hover,body[data-fb-admin] input[type=submit]:hover{background:var(--fb-admin-hover)!important;color:var(--fb-admin-text)!important;border-color:#b8c1cf!important}
+body[data-fb-admin] :is(.fb-admin-button,.fb-admin-tab):disabled{opacity:.45!important;cursor:default!important}
+body[data-fb-admin] .fb-admin-button>:is(svg,i,.icon,.fb-icon){display:none!important}
+body[data-fb-admin] .fb-admin-tab{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;height:var(--fb-admin-control-height)!important;min-height:var(--fb-admin-control-height)!important;padding:0 14px!important;border:1px solid transparent!important;border-radius:var(--fb-admin-radius)!important;background:transparent!important;color:var(--fb-admin-text)!important;font-family:inherit!important;font-size:var(--fb-admin-font-size)!important;font-weight:400!important;line-height:normal!important;text-decoration:none!important;white-space:nowrap;cursor:pointer;box-shadow:none!important}
+body[data-fb-admin] .fb-admin-tab:is(.is-active,[aria-selected=true]){border-color:var(--fb-admin-border)!important;background:var(--fb-admin-hover)!important;color:var(--fb-admin-text)!important}
+body[data-fb-admin] .fb-admin-tab:hover{background:var(--fb-admin-hover)!important;color:var(--fb-admin-text)!important}
+body[data-fb-admin] .fb-admin-tabs{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:8px!important;overflow:visible!important;white-space:normal!important}
+body[data-fb-admin] .fb-admin-host-tabs{margin:0!important;padding:0!important;clear:both!important}
+body[data-fb-admin] .fb-admin-host-tabs>li{float:none!important;display:block!important;margin:0!important;padding:0!important;font-weight:400!important}
+body[data-fb-admin] .fb-admin-plugin-heading{padding:0!important;margin:0!important}
+body[data-fb-admin] .fb-admin-plugin-heading[hidden],body[data-fb-admin] .fb-admin-plugin-top[hidden],body[data-fb-admin] .fb-admin-plugin-spacer[hidden]{display:none!important}
+body[data-fb-admin] .fb-admin-host-tabs .fb-admin-tab>span{display:inline!important;padding:0!important;margin:0!important;background:none!important;color:inherit!important;font:inherit!important}
+body[data-fb-admin] .fb-admin-plugin-heading .fb-admin-host-tabs .fb-admin-tab{background-image:none!important}
+body[data-fb-admin] .fb-admin-plugin-top{position:static!important;width:auto!important;padding:8px 0!important;margin:0!important}
+body[data-fb-admin] .fb-admin-plugin-spacer{display:none!important}
+body[data-fb-admin] .fbmp-component-tools .fbmp-tool-button{width:36px!important;padding:0!important;border:0!important;border-radius:0!important;color:#111!important}
+body[data-fb-admin] .fbmp-component-tools .fbmp-tool-button>svg{display:block!important;width:20px;height:20px;flex:none}
+body[data-fb-admin] button[role=switch]{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px!important;height:var(--fb-admin-control-height)!important;min-height:var(--fb-admin-control-height)!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;cursor:pointer}
+body[data-fb-admin] .fb-size-toggle-track{position:relative;display:block;width:40px;height:20px;border-radius:10px;background:#c8cdd5}
+body[data-fb-admin] .fb-size-toggle-thumb{position:absolute;display:block;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .15s}
+body[data-fb-admin] button[role=switch][aria-checked=true] .fb-size-toggle-track{background:#30343b}
+body[data-fb-admin] button[role=switch][aria-checked=true] .fb-size-toggle-thumb{transform:translateX(20px)}
+body[data-fb-admin] .fb-admin-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+body[data-fb-admin] .fb-micro-address{display:flex;align-items:flex-start;gap:8px;min-width:180px;max-width:340px;text-align:left}
+body[data-fb-admin] .fb-micro-address :is(a,code){min-width:0;overflow-wrap:anywhere;word-break:break-all}
+body[data-fb-admin] .fb-micro-address button{flex:none}
+body[data-fb-admin] .fb-micro-page-actions{display:flex;gap:6px;flex-wrap:wrap}
+body[data-fb-admin] .fb-admin-heading-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:nowrap}
+body[data-fb-admin] :is(.fbmp-node-bar,.fbmp-title-node .fbmp-node-bar){height:auto!important;min-height:48px!important}
+
+body[data-fb-admin] :is(.fb-admin-button,.fb-admin-tab,input[type=submit],input[type=button],a.btn)[hidden]{display:none!important}
+body[data-fb-admin] button.fb-admin-image-choice{height:auto!important;min-height:0!important;aspect-ratio:1;padding:0!important}
+
+/* WeChat settings reuse the shared controls above; these rules only arrange the form. */
+body[data-fb-admin] .fb-admin-wechat-form{display:grid;gap:20px;max-width:1040px;padding:20px 0}
+body[data-fb-admin] .fb-admin-form-row{display:grid;grid-template-columns:250px minmax(0,1fr);gap:16px;align-items:start}
+body[data-fb-admin] .fb-admin-form-label{display:flex;align-items:center;gap:4px;min-height:var(--fb-admin-control-height);margin:0}
+body[data-fb-admin] .fb-admin-form-field{display:grid;gap:8px;min-width:0}
+body[data-fb-admin] .fb-admin-form-field>:is(input,textarea){width:100%;min-width:0}
+body[data-fb-admin] .fb-admin-input-line{display:flex;align-items:center;gap:12px;min-width:0}
+body[data-fb-admin] .fb-admin-input-line>input{flex:1;min-width:0;width:100%}
+body[data-fb-admin] .fb-admin-input-line>span{flex:none}
+body[data-fb-admin] .fb-admin-form-help{display:grid;gap:8px}
+body[data-fb-admin] .fb-admin-form-hint{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+body[data-fb-admin] .fb-admin-wechat-form .fb-admin-choice-row{display:flex;gap:16px;flex-wrap:wrap}
+body[data-fb-admin] .fb-admin-wechat-form .fb-admin-choice-row label{margin:0!important}
+body[data-fb-admin] .fb-admin-form-group{margin:0;padding:8px 0}
+body[data-fb-admin] .fb-admin-qrcode-preview:has(img[hidden]){display:none}
+body[data-fb-admin] .fb-admin-qrcode-preview img{display:block;width:120px;height:120px;object-fit:contain}
+body[data-fb-admin] .fb-admin-qrcode-preview img[hidden]{display:none}
+@media(max-width:760px){body[data-fb-admin] .fb-admin-form-row{grid-template-columns:minmax(0,1fr);gap:8px}}
+
+/* A visual editor occupies its own admin tab, without the plugin settings navigation. */
+body[data-fb-editor] .fb-admin-plugin-heading,body[data-fb-editor] .fb-admin-plugin-top,body[data-fb-editor] .fb-admin-plugin-spacer{display:none!important}
+body[data-fb-editor] .container,body[data-fb-editor] .cpcontainer{margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+body[data-fb-editor] .fbmp{margin:0;border:0;border-radius:0}
+body[data-fb-editor] .fbmp-head{flex-wrap:wrap}
+body[data-fb-editor] .fbmp-body{min-height:0;max-height:none}
+body[data-fb-editor] .fbmp-editor-identity{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+body[data-fb-editor] .fbmp-editor-identity>span{color:#717785}
+body[data-fb-editor] .fbmp-actions{flex-wrap:wrap;margin-left:auto}
+
+/* Supplier selection and its associated styles share the existing controls. */
+body[data-fb-admin] .fb-supplier-page>.fb-product-heading .fb-product-heading-actions{display:none}
+body[data-fb-admin] .fb-supplier-workspace{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;padding:20px 0}
+body[data-fb-admin] .fb-supplier-pane{min-width:0}
+body[data-fb-admin] .fb-supplier-workspace h3{margin:0;font-size:14px;font-weight:500;color:var(--fb-admin-text)}
+body[data-fb-admin] .fb-supplier-filters,body[data-fb-admin] .fb-supplier-style-heading{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:48px;margin:0 0 12px}
+body[data-fb-admin] .fb-supplier-filters label{display:flex;align-items:center;gap:8px;margin:0;font-size:var(--fb-admin-font-size);white-space:nowrap}
+body[data-fb-admin] .fb-supplier-filters input{width:150px;min-width:0}
+body[data-fb-admin] .fb-supplier-actions,body[data-fb-admin] .fb-supplier-row-actions{display:flex;align-items:center;gap:8px}
+body[data-fb-admin] .fb-supplier-actions,body[data-fb-admin] .fb-supplier-style-heading>button{margin-left:auto}
+body[data-fb-admin] .fb-supplier-table-wrap{overflow-x:auto}
+body[data-fb-admin] .fb-supplier-table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:var(--fb-admin-font-size);color:var(--fb-admin-text)}
+body[data-fb-admin] .fb-supplier-table :is(th,td){padding:12px 10px;border-bottom:1px solid var(--fb-admin-border);text-align:left;vertical-align:middle}
+body[data-fb-admin] .fb-supplier-table td{white-space:normal;overflow-wrap:anywhere}
+body[data-fb-admin] .fb-supplier-table :is(th,td):nth-child(3){width:100px}
+body[data-fb-admin] .fb-supplier-table :is(th,td):nth-child(4){width:142px}
+body[data-fb-admin] .fb-supplier-table th{background:var(--fb-admin-hover);font-weight:400;white-space:nowrap}
+body[data-fb-admin] .fb-supplier-table tr.is-selected{background:#e9edf4}
+body[data-fb-admin] .fb-supplier-table tr[tabindex]{cursor:pointer}
+body[data-fb-admin] .fb-supplier-table tr[tabindex]:focus-visible{outline:1px solid var(--fb-admin-focus);outline-offset:-1px}
+body[data-fb-admin] input.fb-supplier-order{width:80px}
+body[data-fb-admin] .fb-supplier-pagination{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:var(--fb-admin-font-size)}
+body[data-fb-admin] .fb-supplier-pagination input{width:64px}
+body[data-fb-admin] .fb-supplier-pagination select{width:104px}
+body[data-fb-admin] .fb-supplier-status{grid-column:1/-1;margin:0;min-height:20px;color:var(--fb-admin-text)}
+body[data-fb-admin] .fb-supplier-dialog{width:min(520px,calc(100vw - 40px));max-height:calc(100vh - 40px);margin:auto;padding:20px;border:1px solid var(--fb-admin-border);border-radius:var(--fb-admin-radius);background:var(--fb-admin-surface);color:var(--fb-admin-text);overflow-y:auto}
+body[data-fb-admin] .fb-supplier-dialog::backdrop{background:rgb(0 0 0 / 40%)}
+body[data-fb-admin] .fb-supplier-dialog form{display:grid;gap:16px}
+body[data-fb-admin] .fb-supplier-dialog-heading,body[data-fb-admin] .fb-supplier-dialog-actions{display:flex;align-items:center;gap:8px;justify-content:space-between}
+body[data-fb-admin] .fb-supplier-dialog-actions{justify-content:flex-end}
+body[data-fb-admin] .fb-supplier-dialog .fb-admin-form-row{grid-template-columns:110px minmax(0,1fr);gap:16px}
+body[data-fb-admin] .fb-supplier-dialog .fb-admin-form-label{justify-content:flex-end}
+body[data-fb-admin] .fb-supplier-dialog :is([data-style-owner-row],.fb-supplier-extra)[hidden]{display:none}
+body[data-fb-admin] .fb-supplier-extra summary{cursor:pointer;margin-bottom:16px}
+body[data-fb-admin] .fb-supplier-extra .fb-admin-form-row{margin-top:16px}
+body[data-fb-admin] .fb-supplier-dialog-status{margin:0;min-height:20px;color:var(--fb-admin-text)}
+@media(max-width:1100px){body[data-fb-admin] .fb-supplier-workspace{grid-template-columns:minmax(0,1fr)}}
+
+/* Native Discuz boolean fields use list items instead of label wrappers. */
+body[data-fb-admin] ul:has(>li>input:is([type=radio],[type=checkbox])){display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:16px!important;min-height:var(--fb-admin-control-height)!important;margin:0!important;padding:0!important;float:none!important}
+body[data-fb-admin] ul:has(>li>input:is([type=radio],[type=checkbox]))>li{display:inline-flex!important;align-items:center!important;gap:8px!important;min-height:var(--fb-admin-control-height)!important;margin:0!important;padding:0!important;float:none!important;font-size:var(--fb-admin-font-size)!important;line-height:normal!important;color:var(--fb-admin-text)!important;list-style:none!important}
+
+/* WeChat release and subscription data follow the shared administration controls. */
+body[data-fb-admin] .fb-admin-wechat-wide{padding:20px 0;min-width:0}
+body[data-fb-admin] .fb-wechat-table-wrap{overflow-x:auto;margin:20px 0}
+body[data-fb-admin] .fb-wechat-table{width:100%;border-collapse:collapse;table-layout:auto;font-size:var(--fb-admin-font-size);line-height:1.6}
+body[data-fb-admin] .fb-wechat-table :is(th,td){padding:14px 12px;border-bottom:1px solid var(--fb-admin-border);text-align:left;vertical-align:middle;overflow-wrap:anywhere}
+body[data-fb-admin] .fb-wechat-table th{font-weight:500;background:var(--fb-admin-hover);white-space:nowrap}
+body[data-fb-admin] .fb-wechat-table td p{margin:4px 0}
+body[data-fb-admin] .fb-template-id{max-width:220px;word-break:break-all}
+body[data-fb-admin] .fb-wechat-row-actions{display:flex;flex-wrap:wrap;gap:8px}
+body[data-fb-admin] .fb-release-compose{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:20px 0 12px}
+body[data-fb-admin] .fb-release-compose label{display:grid;gap:8px;min-width:150px}
+body[data-fb-admin] .fb-release-compose .fb-release-description{flex:1;min-width:220px}
+body[data-fb-admin] .fb-release-compose input{width:100%!important}
+body[data-fb-admin] .fb-release-pagination{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap;margin-top:20px}
+body[data-fb-admin] .fb-release-pagination select{width:110px}
+body[data-fb-admin] .fb-wechat-release [role=status],body[data-fb-admin] [data-wechat-subscribe] [role=status]{margin:12px 0;line-height:1.6}
+body[data-fb-admin] .fb-wechat-release [role=status]:empty,body[data-fb-admin] [data-wechat-subscribe] [role=status]:empty{display:none}
+body[data-fb-admin] .fb-wechat-dialog{width:min(620px,calc(100vw - 40px));max-height:calc(100vh - 48px);overflow:auto;padding:24px;border:1px solid var(--fb-admin-border);border-radius:var(--fb-admin-radius);color:var(--fb-admin-text);background:var(--fb-admin-surface);margin:auto}
+body[data-fb-admin] .fb-wechat-dialog::backdrop{background:rgb(0 0 0 / 40%)}
+body[data-fb-admin] .fb-wechat-dialog h3{font-size:16px;margin:0 0 20px}
+body[data-fb-admin] .fb-wechat-dialog label{display:grid;gap:8px;margin:16px 0}
+body[data-fb-admin] .fb-wechat-dialog select{width:100%}
+body[data-fb-admin] .fb-wechat-dialog :is(ul,p){margin:12px 0;line-height:1.7}
+body[data-fb-admin] .fb-wechat-dialog-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:24px}
+body[data-fb-admin] .fb-wechat-legacy{margin-top:24px;line-height:1.7}
+body[data-fb-admin] .fb-wechat-legacy summary{cursor:pointer}
+body[data-fb-admin] [data-wechat-general-save][hidden]{display:none!important}
+
+/* Settings panels and commerce tools retain the shared controls above. */
+body[data-fb-admin] [data-fb-settings-panel][hidden]{display:none!important}
+body[data-fb-admin] .fb-admin-settings-tabs{padding:8px 0 16px;margin-bottom:16px;border-bottom:1px solid var(--fb-admin-border)}
+body[data-fb-admin] .fb-commerce-order-toolbar,body[data-fb-admin] .fb-commerce-order-filter,body[data-fb-admin] .fb-commerce-order-actions,body[data-fb-admin] .fb-commerce-order-enable{display:flex;align-items:center;gap:12px}
+body[data-fb-admin] .fb-commerce-order-toolbar{flex-wrap:wrap;min-width:0;margin-bottom:16px}
+body[data-fb-admin] .fb-commerce-order-actions{margin-left:auto;flex-wrap:nowrap}
+body[data-fb-admin] .fb-commerce-order-enable{gap:8px;white-space:nowrap}
+body[data-fb-admin] [data-commerce-status]:empty,body[data-fb-admin] [data-commerce-list-status]:empty{display:none}
+body[data-fb-admin] .fb-commerce-toggle:focus-visible{outline:2px solid var(--fb-admin-focus);outline-offset:2px}
+body[data-fb-admin] .fb-commerce-toggle:disabled{opacity:.55;cursor:wait}
+
+/* Keep the relative front-page address on one line; copying retains the full URL. */
+.fb-micro-address>a{display:block;flex:1;min-width:0;overflow:hidden}
+.fb-micro-address>a code{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;overflow-wrap:normal;word-break:normal}
+.fb-micro-address>button{flex:none}

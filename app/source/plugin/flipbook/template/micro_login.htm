@@ -1,0 +1,19 @@
+<main class="fb-mc-main fb-login-document" data-fb-region="loginPage">
+ <section class="fb-login-card" data-fb-region="loginCard">
+  <div class="fb-login-tabs" role="tablist" aria-label="登录方式" data-fb-region="loginTabs">
+   <button type="button" class="fb-login-tab is-disabled" role="tab" aria-selected="false" aria-disabled="true" disabled data-fb-region="loginTab loginTabDisabled">微信</button>
+   <button type="button" class="fb-login-tab is-active" role="tab" aria-selected="true" aria-controls="fb-login-account" id="fb-login-account-tab" data-fb-region="loginTab loginTabActive">账号</button>
+  </div>
+  <form id="fb-login-account" role="tabpanel" aria-labelledby="fb-login-account-tab" data-fb-login-form data-return="{$loginReturn}">
+   <input class="fb-login-field" data-fb-region="loginField" name="username" aria-label="论坛用户名" placeholder="论坛用户名" autocomplete="username" required>
+   <input class="fb-login-field" data-fb-region="loginField" name="password" type="password" aria-label="密码" placeholder="密码" autocomplete="current-password" required>
+   <select class="fb-login-field" data-fb-region="loginField" name="questionid" aria-label="安全提问">
+    <option value="0">安全提问（如有，点击选择）</option><option value="1">母亲的名字</option><option value="2">爷爷的名字</option><option value="3">父亲出生的城市</option><option value="4">其中一位老师的名字</option><option value="5">计算机型号</option><option value="6">最喜欢的餐馆名称</option><option value="7">驾驶执照最后四位</option>
+   </select>
+   <input class="fb-login-field" data-fb-region="loginField" name="answer" aria-label="安全提问答案" placeholder="安全提问答案（如有）" autocomplete="off">
+   <button class="fb-login-submit" data-fb-region="loginButton" type="submit">确认登录</button>
+   <p class="fb-login-error" data-fb-region="loginError" data-fb-login-message role="status"></p>
+   <a data-fb-native-login hidden href="{$nativeLoginUrl}">前往论坛完成验证</a>
+  </form>
+ </section>
+</main>

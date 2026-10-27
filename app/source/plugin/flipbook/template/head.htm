@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="format-detection" content="telephone=no" />
+<title>{$fb[title]} · {$fb[app][name]}</title>
+<meta name="description" content="{$fb[app][description]}" />
+<link rel="stylesheet" type="text/css" href="{$fb[app][cssurl]}" />
+<!--{if empty($fb[businessPreview])}--><link rel="stylesheet" href="source/plugin/flipbook/static/css/page-loading.css?{eval echo filemtime(DISCUZ_ROOT.'source/plugin/flipbook/static/css/page-loading.css');}" /><!--{/if}-->
+</head>
+<body class="fb-body">
+<!--{if empty($fb[businessPreview])}-->
+<!--{if !empty($page['config']['nav']['logo'])}--><script type="application/json" id="fb-loading-brand"><!--{eval echo json_encode(['logo'=>$page['config']['nav']['logo'],'bg'=>$page['config']['nav']['bg']],JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP); }--></script><!--{/if}-->
+<div id="fb-page-loading" class="fb-page-loading" role="status" aria-label="页面加载中" aria-hidden="false"><div class="fb-page-loading-logo">FLIPBOOK</div></div>
+<script src="source/plugin/flipbook/static/js/page-loading.js?{eval echo filemtime(DISCUZ_ROOT.'source/plugin/flipbook/static/js/page-loading.js');}" defer></script>
+<!--{/if}-->
+<div class="fb-app{if isset($fb[microkey])} fb-micro-app{/if}{if $fb[nonav]} fb-app-action{/if}" id="fb-app" data-formhash="{$fb[formhash]}" data-uid="{$fb[member][uid]}" data-api="{$fb[urls][action]}" data-json="{$fb[urls][json]}">
+<!--{eval echo flipbook\front_icon::sprite();}-->

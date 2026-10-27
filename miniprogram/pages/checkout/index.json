@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "fb-page-loading": "../../components/fb-page-loading/index"
+  }
+}

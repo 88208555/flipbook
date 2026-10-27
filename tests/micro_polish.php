@@ -1,0 +1,18 @@
+<?php
+chdir('/var/www/html');$_SERVER['REMOTE_ADDR']='127.0.0.1';$_SERVER['HTTP_HOST']='127.0.0.1:8088';$_SERVER['REQUEST_URI']='/admin.php';$_SERVER['REQUEST_METHOD']='GET';define('IN_ADMINCP',true);define('ADMINSCRIPT','admin.php');require './source/class/class_core.php';C::app()->init();$root=getenv('FLIPBOOK_PLUGIN_ROOT')?:'/var/www/html/source/plugin/flipbook';
+require $root.'/front/front_nav_icon.php';require $root.'/front/front_micro.php';
+use flipbook\front_nav_icon;
+$checks=[];function verify($value,$text){global $checks;if(!$value)throw new RuntimeException($text);$checks[]=$text;}
+set_exception_handler(function($error){file_put_contents('php://stderr',$error->getMessage()."\n");exit(1);});
+$svg='<svg viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 2h28v16H2z" stroke="#123456" stroke-width="2"/><circle cx="16" cy="10" r="4" fill="red"/></svg>';
+$clean=front_nav_icon::sanitize($svg);verify(strpos($clean,'viewBox="0 0 32 20"')!==false,'custom SVG preserves its aspect ratio');verify(substr_count($clean,'currentColor')===2&&strpos($clean,'fill="none"')!==false,'both strokes and fills follow the current navigation color');verify(front_nav_icon::sanitize($clean)===$clean,'normalization is stable on save and reload');
+foreach(['<svg onload="alert(1)" viewBox="0 0 1 1"/>','<svg viewBox="0 0 1 1"><script/></svg>','<svg viewBox="0 0 1 1"><image href="https://evil.test/x.png"/></svg>','<svg viewBox="0 0 1 1"><use href="#shape"/></svg>','<svg viewBox="0 0 1 1" style="background:url(https://evil.test)"/>','<!DOCTYPE svg [<!ENTITY x SYSTEM "file:///etc/passwd">]><svg viewBox="0 0 1 1">&x;</svg>','<svg viewBox="0 0 1 1"><path fill="url(https://evil.test)" d="M0 0"/></svg>','<svg viewBox="0 0 1 1"><foreignObject/></svg>','<svg viewBox="0 0 1 1"><animate/></svg>'] as $invalid){$rejected=false;try{front_nav_icon::sanitize($invalid);}catch(RuntimeException $error){$rejected=true;}verify($rejected,'unsafe SVG rejected: '.substr($invalid,0,48));}
+$im=imagecreatetruecolor(12,24);imagealphablending($im,false);imagesavealpha($im,true);imagefill($im,0,0,imagecolorallocatealpha($im,0,0,0,127));imagefilledrectangle($im,3,2,8,21,imagecolorallocatealpha($im,255,0,0,0));ob_start();imagepng($im);$png=ob_get_clean();imagedestroy($im);$raster=front_nav_icon::raster($png);verify(strpos($raster,'currentColor')!==false&&strpos($raster,'viewBox="0 0 48 48"')!==false,'uploaded transparent PNG becomes a theme-colored, centered icon');
+$bad=false;try{front_nav_icon::raster('invalid bytes');}catch(RuntimeException $error){$bad=true;}verify($bad,'invalid uploaded image is rejected');
+
+$config=flipbook\front_micro::sanitize(['nav'=>['logo'=>['enabled'=>0]],'tabbar'=>['color'=>'#667788','activeColor'=>'#112233','items'=>[['label'=>'发现','iconSvg'=>$clean,'link'=>'page:home']]],'components'=>[]]);
+verify($config['tabbar']['items'][0]['iconSvg']===$clean,'server sanitization retains custom icons through save and reload');
+$html=flipbook\front_micro::render(['key'=>'home','config'=>$config]);verify(strpos($html,'fb-custom-nav-icon')!==false&&strpos($html,'currentColor')!==false,'actual H5 navigation renders the sanitized theme-aware SVG');
+verify(flipbook\front_micro::validate(['components'=>[],'tabbar'=>['items'=>[['iconSvg'=>'<svg onload=\"x\"/>']]]])!=='','unsafe custom icon blocks saving the page');
+$offset=flipbook\front_micro::region_style(['offsetX'=>12,'offsetY'=>-24]);verify(strpos($offset,'transform:translate(12px,-24px)')!==false&&strpos($offset,'margin')===false,'H5 and native visual offsets leave neighboring layout unchanged');
+echo json_encode(['html'=>$html,'offset'=>$offset,'svg'=>$clean,'raster'=>$raster,'checks'=>$checks],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);

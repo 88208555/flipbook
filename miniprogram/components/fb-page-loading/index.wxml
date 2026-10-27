@@ -1,0 +1,6 @@
+<view wx:if="{{visible}}" class="fb-page-loading" style="background:{{logo.bg || '#0B0B0C'}};color:{{logo.color || '#F2F2F4'}}" aria-role="alert" aria-label="正在载入页面" catchtouchmove="onStop">
+ <view class="fb-page-loading-brand">
+  <image wx:if="{{logo.type === 'image' && logo.image}}" class="fb-page-loading-logo fb-page-loading-image" style="filter:{{logo.invert ? 'invert(1)' : 'none'}};visibility:{{imageReady ? 'visible' : 'hidden'}}" src="{{logo.image}}" mode="aspectFit" bindload="onLogoLoad" binderror="onLogoError"/>
+  <text wx:if="{{logo.type !== 'image' || !logo.image || !imageReady}}" class="fb-page-loading-logo fb-page-loading-text">{{logo.text || 'FLIPBOOK'}}</text>
+ </view>
+</view>

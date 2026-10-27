@@ -1,0 +1,188 @@
+{
+  "title": "工装电子画册 · 功能版全套",
+  "version": "v6",
+  "date": "2026-10-19",
+  "total_images": 16,
+  "main_pages": 12,
+  "supplemental_sheets": 4,
+  "tool": "内置 image_gen",
+  "restored_from": "原始生成缓存",
+  "pages": [
+    {
+      "id": 1,
+      "name": "01-发现画册首页",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-2272e1f6-0954-452f-ae73-c3f6e7e31c41.png",
+      "features": "顶部铺满摄影、系列推荐、右侧暗底操作、黑底文案、四项导航",
+      "filename": "01-发现画册首页.png",
+      "retained": true,
+      "width": 853,
+      "height": 1844,
+      "bytes": 1721490
+    },
+    {
+      "id": 2,
+      "name": "02-画册翻页定位",
+      "features": "当前页、六张缩略图、目录、阅读进度、四项导航",
+      "filename": "02-画册翻页定位.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-9423d3b6-7e8a-411e-9e5a-20724678f624.png",
+      "retained": false,
+      "width": 854,
+      "height": 1840,
+      "bytes": 1771315
+    },
+    {
+      "id": 3,
+      "name": "03-整册与款式分享",
+      "features": "画册摘要、整册与当前款式、好友、朋友圈指引、链接、海报、取消",
+      "filename": "03-整册与款式分享.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-419e3125-7bcb-4228-8343-1fabadc9b58a.png",
+      "retained": false,
+      "width": 933,
+      "height": 1685,
+      "bytes": 1508500
+    },
+    {
+      "id": 4,
+      "name": "04-款式卖点",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-7a1f4a03-8713-4ea8-8b26-80f9066362ec.png",
+      "features": "共用款式详情外壳、三条卖点图文、黑底收藏分享返回",
+      "filename": "04-款式卖点.png",
+      "retained": true,
+      "width": 887,
+      "height": 1774,
+      "bytes": 1272450
+    },
+    {
+      "id": 5,
+      "name": "05-款式细节",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-de3556c1-b7a9-447b-8c61-4ea358d68eaf.png",
+      "features": "共用款式详情外壳、四张局部照片、图注、放大入口、黑底工具栏",
+      "filename": "05-款式细节.png",
+      "retained": true,
+      "width": 853,
+      "height": 1844,
+      "bytes": 1835636
+    },
+    {
+      "id": 6,
+      "name": "06-详情图片查看器",
+      "features": "独立大图、关闭、标题计数、四图导航、缩放提示、保存",
+      "filename": "06-详情图片查看器.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-e847b4f3-25e2-47f7-a379-a067109468ee.png",
+      "retained": false,
+      "width": 933,
+      "height": 1686,
+      "bytes": 2228997
+    },
+    {
+      "id": 7,
+      "name": "07-颜色尺码与参数",
+      "features": "同款式详情外壳、颜色、S至XXL、完整尺寸表、模特、黑底工具栏",
+      "filename": "07-颜色尺码与参数.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-8196a1d7-6598-40ef-8f97-45d2ecea848e.png",
+      "retained": false,
+      "width": 934,
+      "height": 1684,
+      "bytes": 900466
+    },
+    {
+      "id": 8,
+      "name": "08-本册目录",
+      "features": "全部与已收藏、三列六页、当前阅读、继续阅读",
+      "filename": "08-本册目录.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-e6809945-a0ce-48b9-b186-3659250b1bcb.png",
+      "retained": false,
+      "width": 934,
+      "height": 1685,
+      "bytes": 1875828
+    },
+    {
+      "id": 9,
+      "name": "09-分类搜索",
+      "features": "搜索、系列筛选、品类筛选、双列封面、页数、四项导航",
+      "filename": "09-分类搜索.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-db5e7ce4-5558-4f1d-b352-b84088b8f834.png",
+      "retained": false,
+      "width": 933,
+      "height": 1685,
+      "bytes": 1756276
+    },
+    {
+      "id": 10,
+      "name": "10-款式画册收藏",
+      "features": "款式与画册计数、管理、排序、双列内容、收藏标记、四项导航",
+      "filename": "10-款式画册收藏.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-db4e43ae-a854-4e85-8ff4-3c3d80c7cf7f.png",
+      "retained": false,
+      "width": 933,
+      "height": 1686,
+      "bytes": 1599375
+    },
+    {
+      "id": 11,
+      "name": "11-我的与继续阅读",
+      "features": "访客登录、统计、紧凑继续阅读、历史收藏分享偏好入口、四项导航",
+      "filename": "11-我的与继续阅读.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153fd-7a03-7ef2-8c84-89fbbbc76886/exec-55474c15-ca9a-4376-b459-ad4056d9c90f.png",
+      "retained": false,
+      "width": 934,
+      "height": 1684,
+      "bytes": 1087508
+    },
+    {
+      "id": 12,
+      "name": "12-分享海报成品",
+      "features": "干净竖版成品、产品图、名称编号、简短文案、页脚，无界面按钮",
+      "filename": "12-分享海报成品.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-b6153952-4c12-4b44-8778-b619e3cc646c.png",
+      "retained": false,
+      "width": 934,
+      "height": 1685,
+      "bytes": 1822084
+    },
+    {
+      "id": 13,
+      "name": "13-登录与访客入口",
+      "features": "微信登录、协议隐私、暂不登录、返回，无图片背景",
+      "filename": "13-登录与访客入口.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-735f9e64-4d4b-4ed9-bd09-2ebdd092c022.png",
+      "retained": false,
+      "width": 933,
+      "height": 1685,
+      "bytes": 563397
+    },
+    {
+      "id": 14,
+      "name": "14-阅读与分享记录",
+      "features": "阅读足迹与分享记录、今天昨天分组、进度、继续、管理",
+      "filename": "14-阅读与分享记录.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-91a4e85e-f979-4a47-baa1-7f7af028407f.png",
+      "retained": false,
+      "width": 933,
+      "height": 1685,
+      "bytes": 1150486
+    },
+    {
+      "id": 15,
+      "name": "15-阅读偏好",
+      "features": "翻页方式、手势、缩略图、进度记忆、画质、完成",
+      "filename": "15-阅读偏好.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-6ac52b02-d5a2-433d-aaf8-e8c009c794b3.png",
+      "retained": false,
+      "width": 933,
+      "height": 1685,
+      "bytes": 616815
+    },
+    {
+      "id": 16,
+      "name": "16-异常与空状态总览",
+      "features": "空收藏、弱网加载重试、权限登录、内容失效、保存失败、登录取消重试",
+      "filename": "16-异常与空状态总览.png",
+      "source": "/Users/zhang/.codex/generated_images/01a153a2-ae37-7c52-961e-7187eb65026d/exec-fec70e9b-99c4-4998-a2ce-b5bac964eee1.png",
+      "retained": false,
+      "width": 1030,
+      "height": 1526,
+      "bytes": 786239
+    }
+  ]
+}

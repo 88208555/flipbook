@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/discover/index",
+    "pages/catalog/index",
+    "pages/favorites/index",
+    "pages/mine/index",
+    "pages/read/index",
+    "pages/history/index",
+    "pages/preference/index",
+    "pages/micro/index",
+    "pages/micro-native/index",
+    "pages/checkout/index",
+    "pages/orders/index",
+    "pages/login/index"
+  ],
+  "usingComponents": {
+    "fb-toast": "/components/fb-toast/index",
+    "fb-page-loading": "/components/fb-page-loading/index"
+  },
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#0B0B0C",
+    "backgroundTextStyle": "dark",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#6E6E74",
+    "selectedColor": "#F2F2F4",
+    "backgroundColor": "#0B0B0C",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/discover/index",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/catalog/index",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/favorites/index",
+        "text": "收藏"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

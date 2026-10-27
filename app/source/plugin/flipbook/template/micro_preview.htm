@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="{$devicePreview[mode]}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>H5 预览 · {$devicePreview[title]}</title>
+<link rel="stylesheet" href="{$devicePreview[css]}" />
+</head>
+<body class="fb-device-preview{$devicePreview[mode]}">
+<header class="fb-device-toolbar">
+ <div><strong>H5 预览</strong><span class="fb-device-caption">手机界面 · 可直接操作</span></div>
+ <div class="fb-device-actions"><button type="button" data-device-reload>重新加载</button><a href="{$devicePreview[url]}" target="_blank" rel="noopener" data-device-open>打开 H5 页面</a></div>
+</header>
+<main class="fb-device-stage">
+ <div class="fb-device-slot">
+  <section class="fb-device-phone" aria-label="手机预览">
+   <div class="fb-device-screen">
+    <div class="fb-device-status" aria-hidden="true"><span data-device-clock>9:41</span><span class="fb-device-signals"><svg viewBox="0 0 18 14"><path d="M1 13h2V9H1zm4 0h2V6H5zm4 0h2V3H9zm4 0h2V0h-2z"/></svg><svg viewBox="0 0 20 14"><path d="M1 4q9-7 18 0l-2 2Q10 1 3 6zm4 4q5-4 10 0l-2 2q-3-2-6 0zm3 4 2-2 2 2-2 2z"/></svg><svg viewBox="0 0 29 14"><rect x="1" y="1" width="24" height="12" rx="3" fill="none" stroke="currentColor"/><rect x="3" y="3" width="20" height="8" rx="1"/><path d="M27 4v6q3-3 0-6"/></svg></span></div>
+    <div class="fb-device-notch" aria-hidden="true"></div>
+    <iframe title="真实 H5 页面" class="fb-device-content" src="{$devicePreview[url]}" data-device-frame></iframe>
+    <div class="fb-device-home" aria-hidden="true"></div>
+   </div>
+  </section>
+ </div>
+</main>
+<script src="{$devicePreview[script]}" defer></script>
+</body>
+</html>

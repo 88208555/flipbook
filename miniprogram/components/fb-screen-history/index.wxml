@@ -1,0 +1,24 @@
+<view class="fb-page" style="--fb-status-h:{{statusBar}}px;">
+ <view wx:if="{{!embedded}}" class="fb-topbar"><view class="fb-back" bindtap="onBack"><view class="fb-icon fb-icon-back"></view></view><text class="fb-topbar-title">我的记录</text><view class="fb-topbar-side"></view></view>
+ <view class="fb-segment fb-content" style="{{regionStyles.toolbar}}">
+  <view class="fb-segment-item {{tab == 'read' ? 'is-active' : ''}}" data-tab="read" bindtap="onTab" style="{{regionStyles.tabItem}};{{tab === 'read' ? regionStyles.tabActive : ''}}">阅读足迹 <text style="{{regionStyles.count}}">{{counts.read}}</text></view>
+  <view class="fb-segment-item {{tab == 'share' ? 'is-active' : ''}}" data-tab="share" bindtap="onTab" style="{{regionStyles.tabItem}};{{tab === 'share' ? regionStyles.tabActive : ''}}">分享记录 <text style="{{regionStyles.count}}">{{counts.share}}</text></view>
+ </view>
+ <block wx:if="{{status == 2}}">
+  <view wx:if="{{!logged}}" class="fb-empty" style="{{regionStyles.empty}}"><text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">登录后查看记录</text><text class="fb-empty-text" style="{{regionStyles.emptyText}}">登录后可同步阅读足迹与分享记录</text></view>
+  <view wx:elif="{{groups.length}}" class="fb-history" style="{{regionStyles.list}}">
+   <view wx:for="{{groups}}" wx:for-item="group" wx:key="day" style="{{regionStyles.dateGroup}}">
+    <text class="fb-history-day" style="{{regionStyles.dateTitle}}">{{group.day}}</text>
+    <view wx:for="{{group.items}}" wx:key="historyid" class="fb-history-row" data-url="{{item.url}}" bindtap="onOpenRecord" style="{{regionStyles.row}}">
+     <image wx:if="{{item.cover}}" class="fb-history-cover" src="{{item.cover}}" mode="aspectFill" style="{{regionStyles.cover}}" />
+     <view class="fb-history-body"><text class="fb-history-title" style="{{regionStyles.title}}">{{item.title}}</text><text class="fb-history-meta" style="{{regionStyles.meta}}">{{tab === 'read' && item.progress ? item.progress + ' · ' : item.meta + ' · '}}{{item.time}}</text><progress wx:if="{{tab === 'read' && item.percent}}" percent="{{item.percent}}" stroke-width="2" activeColor="{{presentation.regions.progress.color || '#ffffff'}}" backgroundColor="#333333" style="{{regionStyles.progress}}" /></view>
+     <view class="fb-history-go" style="{{regionStyles.actions}}"><text style="{{regionStyles.action}}">继续 ›</text></view>
+    </view>
+   </view>
+  </view>
+  <view wx:else class="fb-empty" style="{{regionStyles.empty}}"><text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">{{tab == 'read' ? '还没有阅读足迹' : '还没有分享记录'}}</text><text class="fb-empty-text" style="{{regionStyles.emptyText}}">打开画册阅读后，这里会自动记录</text><button class="fb-btn" bindtap="onDiscover" style="{{regionStyles.button}}">去发现</button></view>
+ </block>
+ <view wx:elif="{{status == 1}}" class="fb-empty" style="{{regionStyles.empty}}"></view>
+ <view wx:else class="fb-empty" style="{{regionStyles.empty}}"><text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">加载失败</text><text class="fb-empty-text" style="{{regionStyles.emptyText}}">请检查网络或接口地址</text><button class="fb-btn" bindtap="onRetry" style="{{regionStyles.button}}">重新加载</button></view>
+</view>
+<fb-toast />

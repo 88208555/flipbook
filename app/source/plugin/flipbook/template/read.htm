@@ -1,0 +1,114 @@
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:head}--><!--{/if}-->
+<header class="fb-topbar">
+	<a class="fb-iconbtn" href="{$fb[album][backurl]}" aria-label="{lang flipbook:back}"><!--{eval echo flipbook\front_icon::svg('back');}--></a>
+	<h1 class="fb-topbar-title">{$fb[album][name]}</h1>
+	<div class="fb-topbar-side">
+		<button type="button" class="fb-iconbtn" data-fb-open="catalog" aria-label="{lang flipbook:catalog}"><!--{eval echo flipbook\front_icon::svg('catalog');}--></button>
+	</div>
+</header>
+
+<!--{if $fb[pages]}-->
+<section class="fb-stage" id="fb-reader" data-fb-reader data-albumid="{$fb[album][albumid]}" data-page="{$fb[current][index]}" data-total="{$fb[pagecount]}">
+	<div class="fb-stage-frame">
+	<!--{loop $fb[pages] $page}-->
+		<div class="fb-stage-item{if $page[index] == $fb[current][index]} is-active{/if}" data-fb-page-item="{$page[index]}" data-fb-style="{$page[styleurl]}">
+		<!--{if $page[hasimage]}-->
+			<img class="fb-stage-img" src="{$page[image]}" alt="{$page[title]}" />
+		<!--{else}-->
+			<div class="fb-empty">
+				<!--{eval echo flipbook\front_icon::svg('empty','fb-icon-l');}-->
+				<p class="fb-empty-title">{$page[indexpad]} {$page[title]}</p>
+				<p class="fb-empty-text">{lang flipbook:image_missing}</p>
+			</div>
+		<!--{/if}-->
+		</div>
+	<!--{/loop}-->
+		<div class="fb-stage-rail">
+			<button type="button" class="fb-rail-btn{if $fb[favorited]} is-on{/if}" data-fb-favorite="album" data-fb-fav-id="{$fb[album][albumid]}" data-fb-fav-on="{$fb[favorited]}"><!--{eval echo flipbook\front_icon::svg('bookmark');}--><span>{lang flipbook:action_favorite}</span></button>
+			<!--{if $fb[styleurl]}--><a class="fb-rail-btn" href="{$fb[styleurl]}" data-fb-style-link data-fb-target="style"><!--{eval echo flipbook\front_icon::svg('shirt');}--><span>{lang flipbook:action_style}</span></a><!--{/if}-->
+			<button type="button" class="fb-rail-btn" data-fb-share="album"><!--{eval echo flipbook\front_icon::svg('share');}--><span>{lang flipbook:action_share}</span></button>
+		</div>
+	</div>
+</section>
+
+<section class="fb-info">
+	<!--{loop $fb[pages] $page}-->
+	<div class="fb-info-item{if $page[index] == $fb[current][index]} is-active{/if}" data-fb-info-item="{$page[index]}"{if $page[index] != $fb[current][index]} hidden{/if}>
+		<h2 class="fb-info-title">{$page[title]}</h2>
+		<!--{if $page[description]}--><p class="fb-info-sub">{$page[description]}</p><!--{/if}-->
+	</div>
+	<!--{/loop}-->
+</section>
+
+<div class="fb-thumbs">
+	<!--{loop $fb[pages] $page}-->
+	<button type="button" class="fb-thumb{if $page[index] == $fb[current][index]} is-current{/if}" data-fb-goto="{$page[index]}" aria-label="{$page[indexpad]} {$page[title]}">
+	<!--{if $page[hasimage]}--><img class="fb-thumb-img" src="{$page[image]}" alt="{$page[title]}" /><!--{else}--><span class="fb-thumb-img"></span><!--{/if}-->
+	</button>
+	<!--{/loop}-->
+</div>
+
+<div class="fb-footbar fb-footbar-stack">
+	<div class="fb-footbar-row">
+		<button type="button" class="fb-footbar-action" data-fb-open="catalog" aria-label="{lang flipbook:catalog}"><!--{eval echo flipbook\front_icon::svg('catalog','fb-icon-s');}--><span>{lang flipbook:catalog}</span></button>
+	</div>
+	<span class="fb-footbar-hint">{lang flipbook:read_hint}</span>
+</div>
+
+<button type="button" class="fb-mask" data-fb-close="catalog" aria-label="{lang flipbook:close}" tabindex="-1"></button>
+<section class="fb-sheet" id="fb-sheet-catalog" data-fb-sheet="catalog" aria-label="{lang flipbook:catalog}">
+	<div class="fb-sheet-head">
+		<button type="button" class="fb-iconbtn" data-fb-close="catalog" aria-label="{lang flipbook:back}"><!--{eval echo flipbook\front_icon::svg('back');}--></button>
+		<div class="fb-sheet-heading">
+			<h2 class="fb-sheet-title">{lang flipbook:catalog_title}</h2>
+			<p class="fb-sheet-sub">{$fb[album][name]} · {$fb[pagecountpad]} {lang flipbook:unit_page}</p>
+		</div>
+		<button type="button" class="fb-iconbtn" data-fb-close="catalog" aria-label="{lang flipbook:close}"><!--{eval echo flipbook\front_icon::svg('close');}--></button>
+	</div>
+	<div class="fb-sheet-body">
+		<div class="fb-segment">
+			<button type="button" class="fb-segment-item is-active" data-fb-catalog-filter="all">{lang flipbook:catalog_all} {$fb[pagecountpad]}</button>
+			<button type="button" class="fb-segment-item" data-fb-catalog-filter="favorite">{lang flipbook:catalog_favorite} {$fb[favoritecountpad]}</button>
+		</div>
+		<div class="fb-grid fb-grid-3">
+			<!--{loop $fb[pages] $page}-->
+			<a class="fb-card{if $page[index] == $fb[current][index]} is-current{/if}" href="{$page[readurl]}" data-fb-catalog-item="{$page[index]}" data-fb-favorite-page="{$page[favorited]}">
+				<div class="fb-card-cover">
+				<!--{if $page[hasimage]}--><img src="{$page[image]}" alt="{$page[title]}" /><!--{else}--><div class="fb-empty"><!--{eval echo flipbook\front_icon::svg('empty');}--></div><!--{/if}-->
+				</div>
+				<div class="fb-card-body">
+					<h3 class="fb-card-title">{$page[indexpad]} {$page[title]}</h3>
+					<!--{if $page[index] == $fb[current][index]}--><p class="fb-card-meta">{lang flipbook:catalog_current}</p><!--{/if}-->
+				</div>
+			</a>
+			<!--{/loop}-->
+		</div>
+		<!--{if !$fb[favoritecount]}-->
+		<div class="fb-empty">
+			<!--{eval echo flipbook\front_icon::svg('bookmark','fb-icon-l');}-->
+			<p class="fb-empty-title">{lang flipbook:catalog_favorite_empty}</p>
+			<p class="fb-empty-text">{lang flipbook:catalog_favorite_empty_hint}</p>
+		</div>
+		<!--{/if}-->
+	</div>
+	<div class="fb-sheet-foot">
+		<button type="button" class="fb-btn" data-fb-close="catalog" data-fb-resume="{$fb[current][index]}">{lang flipbook:catalog_continue}<!--{eval echo flipbook\front_icon::svg('next','fb-icon-s');}--></button>
+	</div>
+</section>
+<!--{else}-->
+<section class="fb-empty">
+	<!--{eval echo flipbook\front_icon::svg('empty','fb-icon-l');}-->
+	<!--{if $fb[offline]}-->
+	<p class="fb-empty-title">{lang flipbook:album_offline}</p>
+	<p class="fb-empty-text">{lang flipbook:album_offline_hint}</p>
+	<a class="fb-btn" href="{$fb[urls][index]}">{lang flipbook:back_discover}</a>
+	<!--{else}-->
+	<p class="fb-empty-title">{lang flipbook:album_empty}</p>
+	<p class="fb-empty-text">{lang flipbook:album_empty_hint}</p>
+	<a class="fb-btn" href="{$fb[urls][index]}">{lang flipbook:back_discover}</a>
+	<!--{/if}-->
+</section>
+<!--{/if}-->
+
+<!--{subtemplate flipbook:share}-->
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:foot}--><!--{/if}-->

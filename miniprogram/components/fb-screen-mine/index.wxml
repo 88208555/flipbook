@@ -1,0 +1,67 @@
+<view class="fb-page fb-tab-page" style="--fb-status-h:{{statusBar}}px;">
+	<view wx:if="{{!embedded}}" class="fb-topbar">
+		<view class="fb-back"></view>
+		<text class="fb-topbar-title">我的</text>
+		<view wx:if="{{!embedded}}" class="fb-topbar-side"></view>
+	</view>
+
+	<block wx:if="{{status == 2}}">
+  <view class="fb-member fb-content" bindtap="onLogin" style="{{regionStyles.header}}">
+   <view class="fb-avatar" style="{{regionStyles.avatar}}"><image wx:if="{{member.avatar}}" src="{{member.avatar}}" mode="aspectFill" style="{{avatarImageStyle}}"/><view wx:else class="fb-icon fb-icon-avatar"></view></view>
+   <view class="fb-member-main" style="{{regionStyles.identity}}"><text class="fb-member-name" style="{{regionStyles.name}}">{{member.name || '访客'}}</text><text class="fb-member-note" style="{{regionStyles.note}}">{{logged ? member.group : memberOptions.note}}</text></view>
+  </view>
+
+		<view wx:if="{{memberOptions.showStats !== 0}}" class="fb-stat-row" style="{{regionStyles.stats}}">
+			<view class="fb-stat" bindtap="onFavorites" style="{{regionStyles.statItem}}">
+				<text class="fb-stat-value" style="{{regionStyles.statValue}}">{{counts.favorite}}</text>
+				<text class="fb-stat-label" style="{{regionStyles.statLabel}}">收藏</text>
+			</view>
+			<view class="fb-stat-sep" style="{{regionStyles.statDivider}}"></view>
+			<view class="fb-stat" bindtap="onHistory" style="{{regionStyles.statItem}}">
+				<text class="fb-stat-value" style="{{regionStyles.statValue}}">{{counts.history}}</text>
+				<text class="fb-stat-label" style="{{regionStyles.statLabel}}">足迹</text>
+			</view>
+			<view class="fb-stat-sep" style="{{regionStyles.statDivider}}"></view>
+			<view class="fb-stat" bindtap="onShareHistory" style="{{regionStyles.statItem}}">
+				<text class="fb-stat-value" style="{{regionStyles.statValue}}">{{counts.share}}</text>
+				<text class="fb-stat-label" style="{{regionStyles.statLabel}}">分享</text>
+			</view>
+		</view>
+
+		<view wx:if="{{resume && memberOptions.showResume !== 0}}" class="fb-resume" style="{{regionStyles.resume}}">
+			<view class="fb-resume-head" style="{{regionStyles.resumeHead}}">
+				<text class="fb-resume-title" style="{{regionStyles.resumeTitle}}">继续阅读</text>
+			</view>
+			<view class="fb-resume-card" style="{{regionStyles.resumeCard}}" bindtap="onResume">
+				<image class="fb-resume-cover" src="{{resume.cover}}" mode="aspectFill" style="{{regionStyles.resumeCover}}"></image>
+				<view class="fb-resume-main" style="{{regionStyles.resumeMain}}">
+					<text class="fb-resume-name" style="{{regionStyles.resumeTitle}}">{{resume.name}}</text>
+					<text class="fb-resume-note" style="{{regionStyles.resumeNote}}">上次阅读 {{resume.progress.pagepad}} / {{resume.progress.totalpad}}</text>
+					<view class="fb-resume-bar" style="{{regionStyles.resumeProgress}}">
+						<view class="fb-resume-bar-in" style="width:{{resume.progress.percent}}%;{{presentation.regions.resumeProgress.color ? 'background:' + presentation.regions.resumeProgress.color : ''}}"></view>
+					</view>
+				</view>
+				<text class="fb-resume-go" style="{{regionStyles.resumeArrow}}">继续 →</text>
+			</view>
+		</view>
+
+  <view class="fb-menu" style="{{regionStyles.menu}}">
+   <view class="fb-menu-row" wx:for="{{menuRows}}" wx:key="key" data-index="{{index}}" bindtap="onMenu" style="{{regionStyles.menuItem}}"><view class="fb-icon fb-icon-{{item.icon}}" style="{{regionStyles.menuIcon}};{{menuIconStyles[item.icon]}}"></view><text class="fb-menu-label" style="{{regionStyles.menuText}}">{{item.label}}</text><text class="fb-menu-arrow" style="{{regionStyles.menuArrow}}">›</text></view>
+   <view wx:if="{{logged && memberOptions.showLogout !== 0}}" class="fb-menu-row fb-logout" bindtap="onLogout" style="{{regionStyles.menuItem}};{{regionStyles.logout}}"><text class="fb-menu-label" style="{{regionStyles.menuText}}">退出登录</text></view>
+  </view>
+
+	</block>
+
+	<view wx:elif="{{status == 1}}" class="fb-empty" style="{{regionStyles.empty}}">
+		
+	</view>
+
+	<view wx:else class="fb-empty" style="{{regionStyles.empty}}">
+		<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">加载失败</text>
+		<text class="fb-empty-text" style="{{regionStyles.emptyText}}">请检查网络或接口地址</text>
+		<button class="fb-btn" bindtap="onRetry" style="{{regionStyles.button}}">重新加载</button>
+	</view>
+</view>
+
+<fb-toast />
+

@@ -1,0 +1,46 @@
+<!--{template common/header}-->
+
+<style id="diy_style" type="text/css"></style>
+<!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
+
+<!--{ad/text/wp a_t}-->
+
+<div class="wp">
+	<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+</div>
+
+
+<div class="portal_container">
+	<div class="portal_container_wrap">
+		
+		<div class="timeline_container">
+			<div id="threadlist"  class="timeline_content">
+
+				{cells forum/portal/navlist}
+				
+				{cells forum/portal/threadlist threadlist}
+				
+			</div>
+
+		</div>
+		<div class="portal_side">
+			<aside class="sidebar sg-diy-sidebar">
+				<div class="drag">
+					<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+				</div>
+			</aside>
+		</div>
+	</div>
+</div>
+
+
+<div class="wp mtn">
+	<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+</div>
+
+<script>
+	ajaxupdateevents($('threadlist'));
+</script>
+<script src="$_G['style']['styleimgdir']/js/shiguang-feature-slider.js?{VERHASH}"></script>
+
+<!--{template common/footer}-->

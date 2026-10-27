@@ -1,0 +1,94 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: flipbook-nginx
+    restart: unless-stopped
+    ports:
+      - "${HTTP_BIND:-127.0.0.1}:${HTTP_PORT:-8088}:80"
+    volumes:
+      - ./app:/var/www/html:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - php
+    networks:
+      - flipbook-net
+
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: flipbook-php
+    restart: unless-stopped
+    volumes:
+      - ./app:/var/www/html
+      - ./scripts:/opt/flipbook/scripts:ro
+      - ./database:/opt/flipbook/database:ro
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-discuz}
+      - MYSQL_USER=${MYSQL_USER:-discuz}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:?Generate .env before starting}
+      - SITE_URL=${SITE_URL:-http://127.0.0.1:8088}
+      - BOOTSTRAP_ADMIN_USERNAME=${BOOTSTRAP_ADMIN_USERNAME:-admin}
+      - BOOTSTRAP_ADMIN_EMAIL=${BOOTSTRAP_ADMIN_EMAIL:-admin@example.invalid}
+      - BOOTSTRAP_ADMIN_PASSWORD=${BOOTSTRAP_ADMIN_PASSWORD:-}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - flipbook-net
+
+  # Discuz 的计划任务依赖触发，保持一个 CLI 循环执行原生 cron 入口
+  cron:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: flipbook-cron
+    command: >-
+      sh -c 'while true; do php /var/www/html/api/remote/cron.php || true; sleep 60; done'
+    restart: unless-stopped
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - flipbook-net
+
+  mysql:
+    image: mysql:8.0
+    container_name: flipbook-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Generate .env before starting}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-discuz}
+      MYSQL_USER: ${MYSQL_USER:-discuz}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Generate .env before starting}
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - flipbook-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: flipbook-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    networks:
+      - flipbook-net
+
+volumes:
+  mysql-data:
+  redis-data:
+
+networks:
+  flipbook-net:
+    driver: bridge

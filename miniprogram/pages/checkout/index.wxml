@@ -1,0 +1,15 @@
+<view class="fb-commerce-page" style="padding-top:{{statusBar}}px">
+ <view class="fb-commerce-nav"><button bindtap="onBack">‹</button><text>确认订单</text></view>
+ <view wx:if="{{product}}" class="fb-commerce-product"><image src="{{product.cover}}" mode="aspectFit"/><text class="fb-commerce-title">{{product.name}}</text><text class="fb-commerce-subtitle">{{product.summary}}</text></view>
+ <text wx:if="{{error}}" class="fb-commerce-error">{{error}}</text>
+ <button wx:if="{{ready && needLogin}}" class="fb-commerce-primary" bindtap="onLogin">登录后继续购买</button>
+ <block wx:if="{{ready && !needLogin}}">
+  <view class="fb-commerce-card" wx:if="{{skus.length}}"><text class="fb-commerce-label">选择 SKU</text><radio-group bindchange="onSku"><label wx:for="{{skus}}" wx:key="skuid" class="fb-commerce-sku"><radio value="{{item.skuid}}" checked="{{skuid == item.skuid}}" disabled="{{busy}}"/><text>{{item.name}} {{item.color}} {{item.size}} · {{item.code}}</text></label></radio-group></view>
+  <view class="fb-commerce-card"><label class="fb-commerce-row"><text>数量</text><input type="number" value="{{quantity}}" bindchange="onQuantity" disabled="{{busy}}"/></label></view>
+  <view class="fb-commerce-card"><view class="fb-commerce-row"><text class="fb-commerce-label">收货信息</text><button bindtap="onChooseAddress" disabled="{{busy}}">选择微信地址</button></view><input placeholder="收货人" value="{{address.name}}" data-key="name" bindinput="onAddress" maxlength="40" disabled="{{busy}}"/><input placeholder="联系电话" value="{{address.phone}}" data-key="phone" bindinput="onAddress" maxlength="30" disabled="{{busy}}"/><input placeholder="省份" value="{{address.province}}" data-key="province" bindinput="onAddress" maxlength="40" disabled="{{busy}}"/><input placeholder="城市" value="{{address.city}}" data-key="city" bindinput="onAddress" maxlength="40" disabled="{{busy}}"/><input placeholder="区 / 县" value="{{address.district}}" data-key="district" bindinput="onAddress" maxlength="40" disabled="{{busy}}"/><textarea placeholder="详细收货地址" value="{{address.detail}}" data-key="detail" bindinput="onAddress" maxlength="160" disabled="{{busy}}"/></view>
+  <view class="fb-commerce-card"><view class="fb-commerce-row"><text>运费</text><text>¥{{shipping}}</text></view><view class="fb-commerce-row"><text>应付合计</text><text class="fb-commerce-amount">¥{{total}}</text></view></view>
+  <button class="fb-commerce-primary" bindtap="onPay" loading="{{busy}}" disabled="{{busy}}">{{needLogin ? '登录后购买' : '提交订单并支付'}}</button>
+ </block>
+ <button wx:elif="{{error}}" bindtap="onRetry">重新读取</button>
+</view>
+<fb-page-loading id="page-loading" visible="{{pageLoadingVisible}}" logo="{{pageLoadingLogo}}"/>

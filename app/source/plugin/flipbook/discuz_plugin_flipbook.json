@@ -1,0 +1,114 @@
+{
+  "Title": "Discuz! Plugin",
+  "Data": {
+    "plugin": {
+      "available": "1",
+      "adminid": "1",
+      "name": "工装画册",
+      "identifier": "flipbook",
+      "description": "服装画册：系列、画册、内容页、款式、收藏与分享海报",
+      "datatables": "flipbook_series,flipbook_category,flipbook_album,flipbook_page,flipbook_product,flipbook_product_media,flipbook_page_product,flipbook_favorite,flipbook_history,flipbook_preference,flipbook_setting,flipbook_release,flipbook_micropage,flipbook_identity,flipbook_asset,flipbook_sku,flipbook_supplier,flipbook_order",
+      "directory": "flipbook/",
+      "copyright": "",
+      "version": "0.4.0",
+      "__modules": [
+        {
+          "name": "flipbook",
+          "menu": "",
+          "url": "",
+          "type": "11",
+          "adminid": "1",
+          "displayorder": "-1"
+        },
+        {
+          "name": "admincp",
+          "menu": "基础设置",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "0"
+        },
+        {
+          "name": "product",
+          "menu": "商品管理",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "1"
+        },
+        {
+          "name": "micropage",
+          "menu": "微页面",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "2"
+        },
+        {
+          "name": "storage",
+          "menu": "文件存储",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "3"
+        },
+        {
+          "name": "wechat",
+          "menu": "微信小程序",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "4"
+        },
+        {
+          "name": "series",
+          "menu": "",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "-1"
+        },
+        {
+          "name": "category",
+          "menu": "",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "-1"
+        },
+        {
+          "name": "album",
+          "menu": "",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "-1"
+        },
+        {
+          "name": "page",
+          "menu": "",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "-1"
+        },
+        {
+          "name": "supplier",
+          "menu": "",
+          "url": "",
+          "type": "3",
+          "adminid": "1",
+          "displayorder": "-1"
+        }
+      ]
+    },
+    "version": "X5.0",
+    "var": [],
+    "intro": "工装电子画册插件：系列与画册浏览、款式详情、收藏与分享海报。",
+    "installfile": "install.php",
+    "uninstallfile": "uninstall.php",
+    "enablefile": "enable.php",
+    "disablefile": "disable.php",
+    "upgradefile": "upgrade.php"
+  }
+}

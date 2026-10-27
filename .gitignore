@@ -1,0 +1,39 @@
+# Machine-local configuration and credentials
+.env
+.env.*
+!.env.example
+app/config/config_global.php
+app/config/config_ucenter.php
+miniprogram/project.private.config.json
+**/node_modules/
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/private.*.json
+
+# Generated caches, sessions, logs, historical archives and local QA artifacts
+.DS_Store
+.preview/
+*.log
+/*.zip
+app/rebuild_lang_tmp.php
+app/data/cache/
+app/data/sysdata/
+app/data/template/
+app/data/threadcache/
+app/data/log/
+app/data/backup*/
+app/data/temp/
+app/data/download/
+app/data/plugindata/
+app/data/addonmd5/
+app/data/avatar/
+app/data/attachment/avatar/
+app/data/attachment/temp/
+app/data/*.lock
+app/data/*_config.php
+
+# Private exports must never be committed; database/ contains the shareable release.
+database/private/
+database/*.tmp

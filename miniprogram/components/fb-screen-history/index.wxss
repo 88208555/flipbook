@@ -1,0 +1,12 @@
+.fb-page { min-height:0; padding-bottom:0; }
+.fb-content { margin-top:0; }
+.fb-pref-group.fb-content { padding-top:0; }
+
+.fb-history-day { display:block;padding:20rpx 0;font-size:24rpx;color:var(--fb-text-3); }
+.fb-history-row { display:flex;align-items:center;gap:20rpx;min-height:144rpx;padding:16rpx 0; }
+.fb-history-cover { width:112rpx;height:112rpx;flex:none; }
+.fb-history-body { flex:1;min-width:0; }
+.fb-history-title,.fb-history-meta { display:block; }
+.fb-history-title { font-size:28rpx;line-height:1.5; }
+.fb-history-meta { font-size:22rpx;color:var(--fb-text-3);line-height:1.6; }
+.fb-history-go { flex:none;font-size:22rpx;color:var(--fb-text-3); }

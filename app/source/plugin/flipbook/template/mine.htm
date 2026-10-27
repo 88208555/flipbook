@@ -1,0 +1,52 @@
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:head}--><!--{/if}-->
+<header class="fb-topbar fb-topbar-center">
+	<span class="fb-topbar-side"></span>
+	<h1 class="fb-topbar-title">{lang flipbook:nav_mine}</h1>
+	<span class="fb-topbar-side"></span>
+</header>
+
+<section class="fb-member">
+	<div class="fb-member-id">
+		<span class="fb-avatar"><!--{eval echo flipbook\front_icon::svg('visitor','fb-icon-l');}--></span>
+		<div>
+			<p class="fb-member-name">{if $fb[logged]}{$fb[member][name]}{else}{lang flipbook:member_guest_name}{/if}</p>
+			<p class="fb-member-note">{if $fb[logged]}{lang flipbook:member_logged}{else}{lang flipbook:member_guest}{/if}</p>
+		</div>
+	</div>
+	<a class="fb-member-link" href="{if $fb[logged]}{$fb[member][logouturl]}{else}{$fb[loginurl]}{/if}">{if $fb[logged]}{lang flipbook:logout}{else}{lang flipbook:member_login_link}<!--{eval echo flipbook\front_icon::svg('chevron_right','fb-icon-s');}-->{/if}</a>
+</section>
+
+<div class="fb-stats">
+	<a class="fb-stat" href="{$fb[links][favorites]}"><span class="fb-stat-value">{$fb[counts][favorite]}</span><span class="fb-stat-label">{lang flipbook:unit_favorite}</span></a>
+	<a class="fb-stat" href="{$fb[links][history]}"><span class="fb-stat-value">{$fb[counts][history]}</span><span class="fb-stat-label">{lang flipbook:unit_read}</span></a>
+	<span class="fb-stat"><span class="fb-stat-value">{$fb[counts][share]}</span><span class="fb-stat-label">{lang flipbook:unit_share}</span></span>
+</div>
+
+<!--{if $fb[resume]}-->
+<section class="fb-section">
+	<div class="fb-section-head">
+		<h2 class="fb-section-title">{lang flipbook:resume_title}</h2>
+		<a class="fb-menu-note" href="{$fb[links][history]}">{lang flipbook:view_all}<!--{eval echo flipbook\front_icon::svg('chevron_right','fb-icon-s');}--></a>
+	</div>
+	<a class="fb-resume" href="{$fb[resume][progress][readurl]}">
+		<span class="fb-resume-cover">
+		<!--{if $fb[resume][hascover]}--><img src="{$fb[resume][cover]}" alt="{$fb[resume][name]}" /><!--{else}--><span class="fb-empty"><!--{eval echo flipbook\front_icon::svg('empty');}--></span><!--{/if}-->
+		</span>
+		<span class="fb-resume-main">
+			<span class="fb-resume-title">{$fb[resume][name]}</span>
+			<span class="fb-resume-meta">{lang flipbook:last_read} {$fb[resume][progress][pagepad]} / {$fb[resume][progress][totalpad]}</span>
+			<progress class="fb-progress" max="100" value="{$fb[resume][progress][percent]}">{$fb[resume][progress][percent]}%</progress>
+		</span>
+		<span class="fb-resume-action">{lang flipbook:continue_reading}<!--{eval echo flipbook\front_icon::svg('next','fb-icon-s');}--></span>
+	</a>
+</section>
+<!--{/if}-->
+
+<nav class="fb-menu">
+	<a class="fb-menu-row" href="{$fb[links][history]}"><!--{eval echo flipbook\front_icon::svg('history');}--><span class="fb-menu-label">{lang flipbook:menu_history}</span><span class="fb-menu-note">{$fb[counts][history]}</span><!--{eval echo flipbook\front_icon::svg('chevron_right','fb-icon-s');}--></a>
+	<a class="fb-menu-row" href="{$fb[links][favorites]}"><!--{eval echo flipbook\front_icon::svg('heart');}--><span class="fb-menu-label">{lang flipbook:menu_favorites}</span><span class="fb-menu-note">{$fb[counts][favorite]}</span><!--{eval echo flipbook\front_icon::svg('chevron_right','fb-icon-s');}--></a>
+	<a class="fb-menu-row" href="{$fb[links][history]}&amp;action=share"><!--{eval echo flipbook\front_icon::svg('share');}--><span class="fb-menu-label">{lang flipbook:menu_share}</span><span class="fb-menu-note">{$fb[counts][share]}</span><!--{eval echo flipbook\front_icon::svg('chevron_right','fb-icon-s');}--></a>
+	<span class="fb-menu-row"><!--{eval echo flipbook\front_icon::svg('info');}--><span class="fb-menu-label">{lang flipbook:menu_about}</span><span class="fb-menu-note">{$fb[app][name]}</span></span>
+</nav>
+
+<!--{if empty($fb_micro_embed)}--><!--{subtemplate flipbook:foot}--><!--{/if}-->

@@ -1,0 +1,75 @@
+
+<!--{if $fb_info}-->
+
+<div class="fb-product-info" style="color:{$fb_info_options[color]};font-size:{$fb_info_options[size]}px">
+ 
+<!--{if $fb_info_options[title]}-->
+<div data-fb-region="heading" class="fb-info-heading">{$fb_info_options[title]}</div>
+<!--{/if}-->
+
+ 
+<!--{if $fb_info_options[showColors] && $fb_info[colors]}-->
+<div data-fb-region="colors" class="fb-info-row"><span data-fb-region="colorLabel" class="fb-info-label">颜色</span><div class="fb-info-values">
+<!--{loop $fb_info[colors] $value}-->
+<span data-fb-region="colorValue" class="fb-info-chip">
+<!--{eval echo flipbook\front_helper::e($value);}-->
+</span>
+<!--{/loop}-->
+</div></div>
+<!--{/if}-->
+
+ 
+<!--{if $fb_info_options[showSizes] && $fb_info[sizes]}-->
+<div data-fb-region="sizes" class="fb-info-row"><span data-fb-region="sizeLabel" class="fb-info-label">尺码</span><div class="fb-info-values">
+<!--{loop $fb_info[sizes] $value}-->
+<span data-fb-region="sizeValue" class="fb-info-chip">
+<!--{eval echo flipbook\front_helper::e($value);}-->
+</span>
+<!--{/loop}-->
+</div></div>
+<!--{/if}-->
+
+ 
+<!--{if $fb_info_options[showFit]}-->
+<div data-fb-region="fit" class="fb-info-row"><span data-fb-region="fitLabel" class="fb-info-label">版型</span><span data-fb-region="fitValue" class="fb-info-value">
+<!--{eval echo flipbook\front_helper::e($fb_info['fit'].' '.$fb_info['model']);}-->
+</span></div>
+<!--{/if}-->
+
+ 
+<!--{if $fb_info_options[showFields]}-->
+
+<!--{loop $fb_info[fields] $field}-->
+<div data-fb-region="fields" class="fb-info-row"><span data-fb-region="fieldLabel" class="fb-info-label">
+<!--{eval echo flipbook\front_helper::e($field['label']);}-->
+</span><span data-fb-region="fieldValue" class="fb-info-value">
+<!--{eval echo flipbook\front_helper::e($field['value']);}-->
+</span></div>
+<!--{/loop}-->
+
+<!--{/if}-->
+
+ 
+<!--{if $fb_info_options[showTable] && $fb_info[sizetable]}-->
+<div data-fb-region="table" class="fb-info-table">
+<!--{loop $fb_info[sizetable] $rowIndex $row}-->
+<div data-fb-region="tableRow{if $rowIndex == 0} tableHead{/if}" class="fb-info-tr">
+<!--{loop $row $value}-->
+<span data-fb-region="tableCell" class="fb-info-cell">
+<!--{eval echo flipbook\front_helper::e($value);}-->
+</span>
+<!--{/loop}-->
+</div>
+<!--{/loop}-->
+</div>
+<!--{if $fb_info[sizeTableNote]}--><div data-fb-region="tableNote" class="fb-info-note"><!--{eval echo flipbook\front_helper::e($fb_info['sizeTableNote']);}--></div><!--{/if}-->
+<!--{/if}-->
+
+ 
+<!--{if $fb_info_options[showContent]}-->
+<div data-fb-region="content" class="fb-markdown">{$fb_info_html}</div>
+<!--{/if}-->
+
+</div>
+<!--{/if}-->
+

@@ -1,0 +1,962 @@
+{
+  "social": {
+    "button": {
+      "label": "操作按钮",
+      "selector": ".fb-btn"
+    },
+    "secondaryButton": {
+      "label": "次要按钮",
+      "selector": ".fb-btn-ghost"
+    },
+    "emptyTitle": {
+      "label": "空状态标题",
+      "selector": ".fb-empty-title"
+    },
+    "emptyText": {
+      "label": "空状态说明",
+      "selector": ".fb-empty-text"
+    },
+    "gallery": {
+      "label": "主图轮播",
+      "selector": "[data-fb-region~=\"gallery\"]",
+      "sources": [
+        "home"
+      ]
+    },
+    "caption": {
+      "label": "商品文字",
+      "selector": "[data-fb-region~=\"caption\"]",
+      "sources": [
+        "home"
+      ]
+    },
+    "title": {
+      "label": "商品名称",
+      "selector": "[data-fb-region~=\"title\"]",
+      "sources": [
+        "home"
+      ]
+    },
+    "subtitle": {
+      "label": "商品副标题",
+      "selector": "[data-fb-region~=\"subtitle\"]",
+      "sources": [
+        "home"
+      ]
+    },
+    "code": {
+      "label": "商品编码",
+      "selector": "[data-fb-region~=\"code\"]",
+      "sources": [
+        "home"
+      ]
+    },
+    "extra": {
+      "label": "补充文字",
+      "selector": "[data-fb-region~=\"extra\"]",
+      "sources": [
+        "home"
+      ]
+    },
+    "floatingImage": {
+      "label": "悬浮图片",
+      "selector": "[data-fb-region~=\"floatingImage\"]",
+      "sources": [
+        "home"
+      ]
+    },
+    "empty": {
+      "label": "空状态",
+      "selector": "[data-fb-region~=\"empty\"]",
+      "sources": [
+        "home"
+      ]
+    }
+  },
+  "product_detail": {
+    "button": {
+      "label": "操作按钮",
+      "selector": ".fb-btn"
+    },
+    "secondaryButton": {
+      "label": "次要按钮",
+      "selector": ".fb-btn-ghost"
+    },
+    "emptyTitle": {
+      "label": "空状态标题",
+      "selector": ".fb-empty-title"
+    },
+    "emptyText": {
+      "label": "空状态说明",
+      "selector": ".fb-empty-text"
+    },
+    "gallery": {
+      "label": "主图轮播",
+      "selector": "[data-fb-region~=\"gallery\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "caption": {
+      "label": "商品文字",
+      "selector": "[data-fb-region~=\"caption\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "title": {
+      "label": "商品名称",
+      "selector": "[data-fb-region~=\"title\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "subtitle": {
+      "label": "商品副标题",
+      "selector": "[data-fb-region~=\"subtitle\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "code": {
+      "label": "商品编码",
+      "selector": "[data-fb-region~=\"code\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "price": {
+      "label": "售价",
+      "selector": "[data-fb-region~=\"price\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "originalPrice": {
+      "label": "划线价",
+      "selector": "[data-fb-region~=\"originalPrice\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "thumbs": {
+      "label": "缩略图",
+      "selector": "[data-fb-region~=\"thumbs\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "thumbItem": {
+      "label": "缩略图项目",
+      "selector": "[data-fb-region~=\"thumbItem\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "thumbImage": {
+      "label": "缩略图图片",
+      "selector": "[data-fb-region~=\"thumbImage\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "floatingImage": {
+      "label": "悬浮图片",
+      "selector": "[data-fb-region~=\"floatingImage\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "empty": {
+      "label": "空状态",
+      "selector": "[data-fb-region~=\"empty\"]",
+      "sources": [
+        "detail"
+      ]
+    },
+    "tradeActions": {
+      "label": "商品交易操作栏",
+      "selector": ".fb-product-trade-actions"
+    },
+    "buyButton": {
+      "label": "购买按钮",
+      "selector": "[data-fb-buy]"
+    },
+    "customerButton": {
+      "label": "客服按钮",
+      "selector": "[data-fb-customer]"
+    }
+  },
+  "member_center": {
+    "button": {
+      "label": "操作按钮",
+      "selector": ".fb-btn"
+    },
+    "secondaryButton": {
+      "label": "次要按钮",
+      "selector": ".fb-btn-ghost"
+    },
+    "emptyTitle": {
+      "label": "空状态标题",
+      "selector": ".fb-empty-title"
+    },
+    "emptyText": {
+      "label": "空状态说明",
+      "selector": ".fb-empty-text"
+    },
+    "header": {
+      "label": "会员资料",
+      "selector": "[data-fb-region~=\"header\"]"
+    },
+    "avatar": {
+      "label": "头像",
+      "selector": "[data-fb-region~=\"avatar\"]"
+    },
+    "name": {
+      "label": "用户姓名",
+      "selector": "[data-fb-region~=\"name\"]"
+    },
+    "note": {
+      "label": "说明文字",
+      "selector": "[data-fb-region~=\"note\"]"
+    },
+    "stats": {
+      "label": "统计",
+      "selector": "[data-fb-region~=\"stats\"]"
+    },
+    "statItem": {
+      "label": "统计项目",
+      "selector": "[data-fb-region~=\"statItem\"]"
+    },
+    "statValue": {
+      "label": "统计数值",
+      "selector": "[data-fb-region~=\"statValue\"]"
+    },
+    "statLabel": {
+      "label": "统计文字",
+      "selector": "[data-fb-region~=\"statLabel\"]"
+    },
+    "statDivider": {
+      "label": "统计分隔",
+      "selector": "[data-fb-region~=\"statDivider\"]"
+    },
+    "resume": {
+      "label": "继续阅读",
+      "selector": "[data-fb-region~=\"resume\"]"
+    },
+    "resumeCover": {
+      "label": "继续阅读图片",
+      "selector": "[data-fb-region~=\"resumeCover\"]"
+    },
+    "resumeTitle": {
+      "label": "继续阅读标题",
+      "selector": "[data-fb-region~=\"resumeTitle\"]"
+    },
+    "resumeNote": {
+      "label": "继续阅读说明",
+      "selector": "[data-fb-region~=\"resumeNote\"]"
+    },
+    "resumeProgress": {
+      "label": "阅读进度",
+      "selector": "[data-fb-region~=\"resumeProgress\"]"
+    },
+    "menu": {
+      "label": "功能菜单",
+      "selector": "[data-fb-region~=\"menu\"]"
+    },
+    "menuItem": {
+      "label": "菜单项目",
+      "selector": "[data-fb-region~=\"menuItem\"]"
+    },
+    "menuIcon": {
+      "label": "菜单图标",
+      "selector": "[data-fb-region~=\"menuIcon\"]"
+    },
+    "menuText": {
+      "label": "菜单文字",
+      "selector": "[data-fb-region~=\"menuText\"]"
+    },
+    "menuArrow": {
+      "label": "菜单箭头",
+      "selector": "[data-fb-region~=\"menuArrow\"]"
+    },
+    "logout": {
+      "label": "退出登录",
+      "selector": "[data-fb-region~=\"logout\"]"
+    },
+    "loginCard": {
+      "label": "登录面板",
+      "selector": "[data-fb-region~=\"loginCard\"]"
+    },
+    "loginTitle": {
+      "label": "登录标题",
+      "selector": "[data-fb-region~=\"loginTitle\"]"
+    },
+    "loginNote": {
+      "label": "登录说明",
+      "selector": "[data-fb-region~=\"loginNote\"]"
+    },
+    "loginField": {
+      "label": "登录输入框",
+      "selector": "[data-fb-region~=\"loginField\"]"
+    },
+    "loginButton": {
+      "label": "登录按钮",
+      "selector": "[data-fb-region~=\"loginButton\"]"
+    },
+    "loginError": {
+      "label": "登录提示",
+      "selector": "[data-fb-region~=\"loginError\"]"
+    },
+    "resumeArrow": {
+      "label": "继续阅读箭头",
+      "selector": "[data-fb-region~=\"resumeArrow\"]"
+    },
+    "identity": {
+      "label": "姓名与说明布局",
+      "selector": ".fb-member-main"
+    },
+    "resumeHead": {
+      "label": "继续阅读标题栏",
+      "selector": ".fb-resume-head"
+    },
+    "resumeCard": {
+      "label": "继续阅读卡片",
+      "selector": ".fb-resume-card"
+    },
+    "resumeMain": {
+      "label": "继续阅读文字布局",
+      "selector": ".fb-resume-main"
+    },
+    "loginPage": {
+      "label": "登录页面",
+      "selector": "[data-fb-region~=\"loginPage\"]"
+    },
+    "loginTabs": {
+      "label": "登录方式栏",
+      "selector": ".fb-login-tabs"
+    },
+    "loginTab": {
+      "label": "登录标签",
+      "selector": ".fb-login-tab"
+    },
+    "loginTabActive": {
+      "label": "已选登录标签",
+      "selector": ".fb-login-tab.is-active"
+    },
+    "loginTabDisabled": {
+      "label": "不可用登录标签",
+      "selector": ".fb-login-tab.is-disabled"
+    },
+    "loginPlaceholder": {
+      "label": "输入提示文字",
+      "selector": ".fb-login-field::placeholder"
+    },
+    "empty": {
+      "label": "空状态区域",
+      "selector": ".fb-empty"
+    }
+  },
+  "album_list": {
+    "button": {
+      "label": "操作按钮",
+      "selector": ".fb-btn"
+    },
+    "secondaryButton": {
+      "label": "次要按钮",
+      "selector": ".fb-btn-ghost"
+    },
+    "emptyTitle": {
+      "label": "空状态标题",
+      "selector": ".fb-empty-title"
+    },
+    "emptyText": {
+      "label": "空状态说明",
+      "selector": ".fb-empty-text"
+    },
+    "search": {
+      "label": "搜索",
+      "selector": "[data-fb-region~=\"search\"]"
+    },
+    "searchInput": {
+      "label": "搜索输入框",
+      "selector": "[data-fb-region~=\"searchInput\"]"
+    },
+    "searchIcon": {
+      "label": "搜索图标",
+      "selector": "[data-fb-region~=\"searchIcon\"]"
+    },
+    "filters": {
+      "label": "筛选",
+      "selector": "[data-fb-region~=\"filters\"]"
+    },
+    "filterChip": {
+      "label": "筛选项目",
+      "selector": "[data-fb-region~=\"filterChip\"]"
+    },
+    "filterActive": {
+      "label": "选中筛选",
+      "selector": "[data-fb-region~=\"filterActive\"]"
+    },
+    "seriesMask": {
+      "label": "系列遮罩",
+      "selector": "[data-fb-region~=\"seriesMask\"]"
+    },
+    "seriesSheet": {
+      "label": "系列面板",
+      "selector": "[data-fb-region~=\"seriesSheet\"]"
+    },
+    "seriesTitle": {
+      "label": "系列标题",
+      "selector": "[data-fb-region~=\"seriesTitle\"]"
+    },
+    "seriesOption": {
+      "label": "系列项目",
+      "selector": "[data-fb-region~=\"seriesOption\"]"
+    },
+    "seriesActive": {
+      "label": "选中系列",
+      "selector": "[data-fb-region~=\"seriesActive\"]"
+    },
+    "list": {
+      "label": "商品列表",
+      "selector": "[data-fb-region~=\"list\"]"
+    },
+    "card": {
+      "label": "列表项目",
+      "selector": "[data-fb-region~=\"card\"]"
+    },
+    "cardCover": {
+      "label": "商品图片",
+      "selector": "[data-fb-region~=\"cardCover\"]"
+    },
+    "cardTitle": {
+      "label": "商品名称",
+      "selector": "[data-fb-region~=\"cardTitle\"]"
+    },
+    "cardMeta": {
+      "label": "商品说明",
+      "selector": "[data-fb-region~=\"cardMeta\"]"
+    },
+    "cardCode": {
+      "label": "商品编码",
+      "selector": "[data-fb-region~=\"cardCode\"]"
+    },
+    "empty": {
+      "label": "空状态",
+      "selector": "[data-fb-region~=\"empty\"]"
+    },
+    "seriesButton": {
+      "label": "系列筛选按钮",
+      "selector": ".fb-cat-filter"
+    },
+    "seriesCancel": {
+      "label": "系列取消按钮",
+      "selector": ".fb-series-cancel"
+    }
+  },
+  "favorite_list": {
+    "button": {
+      "label": "操作按钮",
+      "selector": ".fb-btn"
+    },
+    "secondaryButton": {
+      "label": "次要按钮",
+      "selector": ".fb-btn-ghost"
+    },
+    "emptyTitle": {
+      "label": "空状态标题",
+      "selector": ".fb-empty-title"
+    },
+    "emptyText": {
+      "label": "空状态说明",
+      "selector": ".fb-empty-text"
+    },
+    "toolbar": {
+      "label": "工具栏",
+      "selector": "[data-fb-region~=\"toolbar\"]"
+    },
+    "tabItem": {
+      "label": "标签项目",
+      "selector": "[data-fb-region~=\"tabItem\"]"
+    },
+    "tabActive": {
+      "label": "选中标签",
+      "selector": "[data-fb-region~=\"tabActive\"]"
+    },
+    "sort": {
+      "label": "排序",
+      "selector": "[data-fb-region~=\"sort\"]"
+    },
+    "list": {
+      "label": "收藏列表",
+      "selector": "[data-fb-region~=\"list\"]"
+    },
+    "card": {
+      "label": "列表项目",
+      "selector": "[data-fb-region~=\"card\"]"
+    },
+    "cardCover": {
+      "label": "商品图片",
+      "selector": "[data-fb-region~=\"cardCover\"]"
+    },
+    "cardTitle": {
+      "label": "商品名称",
+      "selector": "[data-fb-region~=\"cardTitle\"]"
+    },
+    "cardMeta": {
+      "label": "商品说明",
+      "selector": "[data-fb-region~=\"cardMeta\"]"
+    },
+    "remove": {
+      "label": "移除按钮",
+      "selector": "[data-fb-region~=\"remove\"]"
+    },
+    "empty": {
+      "label": "空状态",
+      "selector": "[data-fb-region~=\"empty\"]"
+    },
+    "loginTip": {
+      "label": "登录提示",
+      "selector": "[data-fb-region~=\"loginTip\"]"
+    }
+  },
+  "history_list": {
+    "button": {
+      "label": "操作按钮",
+      "selector": ".fb-btn"
+    },
+    "secondaryButton": {
+      "label": "次要按钮",
+      "selector": ".fb-btn-ghost"
+    },
+    "emptyTitle": {
+      "label": "空状态标题",
+      "selector": ".fb-empty-title"
+    },
+    "emptyText": {
+      "label": "空状态说明",
+      "selector": ".fb-empty-text"
+    },
+    "toolbar": {
+      "label": "工具栏",
+      "selector": "[data-fb-region~=\"toolbar\"]"
+    },
+    "tabItem": {
+      "label": "标签项目",
+      "selector": "[data-fb-region~=\"tabItem\"]"
+    },
+    "tabActive": {
+      "label": "选中标签",
+      "selector": "[data-fb-region~=\"tabActive\"]"
+    },
+    "count": {
+      "label": "记录数量",
+      "selector": "[data-fb-region~=\"count\"]"
+    },
+    "list": {
+      "label": "记录列表",
+      "selector": "[data-fb-region~=\"list\"]"
+    },
+    "dateGroup": {
+      "label": "日期分组",
+      "selector": "[data-fb-region~=\"dateGroup\"]"
+    },
+    "dateTitle": {
+      "label": "日期标题",
+      "selector": "[data-fb-region~=\"dateTitle\"]"
+    },
+    "row": {
+      "label": "记录项目",
+      "selector": "[data-fb-region~=\"row\"]"
+    },
+    "cover": {
+      "label": "记录图片",
+      "selector": "[data-fb-region~=\"cover\"]"
+    },
+    "title": {
+      "label": "记录标题",
+      "selector": "[data-fb-region~=\"title\"]"
+    },
+    "meta": {
+      "label": "记录说明",
+      "selector": "[data-fb-region~=\"meta\"]"
+    },
+    "progress": {
+      "label": "阅读进度",
+      "selector": "[data-fb-region~=\"progress\"]"
+    },
+    "actions": {
+      "label": "操作区域",
+      "selector": "[data-fb-region~=\"actions\"]"
+    },
+    "action": {
+      "label": "操作按钮",
+      "selector": "[data-fb-region~=\"action\"]"
+    },
+    "empty": {
+      "label": "空状态",
+      "selector": "[data-fb-region~=\"empty\"]"
+    }
+  },
+  "product_info": {
+    "heading": {
+      "label": "区域标题",
+      "selector": "[data-fb-region~=\"heading\"]"
+    },
+    "colors": {
+      "label": "颜色",
+      "selector": "[data-fb-region~=\"colors\"]"
+    },
+    "colorLabel": {
+      "label": "颜色名称",
+      "selector": "[data-fb-region~=\"colorLabel\"]"
+    },
+    "colorValue": {
+      "label": "颜色标签",
+      "selector": "[data-fb-region~=\"colorValue\"]"
+    },
+    "sizes": {
+      "label": "尺码",
+      "selector": "[data-fb-region~=\"sizes\"]"
+    },
+    "sizeLabel": {
+      "label": "尺码名称",
+      "selector": "[data-fb-region~=\"sizeLabel\"]"
+    },
+    "sizeValue": {
+      "label": "尺码标签",
+      "selector": "[data-fb-region~=\"sizeValue\"]"
+    },
+    "fit": {
+      "label": "版型",
+      "selector": "[data-fb-region~=\"fit\"]"
+    },
+    "fitLabel": {
+      "label": "版型名称",
+      "selector": "[data-fb-region~=\"fitLabel\"]"
+    },
+    "fitValue": {
+      "label": "版型说明",
+      "selector": "[data-fb-region~=\"fitValue\"]"
+    },
+    "fields": {
+      "label": "自定义字段",
+      "selector": "[data-fb-region~=\"fields\"]"
+    },
+    "fieldLabel": {
+      "label": "字段名称",
+      "selector": "[data-fb-region~=\"fieldLabel\"]"
+    },
+    "fieldValue": {
+      "label": "字段内容",
+      "selector": "[data-fb-region~=\"fieldValue\"]"
+    },
+    "table": {
+      "label": "尺码表",
+      "selector": "[data-fb-region~=\"table\"]"
+    },
+    "tableHead": {
+      "label": "尺码表头",
+      "selector": "[data-fb-region~=\"tableHead\"]"
+    },
+    "tableRow": {
+      "label": "尺码表行",
+      "selector": "[data-fb-region~=\"tableRow\"]"
+    },
+    "tableCell": {
+      "label": "尺码单元格",
+      "selector": "[data-fb-region~=\"tableCell\"]"
+    },
+    "tableNote": {
+      "label": "测量提示",
+      "selector": "[data-fb-region~=\"tableNote\"]"
+    },
+    "content": {
+      "label": "补充内容",
+      "selector": "[data-fb-region~=\"content\"]"
+    },
+    "contentTitle": {
+      "label": "内容主标题",
+      "selector": ".fb-markdown h1"
+    },
+    "contentSubtitle": {
+      "label": "内容副标题",
+      "selector": ".fb-markdown h2, .fb-markdown h3, .fb-markdown h4, .fb-markdown h5, .fb-markdown h6"
+    },
+    "contentText": {
+      "label": "内容描述",
+      "selector": ".fb-markdown p"
+    },
+    "contentList": {
+      "label": "内容列表",
+      "selector": ".fb-markdown ul, .fb-markdown ol"
+    },
+    "contentQuote": {
+      "label": "内容引用",
+      "selector": ".fb-markdown blockquote"
+    },
+    "contentCode": {
+      "label": "内容代码",
+      "selector": ".fb-markdown pre, .fb-markdown code"
+    },
+    "contentLink": {
+      "label": "内容链接",
+      "selector": ".fb-markdown a"
+    }
+  },
+  "hero": {
+    "stage": {
+      "label": "媒体区域",
+      "selector": ".fb-mc-hero, [data-fb-region~=\"stage\"]"
+    },
+    "slide": {
+      "label": "轮播项目",
+      "selector": ".fb-mc-slide, [data-fb-region~=\"slide\"]"
+    },
+    "media": {
+      "label": "媒体",
+      "selector": ".fb-mc-slide > img, .fb-mc-slide > video, [data-fb-region~=\"media\"]"
+    },
+    "indicators": {
+      "label": "指示器区域",
+      "selector": ".fb-mc-dots, [data-fb-region~=\"indicators\"]"
+    },
+    "indicator": {
+      "label": "指示器",
+      "selector": ".fb-mc-dot, [data-fb-region~=\"indicator\"]"
+    },
+    "indicatorActive": {
+      "label": "选中指示器",
+      "selector": ".fb-mc-dot.is-active, [data-fb-region~=\"indicatorActive\"]"
+    },
+    "lines": {
+      "label": "文字区域",
+      "selector": ".fb-mc-lines, [data-fb-region~=\"lines\"]"
+    },
+    "line": {
+      "label": "文字项目",
+      "selector": ".fb-mc-line, [data-fb-region~=\"line\"]"
+    },
+    "hotspots": {
+      "label": "热区区域",
+      "selector": ".fb-mc-hotspots, [data-fb-region~=\"hotspots\"]"
+    },
+    "hotspot": {
+      "label": "热区项目",
+      "selector": ".fb-mc-hotspot, [data-fb-region~=\"hotspot\"]"
+    }
+  },
+  "carousel": {
+    "stage": {
+      "label": "媒体区域",
+      "selector": ".fb-mc-carousel, [data-fb-region~=\"stage\"]"
+    },
+    "slide": {
+      "label": "轮播项目",
+      "selector": ".fb-mc-slide, [data-fb-region~=\"slide\"]"
+    },
+    "media": {
+      "label": "媒体",
+      "selector": ".fb-mc-slide > img, .fb-mc-slide > video, [data-fb-region~=\"media\"]"
+    },
+    "indicators": {
+      "label": "指示器区域",
+      "selector": ".fb-mc-dots, [data-fb-region~=\"indicators\"]"
+    },
+    "indicator": {
+      "label": "指示器",
+      "selector": ".fb-mc-dot, [data-fb-region~=\"indicator\"]"
+    },
+    "indicatorActive": {
+      "label": "选中指示器",
+      "selector": ".fb-mc-dot.is-active, [data-fb-region~=\"indicatorActive\"]"
+    }
+  },
+  "image": {
+    "media": {
+      "label": "图片",
+      "selector": ".fb-mc-image, [data-fb-region~=\"media\"]"
+    },
+    "empty": {
+      "label": "空状态",
+      "selector": ".fb-mc-image-empty, [data-fb-region~=\"empty\"]"
+    }
+  },
+  "video": {
+    "media": {
+      "label": "视频",
+      "selector": ".fb-mc-video, [data-fb-region~=\"media\"]"
+    },
+    "empty": {
+      "label": "空状态",
+      "selector": ".fb-mc-image-empty, [data-fb-region~=\"empty\"]"
+    }
+  },
+  "text": {
+    "content": {
+      "label": "文字区域",
+      "selector": ".fb-mc-text, [data-fb-region~=\"content\"]"
+    }
+  },
+  "search": {
+    "control": {
+      "label": "搜索区域",
+      "selector": ".fb-mc-search, [data-fb-region~=\"control\"]"
+    },
+    "input": {
+      "label": "搜索输入框",
+      "selector": ".fb-mc-search-input, [data-fb-region~=\"input\"]"
+    },
+    "button": {
+      "label": "搜索按钮",
+      "selector": ".fb-mc-search-btn, [data-fb-region~=\"button\"]"
+    },
+    "icon": {
+      "label": "搜索图标",
+      "selector": ".fb-mc-search-btn .fb-icon, [data-fb-region~=\"icon\"]"
+    }
+  },
+  "tab": {
+    "head": {
+      "label": "标签栏",
+      "selector": ".fb-mc-tabhead, [data-fb-region~=\"head\"]"
+    },
+    "tab": {
+      "label": "标签项目",
+      "selector": ".fb-mc-tabbtn, [data-fb-region~=\"tab\"]"
+    },
+    "tabActive": {
+      "label": "选中标签",
+      "selector": ".fb-mc-tabbtn.is-active, [data-fb-region~=\"tabActive\"]"
+    },
+    "panels": {
+      "label": "内容区域",
+      "selector": ".fb-mc-tabpanels, [data-fb-region~=\"panels\"]"
+    },
+    "panel": {
+      "label": "标签内容",
+      "selector": ".fb-mc-tabpanel, [data-fb-region~=\"panel\"]"
+    }
+  },
+  "markdown": {
+    "content": {
+      "label": "正文",
+      "selector": ".fb-markdown, [data-fb-region~=\"content\"]"
+    },
+    "heading": {
+      "label": "主标题",
+      "selector": ".fb-markdown h1, [data-fb-region~=\"heading\"]"
+    },
+    "paragraph": {
+      "label": "段落",
+      "selector": ".fb-markdown p, [data-fb-region~=\"paragraph\"]"
+    },
+    "link": {
+      "label": "链接",
+      "selector": ".fb-markdown a, [data-fb-region~=\"link\"]"
+    },
+    "list": {
+      "label": "列表",
+      "selector": ".fb-markdown ul, .fb-markdown ol, [data-fb-region~=\"list\"]"
+    },
+    "quote": {
+      "label": "引用",
+      "selector": ".fb-markdown blockquote, [data-fb-region~=\"quote\"]"
+    },
+    "code": {
+      "label": "代码",
+      "selector": ".fb-markdown pre, .fb-markdown :not(pre) > code, [data-fb-region~=\"code\"]"
+    },
+    "subheading": {
+      "label": "副标题",
+      "selector": ".fb-markdown h2, .fb-markdown h3, .fb-markdown h4, .fb-markdown h5, .fb-markdown h6, [data-fb-region~=\"subheading\"]"
+    }
+  },
+  "view_title": {
+    "line": {
+      "label": "文字项目",
+      "selector": "[data-fb-view-title], [data-fb-region~=\"line\"]"
+    }
+  },
+  "divider": {
+    "line": {
+      "label": "分割线",
+      "selector": ".fb-mc-divider, [data-fb-region~=\"line\"]"
+    }
+  },
+  "spacer": {
+    "space": {
+      "label": "占位区域",
+      "selector": ".fb-mc-spacer, [data-fb-region~=\"space\"]"
+    }
+  },
+  "product_highlights": {
+    "container": {
+      "label": "内容区域",
+      "selector": "[data-fb-region~=\"container\"]"
+    },
+    "heading": {
+      "label": "标题栏",
+      "selector": "[data-fb-region~=\"heading\"]"
+    },
+    "title": {
+      "label": "标题",
+      "selector": "[data-fb-region~=\"title\"]"
+    },
+    "list": {
+      "label": "图片组",
+      "selector": "[data-fb-region~=\"list\"]"
+    },
+    "item": {
+      "label": "图片项目",
+      "selector": "[data-fb-region~=\"item\"]"
+    },
+    "image": {
+      "label": "图片",
+      "selector": "[data-fb-region~=\"image\"]"
+    },
+    "text": {
+      "label": "说明文字",
+      "selector": "[data-fb-region~=\"text\"]"
+    },
+    "code": {
+      "label": "商品编码",
+      "selector": "[data-fb-region~=\"code\"]"
+    }
+  },
+  "product_details": {
+    "container": {
+      "label": "内容区域",
+      "selector": "[data-fb-region~=\"container\"]"
+    },
+    "heading": {
+      "label": "标题栏",
+      "selector": "[data-fb-region~=\"heading\"]"
+    },
+    "title": {
+      "label": "标题",
+      "selector": "[data-fb-region~=\"title\"]"
+    },
+    "list": {
+      "label": "图片组",
+      "selector": "[data-fb-region~=\"list\"]"
+    },
+    "item": {
+      "label": "图片项目",
+      "selector": "[data-fb-region~=\"item\"]"
+    },
+    "image": {
+      "label": "图片",
+      "selector": "[data-fb-region~=\"image\"]"
+    },
+    "text": {
+      "label": "说明文字",
+      "selector": "[data-fb-region~=\"text\"]"
+    },
+    "code": {
+      "label": "商品编码",
+      "selector": "[data-fb-region~=\"code\"]"
+    }
+  }
+}

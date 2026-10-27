@@ -1,0 +1,61 @@
+<view class="fb-page fb-tab-page" style="--fb-status-h:{{statusBar}}px;">
+	<view wx:if="{{!embedded}}" class="fb-topbar">
+		<view class="fb-back"></view>
+		<text class="fb-topbar-title">分类</text>
+		<view wx:if="{{!embedded}}" class="fb-topbar-side"></view>
+	</view>
+
+	<view class="fb-search fb-content" style="{{regionStyles.search}}">
+		<view class="fb-icon fb-icon-search" style="{{regionStyles.searchIcon}};{{searchIconStyle}}"></view>
+		<input class="fb-search-input" value="{{keyword}}" placeholder="搜索款式、画册" placeholder-class="fb-search-placeholder" confirm-type="search" bindinput="onInput" bindconfirm="onConfirm"  style="{{regionStyles.searchInput}}" />
+	</view>
+
+	<view class="fb-cat-tabs" style="{{regionStyles.filters}}">
+		<scroll-view class="fb-cat-scroll" scroll-x="true">
+			<view class="fb-chip-row">
+				<text class="fb-chip {{catid == 0 ? 'is-active' : ''}}" data-id="0" bindtap="onCategory" style="{{regionStyles.filterChip}};{{catid == 0 ? regionStyles.filterActive : ''}}">全部</text>
+				<text class="fb-chip {{catid == item.catid ? 'is-active' : ''}}" wx:for="{{categories}}" wx:key="catid" data-id="{{item.catid}}" bindtap="onCategory" style="{{regionStyles.filterChip}};{{catid == item.catid ? regionStyles.filterActive : ''}}">{{item.name}}</text>
+			</view>
+		</scroll-view>
+<view class="fb-cat-filter" style="{{regionStyles.seriesButton}}" bindtap="onOpenSeries"><view class="fb-icon fb-icon-chevron-down"></view></view>
+	</view>
+
+	<block wx:if="{{status == 2}}">
+		<view class="fb-grid" style="{{regionStyles.list}}">
+			<view class="fb-card" wx:for="{{albums}}" wx:key="albumid" data-id="{{item.albumid}}" bindtap="onOpenAlbum" style="{{regionStyles.card}}">
+				<view class="fb-card-cover" style="{{regionStyles.cardCover}}">
+					<image wx:if="{{item.cover}}" src="{{item.cover}}" mode="aspectFill"></image>
+				</view>
+				<text class="fb-card-title" style="{{regionStyles.cardTitle}}">{{item.name}}</text>
+				<text class="fb-card-meta" style="{{regionStyles.cardMeta}}">{{item.pagecountpad}} 页</text>
+			</view>
+ <view class="fb-card" wx:for="{{products}}" wx:key="productid" data-id="{{item.productid}}" bindtap="onOpenProduct" style="{{regionStyles.card}}">
+  <view class="fb-card-cover" style="{{regionStyles.cardCover}}"><image wx:if="{{item.cover}}" src="{{item.cover}}" mode="aspectFill" /></view>
+  <text class="fb-card-title" style="{{regionStyles.cardTitle}}">{{item.name}}</text><text class="fb-card-meta" style="{{regionStyles.cardMeta}};{{regionStyles.cardCode}}">{{item.code}}</text>
+ </view>
+		</view>
+	</block>
+
+	<view wx:elif="{{status == 1}}" class="fb-empty" style="{{regionStyles.empty}}">
+		
+	</view>
+
+	<view wx:elif="{{status == 3}}" class="fb-empty" style="{{regionStyles.empty}}">
+		<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">没有找到画册</text>
+		<text class="fb-empty-text" style="{{regionStyles.emptyText}}">换个关键词或分类试试</text>
+	</view>
+
+	<view wx:else class="fb-empty" style="{{regionStyles.empty}}">
+		<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">加载失败</text>
+		<text class="fb-empty-text" style="{{regionStyles.emptyText}}">请检查网络或接口地址</text>
+		<button class="fb-btn" bindtap="onRetry" style="{{regionStyles.button}}">重新加载</button>
+	</view>
+</view>
+
+<view wx:if="{{showSeries}}" class="fb-series-mask" catchtap="onCloseSeries" style="{{regionStyles.seriesMask}}">
+ <view class="fb-series-sheet" catchtap="onStopTap" style="{{regionStyles.seriesSheet}}"><view class="fb-series-head" style="{{regionStyles.seriesTitle}}"><text>选择系列</text><text class="fb-series-cancel" style="{{regionStyles.seriesCancel}}" bindtap="onCloseSeries">取消</text></view>
+ <scroll-view scroll-y class="fb-series-options"><view wx:for="{{series}}" wx:key="seriesid" class="fb-series-option {{seriesid === item.seriesid ? 'is-active' : ''}}" data-id="{{item.seriesid}}" bindtap="onSelectSeries" style="{{regionStyles.seriesOption}};{{seriesid === item.seriesid ? regionStyles.seriesActive : ''}}"><text>{{item.name}}</text><text wx:if="{{seriesid === item.seriesid}}">✓</text></view></scroll-view>
+ </view>
+</view>
+
+<fb-toast />

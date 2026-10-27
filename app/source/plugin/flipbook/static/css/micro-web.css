@@ -1,0 +1,117 @@
+:where(.fb-app button){background:transparent;color:inherit;border:0;padding:0;font:inherit}
+/* H5 使用与小程序相同的业务结构，外壳占满移动视口。 */
+.fb-app [hidden] { display:none!important; }
+.fb-app.fb-micro-app { display:flex; flex-direction:column; height:100dvh; min-height:0; overflow:hidden; box-sizing:border-box; padding-bottom:var(--fb-current-tab-height,0px); }
+.fb-mc-nav { position:relative; flex:none; min-height:0; isolation:isolate; }
+.fb-mc-block { flex:none; min-width:0; }
+.fb-mc-back-anchor{position:absolute;transform:translateY(-50%);z-index:31}
+.fb-mc-back-control{box-sizing:border-box;flex:none}
+.fb-mc-back-control .fb-icon{width:100%;height:100%}
+.fb-mc-main { flex:1; min-height:0 !important; overflow-y:auto; overscroll-behavior-y:contain; }
+.fb-mc-tabbar { position:fixed; bottom:0; left:0; right:0; z-index:50; flex:none; transform:none; width:100%; margin:0 auto; }
+.fb-mini .fb-page { min-height:0; padding-bottom:0; }
+.fb-mini .fb-screen { height:calc(100dvh - 160px); min-height:360px; }
+.fb-web-hero { position:relative; height:100%; overflow:hidden; }
+.fb-web-hero-item { position:absolute; inset:0; display:none; }
+.fb-web-hero-item.is-active { display:block; }
+.fb-web-hero-enter { position:absolute; inset:0; z-index:1; }
+.fb-web-hero-item .fb-hero-info { z-index:2; }
+.fb-mini .fb-hero-img, .fb-mini .fb-reader-image, .fb-mini .fb-card-cover img { object-fit:cover; }
+.fb-web-reader-track { height:100%; display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
+.fb-web-reader-track::-webkit-scrollbar { display:none; }
+.fb-web-reader-slide { flex:none; width:100%; height:100%; scroll-snap-align:start; }
+.fb-web-image-button { width:100%; height:100%; padding:0; border:0; display:block; }
+.fb-web-reader-slide video { width:100%; height:100%; object-fit:cover; }
+.fb-mini .fb-thumbs { overflow-x:auto; }
+.fb-mini .fb-thumb-img { display:block; object-fit:cover; }
+.fb-mini .fb-detail-shot { display:block; text-align:left; padding:0; border:0; background:transparent; }
+.fb-mini .fb-detail-shot img { display:block; width:100%; height:auto; }
+.fb-mini .fb-member-main > span, .fb-mini .fb-stat > span, .fb-mini .fb-card-meta { display:block; }
+
+.fb-mini .fb-cat-scroll { flex:1; min-width:0; overflow-x:auto; }
+.fb-mini .fb-cat-filter { position:relative; padding:0; }
+.fb-mini .fb-series-option { text-decoration:none; }
+.fb-series-mask[hidden] { display:none; }
+.fb-series-cancel { border:0; background:none; }
+.fb-mini .fb-cat-filter { background:transparent; border:0; color:#aaa; }
+.fb-mini .fb-screen .fb-media-actions { left:20px; bottom:20px; }
+.fb-mini .fb-read-stage { aspect-ratio:auto; }
+.fb-mini .fb-card { overflow:visible; border:0; border-radius:0; background:none; }
+.fb-mini .fb-card-title { line-height:1.3; }
+
+.fb-mini .fb-fav-tabs { padding-top:0; }
+.fb-mini .fb-cat-scroll { scrollbar-width:none; }
+.fb-mini .fb-cat-scroll::-webkit-scrollbar { display:none; }
+.fb-mini .fb-chip { color:var(--fb-text-3); }
+.fb-mini .fb-chip.is-active { color:var(--fb-text); }
+.fb-mini .fb-search input { color:var(--fb-text); font-size:13px; }
+.fb-mc-nav { padding-top:env(safe-area-inset-top); box-sizing:content-box; }
+.fb-mc-tabbar { padding-bottom:env(safe-area-inset-bottom); }
+
+.fb-mc-floating-logo { position:absolute; z-index:25; display:flex; align-items:center; pointer-events:none; }
+.fb-mc-floating-logo .fb-mc-logo { pointer-events:auto; }
+.fb-mc-floating-back { position:absolute; top:12px; left:16px; z-index:26; display:flex; width:32px; height:32px; align-items:center; justify-content:center; border-radius:50%; color:#fff; background:rgba(0,0,0,.35); }
+
+.fb-mini .fb-screen { height:var(--fb-business-height, calc(100dvh - 120px)); min-height:0; }
+/* 小程序通过条件渲染隐藏弹层，H5 用显式状态类保持相同的初始状态。 */
+.fb-sheet:not(.is-open), .fb-mask:not(.is-open), .fb-viewer:not(.is-open) { display:none !important; }
+.fb-media-actions { top:auto !important; transform:none !important; }
+.fb-mc-business .fb-media-actions { left:20px; bottom:20px; right:auto; }
+
+.fb-app.fb-micro-app { position:relative; }
+.fb-mc-main, .fb-mini .fb-thumbs, .fb-web-reader-track { scrollbar-width:none; }
+.fb-mc-main::-webkit-scrollbar, .fb-mini .fb-thumbs::-webkit-scrollbar { display:none; }
+
+.fb-mc-nav.is-overlay { position:absolute; top:0; left:0; right:0; z-index:30; }
+
+.fb-mc-view_title .fb-view-title-main { display:block; font-weight:700; }
+.fb-mc-view_title .fb-view-title-sub { display:block; margin-top:4px; font-size:13px; }
+
+.fb-login-document{min-width:0;box-sizing:border-box}
+.fb-login-document .fb-login-card{position:static;width:100%;box-sizing:border-box}
+.fb-login-document .fb-login-field,.fb-login-document .fb-login-submit{display:block;box-sizing:border-box;width:100%;font-family:inherit}
+.fb-login-document .fb-login-tabs{box-sizing:border-box}
+.fb-login-document .fb-login-tab{flex-basis:0;box-sizing:border-box;font-family:inherit;cursor:pointer}
+.fb-login-document .fb-login-tab[disabled]{cursor:default;opacity:1;-webkit-text-fill-color:currentColor}
+.fb-login-document .fb-login-error:empty{display:none}
+.fb-member .fb-avatar svg{width:100%;height:100%}
+.fb-member .fb-avatar img{width:100%;height:100%;object-fit:cover}
+
+
+
+.fb-product-floating img{display:block;width:100%;height:100%;object-fit:contain}.fb-product-share-modal{position:fixed;inset:0;z-index:2000;background:#0009;display:flex;align-items:flex-end;justify-content:center;color:#111}
+.fb-product-share-dialog{box-sizing:border-box;width:min(100%,480px);min-height:50dvh;max-height:94dvh;display:flex;flex-direction:column;overflow:hidden;background:#f5f5f5;border-radius:18px 18px 0 0;padding:0}
+.fb-product-share-dialog header{flex:none;display:flex;justify-content:space-between;align-items:center;font-size:16px;padding:10px 14px}
+.fb-product-share-dialog header button{flex:none;margin:0 0 0 auto;background:none;border:0;color:#111;font-size:26px}
+.fb-product-share-preview{flex:0 1 auto;min-height:0;overflow-y:auto;margin:0 14px}
+.fb-product-share-dialog article{padding:16px;margin:0}.fb-product-share-dialog article[hidden]{display:none}
+.fb-product-share-image-wrap{position:relative;width:100%;overflow:hidden;border-radius:12px;background:#f2f2f2}
+.fb-product-share-dialog [data-share-image]{display:block;width:100%;height:auto;max-height:none}
+.fb-product-share-dialog [data-share-price]:not(:empty){position:absolute;right:10px;bottom:10px;display:block;background:#111;color:#fff;padding:3px 10px;border-radius:24px;font-size:14px;line-height:1.5}
+.fb-product-share-info{display:flex;align-items:stretch;gap:10px;margin-top:12px}
+.fb-product-share-info>div{display:flex;flex-direction:column;flex:1;min-width:0}
+.fb-product-share-info [data-share-title]{font-size:15px;line-height:1.5;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fb-product-share-info [data-share-subtitle]{font-size:12px;line-height:1.5;margin:4px 0 0;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fb-product-share-info [data-share-description]{font-size:12px;line-height:18px;color:#666;margin:auto 0 0;padding-top:8px;white-space:pre-wrap;overflow-wrap:anywhere}
+.fb-product-share-info figure{display:flex;flex-direction:column;justify-content:flex-end;width:min(24vw,115.2px);flex:none;margin:0;text-align:center;color:#666}
+.fb-product-share-info figure img{display:block;width:100%;height:auto;aspect-ratio:1}.fb-product-share-info figcaption{margin-top:5px;font-size:12px;line-height:18px}
+.fb-product-share-dialog footer{flex:none;display:flex;gap:10px;padding:12px 14px calc(14px + env(safe-area-inset-bottom))}
+.fb-product-share-dialog footer button{flex:1;border:0;border-radius:28px;background:#fff;color:#111;font-size:14px;padding:10px}
+.fb-product-share-dialog footer button:first-child{background:#111;color:#fff}.fb-product-share-dialog button:disabled{opacity:.5}.fb-product-share-dialog [data-share-status]{font-size:12px;line-height:1.6}
+.fb-product-share-dialog [data-share-status]:empty{display:none}
+
+
+
+
+/* Shared text regions keep the same full-width boxes and readable list rhythm. */
+.fb-mc-block .fb-markdown :is(h1,h2,h3,h4,h5,h6,p,ul,ol){box-sizing:border-box;min-width:0;overflow-wrap:anywhere}
+.fb-mc-block .fb-markdown :is(ul,ol){padding-left:0;list-style-position:inside}
+.fb-mc-block .fb-markdown li{margin:4px 0;line-height:inherit;color:inherit;font-size:inherit}
+
+/* Image captions live outside the image frame; visual offsets do not change document flow. */
+.fb-detail-shot{overflow:visible;background:transparent;border-radius:0}
+.fb-detail-picture{display:block;border:0;padding:0;width:100%;background:transparent;border-radius:var(--fb-radius-m);overflow:hidden}
+.fb-detail-picture img{display:block;width:100%}
+.fb-product-media-item{overflow:visible}
+.fb-detail-shotcap,.fb-product-media-text{display:block;position:relative;width:100%;box-sizing:border-box}
+.fb-custom-nav-icon{display:block;flex:none;width:24px;height:24px}

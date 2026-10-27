@@ -1,0 +1,27 @@
+/* Device chrome only. The iframe uses the real H5 route and its own micro-page configuration. */
+:root{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#20242c;background:#f1f3f6}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+.fb-device-toolbar{min-height:72px;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:#fff;border-bottom:1px solid #e2e5eb}
+.fb-device-toolbar strong{font-size:17px;font-weight:600}
+.fb-device-caption{margin-left:14px;color:#737b88;font-size:13px}
+.fb-device-actions{display:flex;gap:10px;align-items:center}
+.fb-device-actions a,.fb-device-actions button{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 13px;border:1px solid #d7dce5;border-radius:6px;background:#fff;color:inherit;font:inherit;font-size:13px;text-decoration:none;cursor:pointer}
+.fb-device-actions a:hover,.fb-device-actions button:hover{background:#f5f7fb}
+.fb-device-actions a:focus-visible,.fb-device-actions button:focus-visible{outline:2px solid #2563eb;outline-offset:2px}
+.fb-device-stage{height:calc(100dvh - 72px);min-height:240px;display:flex;align-items:center;justify-content:center;padding:24px;overflow:auto}
+.fb-device-slot{position:relative;flex:none;width:395px;height:832px}
+.fb-device-phone{position:absolute;left:0;top:0;width:395px;height:832px;padding:10px;border-radius:52px;background:#151619;box-shadow:0 14px 40px #19233326,0 0 0 1px #777;transform:scale(var(--fb-device-scale,1));transform-origin:top left}
+.fb-device-screen{position:relative;width:375px;height:812px;overflow:hidden;border-radius:42px;background:#000}
+.fb-device-status{position:absolute;left:0;right:0;top:0;height:40px;padding:10px 24px 0;display:flex;align-items:flex-start;justify-content:space-between;color:#fff;font-size:12px;font-weight:600;pointer-events:none}
+.fb-device-signals{display:flex;align-items:center;gap:4px;height:14px}
+.fb-device-signals svg{width:15px;height:11px;fill:currentColor}
+.fb-device-signals svg:last-child{width:24px}
+.fb-device-notch{position:absolute;top:0;left:110px;width:155px;height:25px;border-radius:0 0 17px 17px;background:#151619;pointer-events:none}
+.fb-device-content{position:absolute;top:40px;left:0;width:375px;height:748px;border:0;display:block;background:transparent}
+.fb-device-home{position:absolute;bottom:8px;left:130px;width:115px;height:4px;border-radius:4px;background:#fff;pointer-events:none}
+@media(max-width:580px){.fb-device-toolbar{padding:12px;flex-wrap:wrap;gap:10px}.fb-device-caption{display:none}.fb-device-stage{padding:16px}}
+html.is-embedded,.fb-device-preview.is-embedded{background:transparent}
+.is-embedded .fb-device-toolbar{display:none}
+.is-embedded .fb-device-stage{padding:0;min-height:0;overflow:hidden}
+.is-embedded .fb-device-phone{box-shadow:none}

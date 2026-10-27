@@ -1,0 +1,5 @@
+<nav class="fb-navbar" aria-label="画册导航">
+<!--{loop $fb[nav] $nav}-->
+	<a class="fb-nav-item{if $nav[active]} is-active{/if}" href="{$nav[url]}"{if $nav[active]} aria-current="page"{/if}>{$nav[label]}</a>
+<!--{/loop}-->
+</nav>

@@ -1,0 +1,31 @@
+<!--{if $fb[product]}-->
+<!--{eval $product=$fb['product']; $slides=$fb['slides'];}-->
+<div class="fb-web-reader" data-fb-product="{$product[productid]}">
+ <div data-fb-region="gallery" class="fb-read-stage fb-stage-frame" data-fb-web-reader>
+ <div class="fb-web-reader-track" data-fb-web-reader-track><!--{loop $slides $i $slide}--><div class="fb-web-reader-slide" data-index="{$i}" data-title="{$slide[title]}"><!--{if !empty($slide[video])}--><video class="fb-reader-video" src="{$slide[video]}" poster="{$slide[image]}" autoplay muted playsinline></video><!--{else}--><button class="fb-web-image-button" data-fb-viewer="{$slide[image]}" data-fb-viewer-title="{$slide[title]}" data-fb-viewer-group="micro"><img class="fb-reader-image" src="{$slide[image]}" alt="{$slide[title]}" /></button><!--{/if}--></div><!--{/loop}--></div>
+ <!--{if $fb[floatingOptions][enabled] && $product[spec][floatingImage][src]}--><a data-fb-region="floatingImage" class="fb-product-floating" style="{$fb[floatingStyle]}" href="{eval echo flipbook\front_helper::e(flipbook\front_micro::link_url($product['spec']['floatingImage']['link']));}"><img src="{$product[spec][floatingImage][src]}" alt="商品悬浮图片"></a><!--{/if}-->
+ </div>
+ <!--{if $fb[captionOptions][enabled]}--><div data-fb-region="caption" class="fb-caption"><div class="fb-caption-main" style="text-align:{$fb[captionOptions][align]}"><!--{if $fb[captionOptions][showTitle]}--><span data-fb-region="title" class="fb-caption-title" style="font-size:{$fb[captionOptions][size]}px;color:{$fb[captionOptions][color]}">{$product[name]}</span><!--{/if}--></div><!--{if $product[price]}--><div class="fb-price"><span data-fb-region="price" class="fb-price-sale">{if $product[price][currency] == 'CNY'}¥{else}{$product[price][currency]}{/if}{$product[price][value]}</span><!--{if $product[price][original]}--><span data-fb-region="originalPrice" class="fb-price-origin">¥{$product[price][original]}</span><!--{/if}--></div><!--{/if}--><!--{if $fb[captionOptions][showSubtitle] || $fb[captionOptions][showCode]}--><span class="fb-caption-sub" style="text-align:{$fb[captionOptions][align]};font-size:{$fb[captionOptions][subSize]}px;color:{$fb[captionOptions][subColor]}"><!--{if $fb[captionOptions][showCode]}--><span data-fb-region="code" class="fb-code-tag">{$product[code]}</span><!--{/if}--><!--{if $fb[captionOptions][showSubtitle]}--><span data-fb-region="subtitle">{$product[summary]}</span><!--{/if}--></span><!--{/if}--></div><!--{/if}-->
+ <!--{if $fb[skus]}--><div data-fb-region="thumbs" class="fb-thumbs"><div class="fb-thumb-row"><!--{loop $fb[skus] $sku}--><button data-fb-region="thumbItem" class="fb-thumb-item" data-fb-web-pick="{$sku[slideIndex]}"><img data-fb-region="thumbImage" class="fb-thumb-img" src="{$sku[image]}" /><!--{if !empty($sku[video])}--><span class="fb-thumb-play">▶</span><!--{/if}--></button><!--{/loop}--></div></div><!--{/if}-->
+ <!--{loop array('highlight'=>'产品卖点','detail'=>'细节展示') $group $title}--><!--{if $product[groups][$group] && (($group == 'highlight' && empty($fb_separate_highlights)) || ($group == 'detail' && empty($fb_separate_details)))}--><section class="fb-detail-block" data-group="{$group}"><div class="fb-detail-head"><span class="fb-detail-headtitle">{$title}</span><span class="fb-detail-headsub">{if $group == 'highlight'}{$product[code]}{/if}</span></div><div class="fb-detail-shots"><!--{loop $product[groups][$group] $media}--><div class="fb-detail-shot"><button class="fb-detail-picture" data-fb-viewer="{$media[image]}" data-fb-viewer-title="{$media[title]}" data-fb-viewer-group="{$group}"><img src="{$media[image]}" /></button><span class="fb-detail-shotcap">{if $group == 'highlight'}{$media[text]}{else}{$media[title]}{/if}</span></div><!--{/loop}--></div></section><!--{/if}--><!--{/loop}-->
+
+</div>
+<!--{subtemplate flipbook:share}--><section class="fb-viewer" data-fb-viewer-box aria-label="{lang flipbook:zoom}">
+	<div class="fb-viewer-bar">
+		<button type="button" class="fb-iconbtn" data-fb-close="viewer" aria-label="{lang flipbook:close}"><!--{eval echo flipbook\front_icon::svg('close');}--></button>
+		<h2 class="fb-viewer-title" data-fb-viewer-title>{lang flipbook:zoom}</h2>
+		<span class="fb-viewer-count" data-fb-viewer-count>01 / 01</span>
+	</div>
+	<div class="fb-viewer-stage">
+		<img class="fb-viewer-img" src="" alt="" data-fb-viewer-img />
+	</div>
+	<div class="fb-viewer-dots" data-fb-viewer-dots></div>
+	<div class="fb-viewer-thumbs" data-fb-viewer-thumbs></div>
+	<div class="fb-viewer-foot">
+		<p class="fb-menu-note fb-center">{lang flipbook:viewer_hint}</p>
+		<a class="fb-btn fb-btn-block" href="" download data-fb-viewer-save><!--{eval echo flipbook\front_icon::svg('save','fb-icon-s');}--><span>{lang flipbook:viewer_save}</span></a>
+	</div>
+</section>
+
+
+<!--{else}--><div data-fb-region="empty" class="fb-empty"><p class="fb-empty-title">内容已下架</p><a class="fb-btn" href="{$fb[backurl]}">返回发现</a></div><!--{/if}-->

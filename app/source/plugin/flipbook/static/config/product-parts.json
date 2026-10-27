@@ -1,0 +1,230 @@
+{
+  "product_gallery": {
+    "label": "商品主图",
+    "source": "product_detail",
+    "field": "gallery",
+    "regions": [
+      "gallery"
+    ]
+  },
+  "product_thumbnails": {
+    "label": "商品缩略图",
+    "source": "product_detail",
+    "field": "thumbs",
+    "regions": [
+      "thumbs",
+      "thumbItem",
+      "thumbImage"
+    ]
+  },
+  "product_title": {
+    "label": "商品名称",
+    "source": "product_detail",
+    "field": "title",
+    "regions": [
+      "title"
+    ]
+  },
+  "product_price": {
+    "label": "商品售价",
+    "source": "product_detail",
+    "field": "price",
+    "regions": [
+      "price"
+    ]
+  },
+  "product_original_price": {
+    "label": "商品原价",
+    "source": "product_detail",
+    "field": "originalPrice",
+    "regions": [
+      "originalPrice"
+    ]
+  },
+  "product_code": {
+    "label": "商品货号",
+    "source": "product_detail",
+    "field": "code",
+    "regions": [
+      "code"
+    ]
+  },
+  "product_summary": {
+    "label": "商品描述",
+    "source": "product_detail",
+    "field": "subtitle",
+    "regions": [
+      "subtitle"
+    ]
+  },
+  "product_floating": {
+    "label": "商品悬浮图",
+    "source": "product_detail",
+    "field": "floatingImage",
+    "regions": [
+      "floatingImage"
+    ]
+  },
+  "product_buy": {
+    "label": "购买按钮",
+    "source": "product_detail",
+    "field": "buyButton",
+    "regions": [
+      "buyButton"
+    ]
+  },
+  "product_contact": {
+    "label": "客服按钮",
+    "source": "product_detail",
+    "field": "customerButton",
+    "regions": [
+      "customerButton"
+    ]
+  },
+  "product_info_title": {
+    "label": "产品信息标题",
+    "source": "product_info",
+    "field": "heading",
+    "regions": [
+      "heading"
+    ],
+    "flag": ""
+  },
+  "product_colors": {
+    "label": "商品颜色",
+    "source": "product_info",
+    "field": "colors",
+    "regions": [
+      "colors",
+      "colorLabel",
+      "colorValue"
+    ],
+    "flag": "showColors"
+  },
+  "product_sizes": {
+    "label": "商品尺码",
+    "source": "product_info",
+    "field": "sizes",
+    "regions": [
+      "sizes",
+      "sizeLabel",
+      "sizeValue"
+    ],
+    "flag": "showSizes"
+  },
+  "product_fit": {
+    "label": "商品版型",
+    "source": "product_info",
+    "field": "fit",
+    "regions": [
+      "fit",
+      "fitLabel",
+      "fitValue"
+    ],
+    "flag": "showFit"
+  },
+  "product_fields": {
+    "label": "商品参数",
+    "source": "product_info",
+    "field": "fields",
+    "regions": [
+      "fields",
+      "fieldLabel",
+      "fieldValue"
+    ],
+    "flag": "showFields"
+  },
+  "product_size_table": {
+    "label": "商品尺码表",
+    "source": "product_info",
+    "field": "table",
+    "regions": [
+      "table",
+      "tableHead",
+      "tableRow",
+      "tableCell",
+      "tableNote"
+    ],
+    "flag": "showTable"
+  },
+  "product_content": {
+    "label": "商品补充内容",
+    "source": "product_info",
+    "field": "content",
+    "regions": [
+      "content",
+      "contentTitle",
+      "contentSubtitle",
+      "contentText",
+      "contentList",
+      "contentQuote",
+      "contentCode",
+      "contentLink"
+    ],
+    "flag": "showContent"
+  },
+  "product_highlight_title": {
+    "label": "产品卖点标题",
+    "source": "product_highlights",
+    "field": "title",
+    "regions": [
+      "title"
+    ],
+    "title": "产品卖点"
+  },
+  "product_highlight_code": {
+    "label": "卖点商品货号",
+    "source": "product_highlights",
+    "field": "code",
+    "regions": [
+      "code"
+    ]
+  },
+  "product_highlight_list": {
+    "label": "产品卖点列表",
+    "source": "product_highlights",
+    "field": "list",
+    "regions": [
+      "list",
+      "item"
+    ],
+    "repeat": "highlight"
+  },
+  "product_detail_title": {
+    "label": "细节展示标题",
+    "source": "product_details",
+    "field": "title",
+    "regions": [
+      "title"
+    ],
+    "title": "细节展示"
+  },
+  "product_detail_list": {
+    "label": "细节展示列表",
+    "source": "product_details",
+    "field": "list",
+    "regions": [
+      "list",
+      "item"
+    ],
+    "repeat": "detail"
+  },
+  "product_media_image": {
+    "label": "商品内容图片",
+    "source": "product_highlights",
+    "field": "image",
+    "regions": [
+      "image"
+    ],
+    "item": true
+  },
+  "product_media_text": {
+    "label": "商品内容说明",
+    "source": "product_highlights",
+    "field": "text",
+    "regions": [
+      "text"
+    ],
+    "item": true
+  }
+}

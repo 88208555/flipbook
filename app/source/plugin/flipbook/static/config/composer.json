@@ -1,0 +1,3176 @@
+{
+  "version": 4,
+  "initialStyle": {
+    "boxWidth": 0,
+    "boxHeight": 0,
+    "minWidth": 0,
+    "minHeight": 0,
+    "maxWidth": 0,
+    "maxHeight": 0,
+    "grow": 0,
+    "shrink": 0,
+    "columns": 0,
+    "offsetX": 0,
+    "offsetY": 0,
+    "zIndex": 0,
+    "gapTop": 0,
+    "gapRight": 0,
+    "gapBottom": 0,
+    "gapLeft": 0,
+    "padTop": 0,
+    "padRight": 0,
+    "padBottom": 0,
+    "padLeft": 0,
+    "itemGap": 0,
+    "radius": 0,
+    "borderWidth": 0,
+    "size": 0,
+    "weight": 0,
+    "lineHeight": 0,
+    "letterSpacing": 0,
+    "display": "",
+    "direction": "",
+    "justify": "",
+    "itemsAlign": "",
+    "wrap": "",
+    "position": "",
+    "bg": "",
+    "color": "",
+    "borderColor": "",
+    "align": "",
+    "family": "",
+    "borderStyle": "",
+    "decoration": "",
+    "textRole": "body",
+    "borderTopWidth": "",
+    "borderRightWidth": "",
+    "borderBottomWidth": "",
+    "borderLeftWidth": "",
+    "fit": "",
+    "anchorX": "",
+    "anchorY": "",
+    "aspectRatio": 0,
+    "radiusTopLeft": "",
+    "radiusTopRight": "",
+    "radiusBottomRight": "",
+    "radiusBottomLeft": ""
+  },
+  "styleFields": [
+    {
+      "key": "boxWidth",
+      "label": "宽度（0 自适应）",
+      "type": "number",
+      "tab": "layout",
+      "section": "size"
+    },
+    {
+      "key": "boxHeight",
+      "label": "高度（0 自适应）",
+      "type": "number",
+      "tab": "layout",
+      "section": "size"
+    },
+    {
+      "key": "aspectRatio",
+      "label": "宽高比例（0 关闭，1 正方形）",
+      "type": "number",
+      "tab": "layout",
+      "section": "size"
+    },
+    {
+      "key": "minWidth",
+      "label": "最小宽度",
+      "type": "number",
+      "tab": "layout",
+      "section": "size"
+    },
+    {
+      "key": "minHeight",
+      "label": "最小高度",
+      "type": "number",
+      "tab": "layout",
+      "section": "size"
+    },
+    {
+      "key": "maxWidth",
+      "label": "最大宽度（0 不限）",
+      "type": "number",
+      "tab": "layout",
+      "section": "size"
+    },
+    {
+      "key": "maxHeight",
+      "label": "最大高度（0 不限）",
+      "type": "number",
+      "tab": "layout",
+      "section": "size"
+    },
+    {
+      "key": "grow",
+      "label": "伸展比例",
+      "type": "number",
+      "tab": "layout",
+      "section": "arrangement"
+    },
+    {
+      "key": "shrink",
+      "label": "收缩比例",
+      "type": "number",
+      "tab": "layout",
+      "section": "arrangement"
+    },
+    {
+      "key": "columns",
+      "label": "列数（0 自动）",
+      "type": "number",
+      "tab": "layout",
+      "section": "arrangement"
+    },
+    {
+      "key": "offsetX",
+      "label": "水平偏移",
+      "type": "number",
+      "tab": "layout",
+      "section": "position"
+    },
+    {
+      "key": "offsetY",
+      "label": "垂直偏移",
+      "type": "number",
+      "tab": "layout",
+      "section": "position"
+    },
+    {
+      "key": "zIndex",
+      "label": "层级",
+      "type": "number",
+      "tab": "layout",
+      "section": "position"
+    },
+    {
+      "key": "gapTop",
+      "label": "上外边距",
+      "type": "number",
+      "tab": "style",
+      "section": "spacing"
+    },
+    {
+      "key": "gapRight",
+      "label": "右外边距",
+      "type": "number",
+      "tab": "style",
+      "section": "spacing"
+    },
+    {
+      "key": "gapBottom",
+      "label": "下外边距",
+      "type": "number",
+      "tab": "style",
+      "section": "spacing"
+    },
+    {
+      "key": "gapLeft",
+      "label": "左外边距",
+      "type": "number",
+      "tab": "style",
+      "section": "spacing"
+    },
+    {
+      "key": "padTop",
+      "label": "上内边距",
+      "type": "number",
+      "tab": "style",
+      "section": "spacing"
+    },
+    {
+      "key": "padRight",
+      "label": "右内边距",
+      "type": "number",
+      "tab": "style",
+      "section": "spacing"
+    },
+    {
+      "key": "padBottom",
+      "label": "下内边距",
+      "type": "number",
+      "tab": "style",
+      "section": "spacing"
+    },
+    {
+      "key": "padLeft",
+      "label": "左内边距",
+      "type": "number",
+      "tab": "style",
+      "section": "spacing"
+    },
+    {
+      "key": "itemGap",
+      "label": "子项间距",
+      "type": "number",
+      "tab": "style",
+      "section": "spacing"
+    },
+    {
+      "key": "radius",
+      "label": "圆角",
+      "type": "number",
+      "tab": "style",
+      "section": "border"
+    },
+    {
+      "key": "radiusTopLeft",
+      "label": "左上圆角（留空继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "border",
+      "inheritEmpty": true
+    },
+    {
+      "key": "radiusTopRight",
+      "label": "右上圆角（留空继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "border",
+      "inheritEmpty": true
+    },
+    {
+      "key": "radiusBottomRight",
+      "label": "右下圆角（留空继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "border",
+      "inheritEmpty": true
+    },
+    {
+      "key": "radiusBottomLeft",
+      "label": "左下圆角（留空继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "border",
+      "inheritEmpty": true
+    },
+    {
+      "key": "borderWidth",
+      "label": "边框宽度",
+      "type": "number",
+      "tab": "style",
+      "section": "border"
+    },
+    {
+      "key": "size",
+      "label": "字号（0 继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "text"
+    },
+    {
+      "key": "weight",
+      "label": "字重（0 继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "text"
+    },
+    {
+      "key": "lineHeight",
+      "label": "行高（0 继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "text"
+    },
+    {
+      "key": "letterSpacing",
+      "label": "字间距",
+      "type": "number",
+      "tab": "style",
+      "section": "text"
+    },
+    {
+      "key": "display",
+      "label": "布局方式",
+      "type": "select",
+      "options": [
+        "",
+        "block",
+        "flex",
+        "grid",
+        "inline-flex",
+        "none"
+      ],
+      "tab": "layout",
+      "section": "arrangement"
+    },
+    {
+      "key": "direction",
+      "label": "排列方向",
+      "type": "select",
+      "options": [
+        "",
+        "row",
+        "column",
+        "row-reverse",
+        "column-reverse"
+      ],
+      "tab": "layout",
+      "section": "arrangement"
+    },
+    {
+      "key": "justify",
+      "label": "主轴分布（两端对齐自动铺满）",
+      "type": "select",
+      "options": [
+        "",
+        "flex-start",
+        "center",
+        "flex-end",
+        "space-between",
+        "space-around",
+        "space-evenly"
+      ],
+      "tab": "layout",
+      "section": "arrangement"
+    },
+    {
+      "key": "itemsAlign",
+      "label": "交叉轴排列",
+      "type": "select",
+      "options": [
+        "",
+        "stretch",
+        "flex-start",
+        "center",
+        "flex-end",
+        "baseline"
+      ],
+      "tab": "layout",
+      "section": "arrangement"
+    },
+    {
+      "key": "wrap",
+      "label": "换行",
+      "type": "select",
+      "options": [
+        "",
+        "nowrap",
+        "wrap"
+      ],
+      "tab": "layout",
+      "section": "arrangement"
+    },
+    {
+      "key": "position",
+      "label": "定位",
+      "type": "select",
+      "options": [
+        "",
+        "relative",
+        "absolute"
+      ],
+      "tab": "layout",
+      "section": "position"
+    },
+    {
+      "key": "bg",
+      "label": "背景颜色",
+      "type": "color",
+      "tab": "style",
+      "section": "background"
+    },
+    {
+      "key": "color",
+      "label": "文字颜色",
+      "type": "color",
+      "tab": "style",
+      "section": "text"
+    },
+    {
+      "key": "borderColor",
+      "label": "边框颜色",
+      "type": "color",
+      "tab": "style",
+      "section": "border"
+    },
+    {
+      "key": "align",
+      "label": "文字对齐",
+      "type": "select",
+      "options": [
+        "",
+        "left",
+        "center",
+        "right"
+      ],
+      "tab": "style",
+      "section": "text"
+    },
+    {
+      "key": "family",
+      "label": "字体",
+      "type": "select",
+      "options": [
+        "",
+        "sans",
+        "serif",
+        "mono"
+      ],
+      "tab": "style",
+      "section": "text"
+    },
+    {
+      "key": "borderStyle",
+      "label": "边框样式",
+      "type": "select",
+      "options": [
+        "",
+        "solid",
+        "dashed",
+        "dotted",
+        "none"
+      ],
+      "tab": "style",
+      "section": "border"
+    },
+    {
+      "key": "decoration",
+      "label": "文字装饰",
+      "type": "select",
+      "options": [
+        "",
+        "none",
+        "line-through"
+      ],
+      "tab": "style",
+      "section": "text"
+    },
+    {
+      "key": "textRole",
+      "label": "文字类型",
+      "type": "select",
+      "options": [
+        "body",
+        "title",
+        "subtitle"
+      ],
+      "tab": "style",
+      "section": "text"
+    },
+    {
+      "key": "borderTopWidth",
+      "label": "上边框宽度（留空继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "border",
+      "inheritEmpty": true
+    },
+    {
+      "key": "borderRightWidth",
+      "label": "右边框宽度（留空继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "border",
+      "inheritEmpty": true
+    },
+    {
+      "key": "borderBottomWidth",
+      "label": "下边框宽度（留空继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "border",
+      "inheritEmpty": true
+    },
+    {
+      "key": "borderLeftWidth",
+      "label": "左边框宽度（留空继承）",
+      "type": "number",
+      "tab": "style",
+      "section": "border",
+      "inheritEmpty": true
+    },
+    {
+      "key": "fit",
+      "label": "媒体适配",
+      "type": "select",
+      "options": [
+        "",
+        "contain",
+        "cover",
+        "fill",
+        "scale-down"
+      ],
+      "tab": "layout",
+      "section": "size"
+    },
+    {
+      "key": "anchorX",
+      "label": "水平锚点",
+      "type": "select",
+      "options": [
+        "",
+        "left",
+        "right"
+      ],
+      "tab": "layout",
+      "section": "position"
+    },
+    {
+      "key": "anchorY",
+      "label": "垂直锚点",
+      "type": "select",
+      "options": [
+        "",
+        "top",
+        "bottom"
+      ],
+      "tab": "layout",
+      "section": "position"
+    }
+  ],
+  "types": {
+    "container": {
+      "label": "布局容器",
+      "kind": "container",
+      "group": "布局组件",
+      "defaults": {
+        "display": "flex",
+        "direction": "column",
+        "children": [],
+        "itemGap": 12
+      },
+      "fields": [],
+      "icon": "layout-dashboard"
+    },
+    "repeat": {
+      "label": "数据列表",
+      "kind": "repeat",
+      "group": "布局组件",
+      "defaults": {
+        "display": "flex",
+        "direction": "column",
+        "binding": "",
+        "children": [],
+        "itemGap": 12
+      },
+      "fields": [
+        {
+          "key": "binding",
+          "label": "数据来源",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "icon": "list-tree"
+    },
+    "text": {
+      "label": "文字",
+      "kind": "text",
+      "group": "基础组件",
+      "defaults": {
+        "text": ""
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "文字内容",
+          "type": "textarea",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "动态数据",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "icon": "type"
+    },
+    "image": {
+      "label": "图片",
+      "kind": "image",
+      "group": "基础组件",
+      "defaults": {
+        "radius": 8,
+        "fit": "contain"
+      },
+      "fields": [
+        {
+          "key": "src",
+          "label": "图片地址",
+          "type": "image",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "动态图片",
+          "type": "binding",
+          "tab": "content"
+        },
+        {
+          "key": "alt",
+          "label": "替代文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "preview",
+          "label": "点击预览图片",
+          "type": "bool",
+          "tab": "behavior"
+        }
+      ],
+      "icon": "image"
+    },
+    "carousel": {
+      "label": "轮播",
+      "kind": "gallery",
+      "group": "基础组件",
+      "defaults": {
+        "items": [],
+        "autoplay": 0,
+        "interval": 0,
+        "radius": 8,
+        "fit": "contain",
+        "boxHeight": 240,
+        "swipeAxis": "horizontal",
+        "controls": 1,
+        "posterOnEnd": 0
+      },
+      "fields": [
+        {
+          "key": "binding",
+          "label": "动态图组",
+          "type": "binding",
+          "tab": "content"
+        },
+        {
+          "key": "items",
+          "label": "图片和视频",
+          "type": "mediaList",
+          "tab": "content"
+        },
+        {
+          "key": "autoplay",
+          "label": "自动切换",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "interval",
+          "label": "切换间隔（毫秒）",
+          "type": "number",
+          "tab": "behavior"
+        },
+        {
+          "key": "preview",
+          "label": "点击预览图片",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "playVideo",
+          "label": "自动播放视频",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "muted",
+          "label": "视频静音",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "swipeAxis",
+          "label": "滑动方向",
+          "type": "select",
+          "options": [
+            "horizontal",
+            "vertical"
+          ],
+          "tab": "behavior"
+        },
+        {
+          "key": "controls",
+          "label": "显示视频控件",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "posterOnEnd",
+          "label": "播放结束显示封面",
+          "type": "bool",
+          "tab": "behavior"
+        }
+      ],
+      "icon": "gallery-horizontal"
+    },
+    "video": {
+      "label": "视频",
+      "kind": "video",
+      "group": "基础组件",
+      "defaults": {
+        "boxHeight": 200,
+        "fit": "contain"
+      },
+      "fields": [
+        {
+          "key": "src",
+          "label": "视频地址",
+          "type": "media",
+          "tab": "content"
+        },
+        {
+          "key": "poster",
+          "label": "视频封面",
+          "type": "image",
+          "tab": "content"
+        },
+        {
+          "key": "autoplay",
+          "label": "自动播放",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "muted",
+          "label": "默认静音",
+          "type": "bool",
+          "tab": "behavior"
+        }
+      ],
+      "icon": "video"
+    },
+    "search": {
+      "label": "搜索",
+      "kind": "search",
+      "group": "基础组件",
+      "defaults": {
+        "placeholder": "搜索画册与款式",
+        "action": "page:search",
+        "minHeight": 44,
+        "padTop": 10,
+        "padBottom": 10,
+        "padLeft": 12,
+        "padRight": 12,
+        "radius": 6,
+        "borderWidth": 1,
+        "borderColor": "#2C2C31",
+        "searchDelay": 600,
+        "focusBorderColor": "#85858B"
+      },
+      "fields": [
+        {
+          "key": "placeholder",
+          "label": "提示文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "action",
+          "label": "搜索结果页",
+          "type": "link",
+          "tab": "behavior"
+        },
+        {
+          "key": "searchDelay",
+          "label": "停止输入后搜索（毫秒）",
+          "type": "number",
+          "tab": "behavior"
+        },
+        {
+          "key": "focusBorderColor",
+          "label": "输入时边框颜色",
+          "type": "color",
+          "tab": "style",
+          "section": "border",
+          "inheritDefault": true
+        }
+      ],
+      "icon": "search"
+    },
+    "divider": {
+      "label": "分割线",
+      "kind": "divider",
+      "group": "基础组件",
+      "defaults": {
+        "thickness": 1,
+        "borderStyle": "dashed",
+        "color": "#2C2C31"
+      },
+      "fields": [
+        {
+          "key": "thickness",
+          "label": "线条粗细（0 默认）",
+          "type": "number",
+          "tab": "style"
+        },
+        {
+          "key": "axis",
+          "label": "分割方向",
+          "type": "select",
+          "options": [
+            "horizontal",
+            "vertical"
+          ],
+          "tab": "layout"
+        }
+      ],
+      "icon": "separator-horizontal"
+    },
+    "spacer": {
+      "label": "空白",
+      "kind": "spacer",
+      "group": "基础组件",
+      "defaults": {
+        "boxHeight": 16
+      },
+      "fields": [],
+      "icon": "space"
+    },
+    "markdown": {
+      "label": "内容",
+      "kind": "markdown",
+      "group": "基础组件",
+      "defaults": {},
+      "fields": [
+        {
+          "key": "markdown",
+          "label": "内容",
+          "type": "textarea",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "动态内容",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "icon": "file-text"
+    },
+    "button": {
+      "label": "功能按钮",
+      "kind": "button",
+      "group": "基础组件",
+      "defaults": {
+        "text": "按钮",
+        "action": "open",
+        "minHeight": 44,
+        "padTop": 10,
+        "padBottom": 10,
+        "padLeft": 12,
+        "padRight": 12,
+        "radius": 6,
+        "borderWidth": 1,
+        "borderColor": "#55555E",
+        "iconSize": 20,
+        "iconColor": ""
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "按钮文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "动态文字",
+          "type": "binding",
+          "tab": "content"
+        },
+        {
+          "key": "action",
+          "label": "按钮功能",
+          "type": "select",
+          "tab": "behavior",
+          "options": [
+            "open",
+            "login",
+            "logout",
+            "buy",
+            "customer",
+            "favorite",
+            "favorite_remove",
+            "share",
+            "orders"
+          ]
+        },
+        {
+          "key": "link",
+          "label": "跳转链接",
+          "type": "link",
+          "tab": "behavior"
+        },
+        {
+          "key": "icon",
+          "label": "图标",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "ariaLabel",
+          "label": "图标按钮名称",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "iconSize",
+          "label": "图标大小",
+          "type": "number",
+          "tab": "style",
+          "section": "text"
+        },
+        {
+          "key": "iconColor",
+          "label": "图标颜色（留空跟随文字）",
+          "type": "color",
+          "tab": "style",
+          "section": "text"
+        }
+      ],
+      "icon": "mouse-pointer-2"
+    },
+    "product_title": {
+      "label": "商品标题",
+      "kind": "text",
+      "group": "商品组件",
+      "defaults": {
+        "binding": "product.name",
+        "textRole": "title"
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "数据来源",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "pages": [
+        "detail"
+      ],
+      "icon": "heading-1"
+    },
+    "product_subtitle": {
+      "label": "商品副题",
+      "kind": "text",
+      "group": "商品组件",
+      "defaults": {
+        "binding": "product.summary",
+        "textRole": "subtitle"
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "数据来源",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "pages": [
+        "detail"
+      ],
+      "icon": "heading-2"
+    },
+    "product_code": {
+      "label": "商品编号",
+      "kind": "text",
+      "group": "商品组件",
+      "defaults": {
+        "binding": "product.code"
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "数据来源",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "pages": [
+        "detail"
+      ],
+      "icon": "hash"
+    },
+    "product_price": {
+      "label": "销售价格",
+      "kind": "text",
+      "group": "商品组件",
+      "defaults": {
+        "binding": "product.salePrice",
+        "size": 20,
+        "weight": 600,
+        "lineHeight": 1.2
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "数据来源",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "pages": [
+        "detail"
+      ],
+      "icon": "banknote"
+    },
+    "product_original_price": {
+      "label": "划线价格",
+      "kind": "text",
+      "group": "商品组件",
+      "defaults": {
+        "binding": "product.originalPrice",
+        "size": 12,
+        "decoration": "line-through",
+        "lineHeight": 1.2
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "数据来源",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "pages": [
+        "detail"
+      ],
+      "icon": "badge-percent"
+    },
+    "product_gallery": {
+      "label": "商品主图",
+      "kind": "gallery",
+      "group": "商品组件",
+      "defaults": {
+        "binding": "product.slides",
+        "interval": 0,
+        "preview": 1,
+        "radius": 8,
+        "fit": "contain",
+        "boxHeight": 0,
+        "playVideo": 1,
+        "muted": 1,
+        "aspectRatio": 1,
+        "swipeAxis": "horizontal",
+        "controls": 1,
+        "posterOnEnd": 0
+      },
+      "fields": [
+        {
+          "key": "autoplay",
+          "label": "自动切换",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "interval",
+          "label": "切换间隔（毫秒）",
+          "type": "number",
+          "tab": "behavior"
+        },
+        {
+          "key": "preview",
+          "label": "点击预览图片",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "playVideo",
+          "label": "自动播放视频",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "muted",
+          "label": "视频静音",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "swipeAxis",
+          "label": "滑动方向",
+          "type": "select",
+          "options": [
+            "horizontal",
+            "vertical"
+          ],
+          "tab": "behavior"
+        },
+        {
+          "key": "controls",
+          "label": "显示视频控件",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "posterOnEnd",
+          "label": "播放结束显示封面",
+          "type": "bool",
+          "tab": "behavior"
+        }
+      ],
+      "pages": [
+        "detail"
+      ],
+      "icon": "images"
+    },
+    "product_skus": {
+      "label": "商品缩图",
+      "kind": "sku",
+      "group": "商品组件",
+      "defaults": {
+        "binding": "product.slides",
+        "itemWidth": 56,
+        "itemHeight": 64,
+        "itemGap": 8,
+        "fit": "cover",
+        "justify": "space-between"
+      },
+      "fields": [
+        {
+          "key": "itemWidth",
+          "label": "卡片宽度（0 自动）",
+          "type": "number",
+          "tab": "layout"
+        },
+        {
+          "key": "itemHeight",
+          "label": "卡片高度（0 自动）",
+          "type": "number",
+          "tab": "layout"
+        }
+      ],
+      "pages": [
+        "detail"
+      ],
+      "icon": "gallery-thumbnails"
+    },
+    "home_gallery": {
+      "label": "首页视频",
+      "kind": "gallery",
+      "group": "业务组件",
+      "defaults": {
+        "binding": "home.albums",
+        "interval": 0,
+        "radius": 8,
+        "fit": "cover",
+        "playVideo": 1,
+        "muted": 1,
+        "swipeAxis": "vertical",
+        "fillViewport": 1,
+        "controls": 0,
+        "posterOnEnd": 1
+      },
+      "fields": [
+        {
+          "key": "autoplay",
+          "label": "自动切换",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "interval",
+          "label": "切换间隔（毫秒）",
+          "type": "number",
+          "tab": "behavior"
+        },
+        {
+          "key": "fillViewport",
+          "label": "填充可视高度",
+          "type": "bool",
+          "tab": "layout"
+        },
+        {
+          "key": "playVideo",
+          "label": "自动播放视频",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "muted",
+          "label": "视频静音",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "swipeAxis",
+          "label": "滑动方向",
+          "type": "select",
+          "options": [
+            "horizontal",
+            "vertical"
+          ],
+          "tab": "behavior"
+        },
+        {
+          "key": "controls",
+          "label": "显示视频控件",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "posterOnEnd",
+          "label": "播放结束显示封面",
+          "type": "bool",
+          "tab": "behavior"
+        }
+      ],
+      "pages": [
+        "home"
+      ],
+      "icon": "clapperboard"
+    },
+    "filters": {
+      "label": "分类筛选",
+      "kind": "filters",
+      "group": "业务组件",
+      "defaults": {
+        "binding": "catalog.categories",
+        "itemGap": 12,
+        "minHeight": 40,
+        "wrap": "wrap",
+        "itemPadX": 12,
+        "itemPadY": 8,
+        "itemRadius": 6,
+        "activeBg": "#ffffff",
+        "activeColor": "#000000",
+        "inactiveBg": "transparent",
+        "inactiveColor": "#A7A7AF"
+      },
+      "fields": [
+        {
+          "key": "itemPadX",
+          "label": "选项左右内距",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "itemPadY",
+          "label": "选项上下内距",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "itemRadius",
+          "label": "选项圆角",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "activeBg",
+          "label": "激活背景",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "activeColor",
+          "label": "激活文字",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "inactiveBg",
+          "label": "未激活背景",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "inactiveColor",
+          "label": "未激活文字",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        }
+      ],
+      "pages": [
+        "catalog",
+        "search"
+      ],
+      "icon": "list-filter"
+    },
+    "series_filter": {
+      "label": "系列筛选",
+      "kind": "select",
+      "group": "业务组件",
+      "defaults": {
+        "binding": "catalog.series",
+        "boxWidth": 44,
+        "boxHeight": 44,
+        "minHeight": 44,
+        "padTop": 0,
+        "padBottom": 0,
+        "padLeft": 0,
+        "padRight": 0,
+        "bg": "#17171A",
+        "color": "#F2F2F4",
+        "borderWidth": 0,
+        "radius": 6,
+        "size": 18,
+        "sheetTitle": "选择系列",
+        "sheetBg": "#17171A",
+        "sheetColor": "#F2F2F4",
+        "sheetRadius": 12,
+        "sheetPad": 16,
+        "sheetGap": 8,
+        "sheetMaxHeight": 360,
+        "maskBg": "rgba(0,0,0,0.5)",
+        "itemPadX": 12,
+        "itemPadY": 10,
+        "itemRadius": 6,
+        "optionHeight": 44,
+        "activeBg": "#ffffff",
+        "activeColor": "#000000",
+        "inactiveBg": "transparent",
+        "inactiveColor": "#F2F2F4"
+      },
+      "fields": [
+        {
+          "key": "sheetTitle",
+          "label": "弹层标题",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "sheetBg",
+          "label": "背景",
+          "type": "color",
+          "tab": "style",
+          "section": "panel"
+        },
+        {
+          "key": "sheetColor",
+          "label": "文字颜色",
+          "type": "color",
+          "tab": "style",
+          "section": "panel"
+        },
+        {
+          "key": "sheetRadius",
+          "label": "圆角",
+          "type": "number",
+          "tab": "style",
+          "section": "panel"
+        },
+        {
+          "key": "sheetPad",
+          "label": "内边距",
+          "type": "number",
+          "tab": "style",
+          "section": "panel"
+        },
+        {
+          "key": "sheetGap",
+          "label": "内容间距",
+          "type": "number",
+          "tab": "style",
+          "section": "panel"
+        },
+        {
+          "key": "sheetMaxHeight",
+          "label": "最大高度",
+          "type": "number",
+          "tab": "style",
+          "section": "panel"
+        },
+        {
+          "key": "maskBg",
+          "label": "遮罩颜色",
+          "type": "color",
+          "tab": "style",
+          "section": "panel"
+        },
+        {
+          "key": "itemPadX",
+          "label": "选项左右内距",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "itemPadY",
+          "label": "选项上下内距",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "itemRadius",
+          "label": "选项圆角",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "optionHeight",
+          "label": "选项最小高度",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "activeBg",
+          "label": "选中背景",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "activeColor",
+          "label": "选中文字",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "inactiveBg",
+          "label": "未选背景",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "inactiveColor",
+          "label": "未选文字",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        }
+      ],
+      "pages": [
+        "catalog",
+        "search"
+      ],
+      "icon": "layers"
+    },
+    "favorite_tabs": {
+      "label": "收藏切换",
+      "kind": "tabs",
+      "group": "业务组件",
+      "defaults": {
+        "binding": "favorites.tabs",
+        "itemGap": 12,
+        "minHeight": 40,
+        "wrap": "wrap",
+        "itemPadX": 12,
+        "itemPadY": 8,
+        "itemRadius": 6,
+        "activeBg": "#ffffff",
+        "activeColor": "#000000",
+        "inactiveBg": "transparent",
+        "inactiveColor": "#A7A7AF"
+      },
+      "fields": [
+        {
+          "key": "itemPadX",
+          "label": "选项左右内距",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "itemPadY",
+          "label": "选项上下内距",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "itemRadius",
+          "label": "选项圆角",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "activeBg",
+          "label": "激活背景",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "activeColor",
+          "label": "激活文字",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "inactiveBg",
+          "label": "未激活背景",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "inactiveColor",
+          "label": "未激活文字",
+          "type": "color",
+          "tab": "style",
+          "section": "options"
+        }
+      ],
+      "pages": [
+        "favorites"
+      ],
+      "icon": "heart"
+    },
+    "member_avatar": {
+      "label": "会员头像",
+      "kind": "image",
+      "group": "会员组件",
+      "defaults": {
+        "binding": "member.avatar",
+        "link": "action:login",
+        "boxWidth": 40,
+        "boxHeight": 40,
+        "radius": 20
+      },
+      "fields": [
+        {
+          "key": "src",
+          "label": "自定义头像",
+          "type": "image",
+          "tab": "content"
+        },
+        {
+          "key": "link",
+          "label": "点击动作",
+          "type": "link",
+          "tab": "behavior"
+        }
+      ],
+      "pages": [
+        "mine"
+      ],
+      "icon": "circle-user-round"
+    },
+    "member_name": {
+      "label": "会员名称",
+      "kind": "text",
+      "group": "会员组件",
+      "defaults": {
+        "binding": "member.name",
+        "link": "action:login",
+        "textRole": "title"
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "link",
+          "label": "点击动作",
+          "type": "link",
+          "tab": "behavior"
+        },
+        {
+          "key": "binding",
+          "label": "数据来源",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "pages": [
+        "mine"
+      ],
+      "icon": "user-round"
+    },
+    "member_note": {
+      "label": "会员说明",
+      "kind": "text",
+      "group": "会员组件",
+      "defaults": {
+        "binding": "member.note",
+        "textRole": "subtitle"
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "guestText",
+          "label": "未登录说明",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "数据来源",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "pages": [
+        "mine"
+      ],
+      "icon": "file-text"
+    },
+    "tab": {
+      "label": "标签页",
+      "kind": "tab",
+      "group": "布局组件",
+      "defaults": {
+        "tabs": [
+          {
+            "title": "标签一",
+            "children": []
+          },
+          {
+            "title": "标签二",
+            "children": []
+          }
+        ]
+      },
+      "fields": [
+        {
+          "key": "tabs",
+          "label": "标签页",
+          "type": "tabList",
+          "tab": "content"
+        }
+      ],
+      "icon": "panels-top-left"
+    },
+    "product_colors": {
+      "label": "商品颜色",
+      "kind": "text",
+      "group": "商品组件",
+      "pages": [
+        "detail"
+      ],
+      "defaults": {
+        "binding": "product.spec.colorsText"
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "显示数据",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "icon": "palette"
+    },
+    "product_sizes": {
+      "label": "商品尺码",
+      "kind": "text",
+      "group": "商品组件",
+      "pages": [
+        "detail"
+      ],
+      "defaults": {
+        "binding": "product.spec.sizesText"
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "显示数据",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "icon": "ruler"
+    },
+    "product_fit": {
+      "label": "商品版型",
+      "kind": "text",
+      "group": "商品组件",
+      "pages": [
+        "detail"
+      ],
+      "defaults": {
+        "binding": "product.spec.fitText"
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "显示数据",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "icon": "shirt"
+    },
+    "product_size_table": {
+      "label": "尺码表",
+      "kind": "info",
+      "group": "商品组件",
+      "defaults": {
+        "showColors": 0,
+        "showSizes": 0,
+        "showFit": 0,
+        "showFields": 0,
+        "showTable": 1,
+        "showContent": 0
+      },
+      "fields": [],
+      "pages": [
+        "detail"
+      ],
+      "icon": "table-properties"
+    },
+    "product_content": {
+      "label": "商品内容",
+      "kind": "markdown",
+      "group": "商品组件",
+      "pages": [
+        "detail"
+      ],
+      "defaults": {
+        "binding": "product.spec.contentHtml"
+      },
+      "fields": [
+        {
+          "key": "binding",
+          "label": "内容数据",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "icon": "file-text"
+    },
+    "product_description": {
+      "label": "商品说明",
+      "kind": "text",
+      "group": "商品组件",
+      "pages": [
+        "detail"
+      ],
+      "defaults": {
+        "binding": "product.description",
+        "textRole": "body"
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "自定义文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "binding",
+          "label": "内容数据",
+          "type": "binding",
+          "tab": "content"
+        }
+      ],
+      "icon": "file-text"
+    },
+    "icon": {
+      "label": "图标",
+      "kind": "icon",
+      "group": "基础组件",
+      "defaults": {
+        "icon": "info"
+      },
+      "fields": [
+        {
+          "key": "icon",
+          "label": "图标内容",
+          "type": "select",
+          "options": [
+            "back",
+            "book",
+            "bookmark",
+            "catalog",
+            "check",
+            "chevron_down",
+            "chevron_right",
+            "close",
+            "empty",
+            "eye",
+            "flip",
+            "grid",
+            "heart",
+            "history",
+            "info",
+            "locked",
+            "manage",
+            "next",
+            "offline",
+            "preference",
+            "retry",
+            "save",
+            "search",
+            "share",
+            "shirt",
+            "sort",
+            "up",
+            "visitor",
+            "zoom_in"
+          ],
+          "tab": "content"
+        }
+      ],
+      "icon": "smile"
+    },
+    "progress": {
+      "label": "进度",
+      "kind": "progress",
+      "group": "基础组件",
+      "defaults": {
+        "value": 0
+      },
+      "fields": [
+        {
+          "key": "binding",
+          "label": "进度数据",
+          "type": "binding",
+          "tab": "content"
+        },
+        {
+          "key": "value",
+          "label": "进度百分比",
+          "type": "number",
+          "tab": "content"
+        }
+      ],
+      "icon": "gauge"
+    },
+    "product_info": {
+      "label": "产品信息",
+      "kind": "info",
+      "group": "商品组件",
+      "pages": [
+        "detail"
+      ],
+      "defaults": {
+        "text": "产品信息",
+        "showColors": 1,
+        "showSizes": 1,
+        "showFit": 1,
+        "showFields": 1,
+        "showTable": 0,
+        "showContent": 0,
+        "display": "flex",
+        "direction": "column",
+        "itemGap": 12
+      },
+      "fields": [
+        {
+          "key": "text",
+          "label": "标题文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "showColors",
+          "label": "显示颜色",
+          "type": "bool",
+          "tab": "content"
+        },
+        {
+          "key": "showSizes",
+          "label": "显示尺码",
+          "type": "bool",
+          "tab": "content"
+        },
+        {
+          "key": "showFit",
+          "label": "显示版型",
+          "type": "bool",
+          "tab": "content"
+        },
+        {
+          "key": "showFields",
+          "label": "显示属性",
+          "type": "bool",
+          "tab": "content"
+        }
+      ],
+      "icon": "clipboard-list"
+    },
+    "login_form": {
+      "label": "登录表单",
+      "kind": "login",
+      "group": "登录组件",
+      "pages": [
+        "login"
+      ],
+      "defaults": {
+        "itemGap": 12,
+        "controlHeight": 44,
+        "controlPadX": 12,
+        "controlPadY": 10,
+        "controlRadius": 6,
+        "controlBorderWidth": 1,
+        "controlBorderColor": "#55555E",
+        "controlBg": "",
+        "controlColor": "",
+        "controlSize": 0,
+        "controlLineHeight": 1.5,
+        "tabGap": 12,
+        "submitBg": "#ffffff",
+        "submitColor": "#111111",
+        "wechatText": "微信",
+        "accountText": "账号",
+        "submitText": "确认登录",
+        "usernamePlaceholder": "论坛用户名",
+        "passwordPlaceholder": "密码",
+        "questionPlaceholder": "安全提问（如有，点击选择）",
+        "answerPlaceholder": "安全提问答案（如有）",
+        "submitBorderColor": "#ffffff",
+        "activeBg": "#ffffff",
+        "activeColor": "#000000",
+        "activeBorderColor": "#ffffff",
+        "inactiveBg": "transparent",
+        "inactiveColor": "#F2F2F4",
+        "inactiveBorderColor": "#55555E"
+      },
+      "fields": [
+        {
+          "key": "wechatText",
+          "label": "微信按钮文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "accountText",
+          "label": "账号按钮文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "submitText",
+          "label": "提交按钮文字",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "usernamePlaceholder",
+          "label": "账号提示",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "passwordPlaceholder",
+          "label": "密码提示",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "questionPlaceholder",
+          "label": "提问提示",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "answerPlaceholder",
+          "label": "答案提示",
+          "type": "text",
+          "tab": "content"
+        },
+        {
+          "key": "controlHeight",
+          "label": "控件最小高度",
+          "type": "number",
+          "tab": "style",
+          "section": "controls"
+        },
+        {
+          "key": "controlPadX",
+          "label": "控件左右内距",
+          "type": "number",
+          "tab": "style",
+          "section": "controls"
+        },
+        {
+          "key": "controlPadY",
+          "label": "控件上下内距",
+          "type": "number",
+          "tab": "style",
+          "section": "controls"
+        },
+        {
+          "key": "controlRadius",
+          "label": "控件圆角",
+          "type": "number",
+          "tab": "style",
+          "section": "controls"
+        },
+        {
+          "key": "controlBorderWidth",
+          "label": "控件边框宽度",
+          "type": "number",
+          "tab": "style",
+          "section": "controls"
+        },
+        {
+          "key": "controlSize",
+          "label": "控件字号（0 继承正文）",
+          "type": "number",
+          "tab": "style",
+          "section": "controls"
+        },
+        {
+          "key": "controlLineHeight",
+          "label": "控件行高",
+          "type": "number",
+          "tab": "style",
+          "section": "controls"
+        },
+        {
+          "key": "controlBorderColor",
+          "label": "控件边框颜色",
+          "type": "color",
+          "tab": "style",
+          "section": "controls",
+          "inheritDefault": true
+        },
+        {
+          "key": "controlBg",
+          "label": "输入框背景",
+          "type": "color",
+          "tab": "style",
+          "section": "controls"
+        },
+        {
+          "key": "controlColor",
+          "label": "输入框文字",
+          "type": "color",
+          "tab": "style",
+          "section": "controls"
+        },
+        {
+          "key": "tabGap",
+          "label": "按钮间距",
+          "type": "number",
+          "tab": "style",
+          "section": "options"
+        },
+        {
+          "key": "submitBg",
+          "label": "提交背景",
+          "type": "color",
+          "tab": "style",
+          "section": "submit"
+        },
+        {
+          "key": "submitColor",
+          "label": "提交文字",
+          "type": "color",
+          "tab": "style",
+          "section": "submit"
+        },
+        {
+          "key": "submitBorderColor",
+          "label": "提交按钮边框",
+          "type": "color",
+          "tab": "style",
+          "section": "submit"
+        },
+        {
+          "key": "activeBg",
+          "label": "激活背景",
+          "type": "color",
+          "tab": "style",
+          "section": "options",
+          "inheritDefault": true
+        },
+        {
+          "key": "activeColor",
+          "label": "激活文字",
+          "type": "color",
+          "tab": "style",
+          "section": "options",
+          "inheritDefault": true
+        },
+        {
+          "key": "activeBorderColor",
+          "label": "激活边框",
+          "type": "color",
+          "tab": "style",
+          "section": "options",
+          "inheritDefault": true
+        },
+        {
+          "key": "inactiveBg",
+          "label": "未激活背景",
+          "type": "color",
+          "tab": "style",
+          "section": "options",
+          "inheritDefault": true
+        },
+        {
+          "key": "inactiveColor",
+          "label": "未激活文字",
+          "type": "color",
+          "tab": "style",
+          "section": "options",
+          "inheritDefault": true
+        },
+        {
+          "key": "inactiveBorderColor",
+          "label": "未激活边框",
+          "type": "color",
+          "tab": "style",
+          "section": "options",
+          "inheritDefault": true
+        }
+      ],
+      "icon": "log-in"
+    },
+    "home_actions": {
+      "label": "首页操作",
+      "kind": "actions",
+      "group": "业务组件",
+      "icon": "mouse-pointer-2",
+      "pages": [
+        "home"
+      ],
+      "defaults": {
+        "boxWidth": 44,
+        "boxHeight": 44,
+        "position": "absolute",
+        "anchorX": "left",
+        "anchorY": "bottom",
+        "offsetX": 15,
+        "offsetY": 16,
+        "zIndex": 20,
+        "radius": 22,
+        "bg": "rgba(11,11,12,0.72)",
+        "color": "#ffffff",
+        "itemGap": 12,
+        "size": 22,
+        "showFavorite": 1,
+        "showShare": 1,
+        "showMute": 1,
+        "when": "home.current.albumid"
+      },
+      "fields": [
+        {
+          "key": "showFavorite",
+          "label": "显示收藏",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "showShare",
+          "label": "显示分享",
+          "type": "bool",
+          "tab": "behavior"
+        },
+        {
+          "key": "showMute",
+          "label": "显示静音",
+          "type": "bool",
+          "tab": "behavior"
+        }
+      ]
+    }
+  },
+  "bindings": {
+    "product.name": "商品名称",
+    "product.summary": "商品副标题",
+    "product.code": "商品编码",
+    "product.salePrice": "商品售价",
+    "product.originalPrice": "划线价格",
+    "product.slides": "商品轮播图组",
+    "product.groups.highlight": "卖点图组",
+    "product.groups.detail": "详情图组",
+    "product.spec.contentHtml": "商品内容",
+    "home.albums": "首页画册",
+    "home.current.name": "当前画册名称",
+    "home.current.subtitle": "当前画册副标题",
+    "catalog.items": "商品和画册列表",
+    "catalog.categories": "商品分类",
+    "catalog.series": "商品系列",
+    "favorites.items": "当前收藏列表",
+    "member.name": "会员名称",
+    "member.note": "会员说明",
+    "member.avatar": "会员头像",
+    "member.counts.favorite": "收藏数量",
+    "member.counts.history": "足迹数量",
+    "member.counts.share": "分享数量",
+    "member.resume.cover": "继续阅读封面",
+    "member.resume.name": "继续阅读标题",
+    "history.groups": "历史日期组",
+    "item.image": "当前项目图片",
+    "item.cover": "当前项目封面",
+    "item.name": "当前项目名称",
+    "item.title": "当前项目标题",
+    "item.text": "当前项目说明",
+    "item.label": "字段名称",
+    "item.meta": "当前项目摘要",
+    "item.code": "当前项目编码",
+    "item.day": "当前日期",
+    "item.items": "当前组条目",
+    "product.description": "商品说明",
+    "member.resume.link": "继续阅读链接",
+    "login.error": "登录错误信息",
+    "login.bindNotice": "微信账号绑定提示",
+    "product.spec.colorsText": "商品颜色",
+    "product.spec.sizesText": "商品尺码",
+    "product.spec.fitText": "商品版型",
+    "product.spec.fields": "规格字段",
+    "item.value": "字段内容",
+    "member.resume.progress.percent": "继续阅读进度",
+    "member.resume.progress.total": "继续阅读总页数"
+  },
+  "defaultTypography": {
+    "title": {
+      "size": 20,
+      "weight": 600,
+      "lineHeight": 1.4,
+      "letterSpacing": 0,
+      "color": "",
+      "family": "sans"
+    },
+    "subtitle": {
+      "size": 14,
+      "weight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": 0,
+      "color": "",
+      "family": "sans"
+    },
+    "body": {
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": 0,
+      "color": "",
+      "family": "sans"
+    }
+  },
+  "designWidth": 375,
+  "designHeight": 812,
+  "presets": {
+    "row": {
+      "label": "横向布局",
+      "nodes": [
+        {
+          "type": "container",
+          "props": {
+            "display": "grid",
+            "direction": "row",
+            "children": [
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              }
+            ],
+            "columns": 2
+          }
+        }
+      ],
+      "icon": "columns-2"
+    },
+    "column": {
+      "label": "纵向布局",
+      "nodes": [
+        {
+          "type": "container",
+          "props": {
+            "display": "flex",
+            "direction": "column",
+            "children": [
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "icon": "rows-2"
+    },
+    "product_caption": {
+      "label": "商品标题",
+      "pages": [
+        "detail"
+      ],
+      "contains": [
+        "product_title",
+        "product_price",
+        "product_subtitle",
+        "product_code"
+      ],
+      "nodes": [
+        {
+          "type": "container",
+          "props": {
+            "display": "flex",
+            "direction": "column",
+            "children": [
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "row",
+                  "children": [
+                    {
+                      "type": "product_title",
+                      "props": {
+                        "grow": 1,
+                        "shrink": 1
+                      }
+                    },
+                    {
+                      "type": "container",
+                      "props": {
+                        "display": "flex",
+                        "direction": "column",
+                        "children": [
+                          {
+                            "type": "product_price",
+                            "props": {}
+                          },
+                          {
+                            "type": "product_original_price",
+                            "props": {}
+                          }
+                        ],
+                        "itemGap": 0,
+                        "itemsAlign": "flex-end"
+                      }
+                    }
+                  ],
+                  "justify": "space-between",
+                  "itemsAlign": "flex-start",
+                  "itemGap": 12
+                }
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "row",
+                  "children": [
+                    {
+                      "type": "product_code",
+                      "props": {}
+                    },
+                    {
+                      "type": "product_subtitle",
+                      "props": {}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "icon": "heading-1"
+    },
+    "product_gallery": {
+      "label": "轮播卡片",
+      "pages": [
+        "detail"
+      ],
+      "copyTypes": [
+        "product_gallery",
+        "product_skus"
+      ],
+      "nodes": [
+        {
+          "type": "product_gallery",
+          "props": {}
+        },
+        {
+          "type": "product_skus",
+          "props": {}
+        }
+      ],
+      "icon": "images"
+    },
+    "product_info": {
+      "label": "产品信息",
+      "pages": [
+        "detail"
+      ],
+      "nodes": [
+        {
+          "type": "product_info",
+          "props": {}
+        }
+      ],
+      "icon": "clipboard-list"
+    },
+    "member_header": {
+      "label": "会员信息",
+      "pages": [
+        "mine"
+      ],
+      "contains": [
+        "member_avatar",
+        "member_name",
+        "member_note"
+      ],
+      "nodes": [
+        {
+          "type": "container",
+          "props": {
+            "display": "flex",
+            "direction": "row",
+            "children": [
+              {
+                "type": "member_avatar",
+                "props": {}
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": [
+                    {
+                      "type": "member_name",
+                      "props": {}
+                    },
+                    {
+                      "type": "member_note",
+                      "props": {}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "icon": "contact-round"
+    },
+    "search_list": {
+      "label": "搜索列表",
+      "pages": [
+        "catalog",
+        "search"
+      ],
+      "contains": [
+        "search",
+        "filters",
+        "repeat"
+      ],
+      "nodes": [
+        {
+          "type": "container",
+          "props": {
+            "display": "flex",
+            "direction": "column",
+            "children": [
+              {
+                "type": "search",
+                "props": {}
+              },
+              {
+                "type": "filters",
+                "props": {}
+              },
+              {
+                "type": "series_filter",
+                "props": {}
+              },
+              {
+                "type": "repeat",
+                "props": {
+                  "binding": "catalog.items",
+                  "children": [
+                    {
+                      "type": "container",
+                      "props": {
+                        "display": "flex",
+                        "direction": "column",
+                        "children": [
+                          {
+                            "type": "image",
+                            "props": {
+                              "binding": "item.cover",
+                              "link": "binding:item.link"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "props": {
+                              "binding": "item.name",
+                              "textRole": "title"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "props": {
+                              "binding": "item.meta",
+                              "textRole": "subtitle"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "icon": "list-filter"
+    },
+    "image_text": {
+      "label": "图文组合",
+      "nodes": [
+        {
+          "type": "container",
+          "props": {
+            "display": "flex",
+            "direction": "column",
+            "children": [
+              {
+                "type": "image",
+                "props": {}
+              },
+              {
+                "type": "text",
+                "props": {}
+              }
+            ]
+          }
+        }
+      ],
+      "icon": "panel-left"
+    },
+    "three_columns": {
+      "label": "三列布局",
+      "nodes": [
+        {
+          "type": "container",
+          "props": {
+            "display": "grid",
+            "direction": "row",
+            "children": [
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              }
+            ],
+            "columns": 3
+          }
+        }
+      ],
+      "icon": "columns-3"
+    },
+    "four_columns": {
+      "label": "四列布局",
+      "nodes": [
+        {
+          "type": "container",
+          "props": {
+            "display": "grid",
+            "direction": "row",
+            "children": [
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "flex",
+                  "direction": "column",
+                  "children": []
+                }
+              }
+            ],
+            "columns": 4
+          }
+        }
+      ],
+      "icon": "columns-4"
+    },
+    "mixed_layout": {
+      "label": "混合布局",
+      "nodes": [
+        {
+          "type": "container",
+          "props": {
+            "display": "grid",
+            "direction": "row",
+            "children": [
+              {
+                "type": "container",
+                "props": {
+                  "display": "grid",
+                  "direction": "column",
+                  "children": [
+                    {
+                      "type": "container",
+                      "props": {
+                        "display": "flex",
+                        "direction": "column",
+                        "children": []
+                      }
+                    },
+                    {
+                      "type": "container",
+                      "props": {
+                        "display": "flex",
+                        "direction": "column",
+                        "children": []
+                      }
+                    }
+                  ],
+                  "columns": 1
+                }
+              },
+              {
+                "type": "container",
+                "props": {
+                  "display": "grid",
+                  "direction": "row",
+                  "children": [
+                    {
+                      "type": "container",
+                      "props": {
+                        "display": "flex",
+                        "direction": "column",
+                        "children": []
+                      }
+                    },
+                    {
+                      "type": "container",
+                      "props": {
+                        "display": "flex",
+                        "direction": "column",
+                        "children": []
+                      }
+                    },
+                    {
+                      "type": "container",
+                      "props": {
+                        "display": "flex",
+                        "direction": "column",
+                        "children": []
+                      }
+                    },
+                    {
+                      "type": "container",
+                      "props": {
+                        "display": "flex",
+                        "direction": "column",
+                        "children": []
+                      }
+                    }
+                  ],
+                  "columns": 2
+                }
+              }
+            ],
+            "columns": 2
+          }
+        }
+      ],
+      "icon": "panels-top-left"
+    }
+  },
+  "pageDefaults": {
+    "layout": {
+      "sideGap": 15,
+      "topGap": 0,
+      "bottomGap": 16,
+      "componentGap": 16,
+      "bg": "#000000"
+    },
+    "nav": {
+      "height": 52,
+      "logo": {
+        "fontSize": 18,
+        "height": 24,
+        "offsetLeft": 15,
+        "offsetRight": 15
+      },
+      "bg": "rgba(11,11,12,0.92)"
+    },
+    "back": {
+      "boxWidth": 20,
+      "boxHeight": 20,
+      "size": 20,
+      "gapRight": 8,
+      "display": "flex",
+      "justify": "center",
+      "itemsAlign": "center"
+    },
+    "tabbar": {
+      "height": 56,
+      "fontSize": 12,
+      "iconSize": 20
+    },
+    "viewer": {
+      "sideGap": 15,
+      "bottomGap": 16,
+      "padding": 12,
+      "buttonGap": 12,
+      "radius": 12,
+      "buttonHeight": 44,
+      "buttonPadX": 12,
+      "buttonRadius": 8,
+      "bg": "rgba(128,128,128,0.18)",
+      "buttonBg": "",
+      "buttonColor": ""
+    }
+  },
+  "buttonVariants": {
+    "login_wechat": {
+      "bg": "#ffffff",
+      "color": "#111111",
+      "borderColor": "#ffffff"
+    },
+    "login_submit": {
+      "bg": "#ffffff",
+      "color": "#111111",
+      "borderColor": "#ffffff"
+    }
+  },
+  "optionLabels": {
+    "open": "跳转链接",
+    "login": "打开登录页",
+    "logout": "退出登录",
+    "buy": "立即购买",
+    "customer": "联系客服",
+    "favorite": "收藏",
+    "favorite_remove": "取消收藏",
+    "share": "分享",
+    "orders": "我的订单",
+    "login_wechat": "微信登录",
+    "login_account": "账号登录",
+    "login_submit": "确认登录",
+    "login_account_only": "仅使用账号",
+    "left": "左",
+    "right": "右",
+    "center": "居中",
+    "top": "上",
+    "bottom": "下",
+    "row": "横向",
+    "column": "纵向",
+    "row-reverse": "横向反排",
+    "column-reverse": "纵向反排",
+    "flex": "弹性布局",
+    "grid": "网格",
+    "block": "块布局",
+    "none": "无",
+    "wrap": "换行",
+    "nowrap": "不换行",
+    "stretch": "拉伸",
+    "baseline": "基线",
+    "flex-start": "起始",
+    "flex-end": "末尾",
+    "space-between": "两端对齐",
+    "space-around": "均匀环绕",
+    "space-evenly": "等距排列",
+    "relative": "相对定位",
+    "absolute": "自由定位",
+    "solid": "实线",
+    "dashed": "虚线",
+    "dotted": "点线",
+    "double": "双线",
+    "line-through": "删除线",
+    "cover": "等比铺满",
+    "contain": "完整显示",
+    "fill": "拉伸填充",
+    "body": "正文",
+    "title": "主标题",
+    "subtitle": "副标题",
+    "sans": "无衬线字体",
+    "serif": "衬线字体",
+    "mono": "等宽字体",
+    "horizontal": "左右滑动",
+    "vertical": "上下滑动",
+    "text": "文字",
+    "image": "图片"
+  },
+  "bindingPages": {
+    "product": [
+      "detail"
+    ],
+    "home": [
+      "home"
+    ],
+    "catalog": [
+      "catalog",
+      "search"
+    ],
+    "favorites": [
+      "favorites"
+    ],
+    "history": [
+      "history"
+    ],
+    "member": [
+      "mine"
+    ],
+    "login": [
+      "login"
+    ]
+  },
+  "actionPages": {
+    "buy": [
+      "detail"
+    ],
+    "orders": [
+      "mine"
+    ],
+    "favorite": [
+      "home",
+      "detail"
+    ],
+    "favorite_remove": [
+      "favorites"
+    ],
+    "share": [
+      "home",
+      "detail"
+    ]
+  },
+  "presetLayouts": {
+    "cardList": {
+      "display": "grid",
+      "columns": 2,
+      "itemGap": 12
+    },
+    "card": {
+      "display": "flex",
+      "direction": "column",
+      "itemGap": 8
+    },
+    "cardCover": {
+      "aspectRatio": 0.8,
+      "fit": "cover"
+    },
+    "historyRow": {
+      "display": "flex",
+      "direction": "row",
+      "itemsAlign": "center",
+      "itemGap": 12,
+      "minHeight": 84,
+      "padTop": 8,
+      "padBottom": 8
+    },
+    "historyCover": {
+      "boxWidth": 52,
+      "boxHeight": 68,
+      "fit": "cover",
+      "radius": 4
+    },
+    "historyMain": {
+      "display": "flex",
+      "direction": "column",
+      "grow": 1,
+      "itemGap": 4
+    },
+    "historyAction": {
+      "minHeight": 36,
+      "padTop": 6,
+      "padBottom": 6,
+      "padLeft": 10,
+      "padRight": 10
+    },
+    "searchRow": {
+      "display": "flex",
+      "direction": "row",
+      "itemsAlign": "center",
+      "itemGap": 8
+    },
+    "memberIdentity": {
+      "itemGap": 2
+    },
+    "memberStats": {
+      "itemsAlign": "center",
+      "itemGap": 12
+    },
+    "memberStatItem": {
+      "itemsAlign": "center",
+      "justify": "center",
+      "itemGap": 4
+    },
+    "memberStatDivider": {
+      "boxWidth": 0,
+      "boxHeight": 24,
+      "thickness": 1,
+      "color": "#2C2C31",
+      "borderStyle": "solid"
+    },
+    "memberDivider": {
+      "thickness": 1,
+      "color": "#2C2C31",
+      "borderStyle": "dashed"
+    },
+    "memberMenuRow": {
+      "minHeight": 44,
+      "itemGap": 12,
+      "itemsAlign": "center",
+      "borderWidth": 0,
+      "borderBottomWidth": 1,
+      "borderStyle": "dashed",
+      "borderColor": "#2C2C31"
+    },
+    "memberMenuButton": {
+      "borderWidth": 0,
+      "borderTopWidth": 0,
+      "borderRightWidth": 0,
+      "borderBottomWidth": 0,
+      "borderLeftWidth": 0,
+      "radius": 0,
+      "padTop": 0,
+      "padBottom": 0,
+      "padLeft": 0,
+      "padRight": 0,
+      "minHeight": 44,
+      "display": "flex",
+      "direction": "row",
+      "itemsAlign": "center",
+      "justify": "flex-start",
+      "itemGap": 12,
+      "iconSize": 20
+    },
+    "memberMenuIcon": {
+      "boxWidth": 20,
+      "boxHeight": 20,
+      "size": 20,
+      "color": "#85858B"
+    }
+  },
+  "sectionLabels": {
+    "controls": "输入框",
+    "options": "选项",
+    "submit": "提交按钮",
+    "panel": "弹层"
+  },
+  "presetAliases": {
+    "detail": [
+      {
+        "path": "components.3.children.5",
+        "type": "product_size_table"
+      },
+      {
+        "path": "components.3.children.6",
+        "type": "product_content"
+      }
+    ],
+    "about": [
+      {
+        "id": "mc_1",
+        "type": "markdown"
+      }
+    ],
+    "privacy": [
+      {
+        "id": "mc_1",
+        "type": "markdown"
+      }
+    ],
+    "agreement": [
+      {
+        "id": "mc_1",
+        "type": "markdown"
+      }
+    ],
+    "home": [
+      {
+        "path": "components.0.children.1",
+        "type": "button"
+      },
+      {
+        "path": "components.0.children.2",
+        "type": "button"
+      },
+      {
+        "path": "components.0.children.3",
+        "type": "button"
+      }
+    ]
+  },
+  "listDefaults": {
+    "pageSize": 10
+  },
+  "lists": {
+    "catalog.items": {
+      "grouped": false
+    },
+    "favorites.items": {
+      "grouped": false
+    },
+    "history.groups": {
+      "grouped": true
+    }
+  },
+  "viewerFields": [
+    {
+      "key": "sideGap",
+      "label": "左右距离",
+      "type": "number"
+    },
+    {
+      "key": "bottomGap",
+      "label": "底部距离",
+      "type": "number"
+    },
+    {
+      "key": "padding",
+      "label": "操作栏内距",
+      "type": "number"
+    },
+    {
+      "key": "buttonGap",
+      "label": "按钮间距",
+      "type": "number"
+    },
+    {
+      "key": "radius",
+      "label": "操作栏圆角",
+      "type": "number"
+    },
+    {
+      "key": "buttonHeight",
+      "label": "按钮高度",
+      "type": "number"
+    },
+    {
+      "key": "buttonPadX",
+      "label": "按钮左右内距",
+      "type": "number"
+    },
+    {
+      "key": "buttonRadius",
+      "label": "按钮圆角",
+      "type": "number"
+    },
+    {
+      "key": "bg",
+      "label": "操作栏背景",
+      "type": "color"
+    },
+    {
+      "key": "buttonBg",
+      "label": "按钮背景（留空随主题）",
+      "type": "color"
+    },
+    {
+      "key": "buttonColor",
+      "label": "按钮文字（留空随主题）",
+      "type": "color"
+    }
+  ]
+}

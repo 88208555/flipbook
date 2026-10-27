@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "fb-render": "/components/fb-render/index",
+    "fb-share": "/components/fb-share/index"
+  }
+}

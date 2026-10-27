@@ -1,0 +1,123 @@
+<scroll-view class="{{query._productPart ? 'fb-read-part' : 'fb-read-page'}}" style="--fb-status-h:{{statusBar}}px;{{query._productPart === 'floatingImage' ? 'height:100%' : ''}}" scroll-y="{{!query._productPart}}" scroll-into-view="{{scrollInto}}" bindscroll="onInnerScroll">
+	<view wx:if="{{!embedded}}" class="fb-topbar fb-topbar-float fb-read-top">
+		<view class="fb-back" bindtap="onBack">
+			<view class="fb-icon fb-icon-back"></view>
+		</view>
+		<text class="fb-topbar-title">{{product.name || album.name}}</text>
+		<view wx:if="{{!embedded}}" class="fb-topbar-side"></view>
+	</view>
+
+	<block wx:if="{{status == 2}}">
+		<view wx:if="{{!query._productPart || query._productPart === 'gallery'}}" class="fb-read-stage" style="{{regionStyles.gallery}}">
+			<swiper class="fb-stage-swiper" current="{{current}}" duration="260" bindchange="onSwiperChange">
+				<swiper-item wx:for="{{slides}}" wx:key="key">
+					<video wx:if="{{item.type == 'video' && !ended[index]}}" id="vid{{index}}" class="fb-reader-video" src="{{item.video}}" poster="{{item.image}}" autoplay="{{current === index && !ended[index]}}" data-index="{{index}}" bindended="onVideoEnded" loop="{{false}}" controls="{{false}}" show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" show-fullscreen-btn="{{false}}" object-fit="cover" muted="{{muted}}"></video>
+					<image wx:else class="fb-reader-image" src="{{item.image}}" mode="aspectFill" data-index="{{index}}" bindtap="onPreview"></image>
+				</swiper-item>
+			</swiper>
+
+ <image wx:if="{{!query._productPart && floating.enabled && product.spec.floatingImage.src}}" class="fb-product-floating" style="{{floatingStyle}};{{regionStyles.floatingImage}}" src="{{product.spec.floatingImage.src}}" mode="aspectFit" data-link="{{product.spec.floatingImage.link}}" catchtap="onPresentationLink"/>
+		</view>
+
+  <image wx:if="{{query._productPart === 'floatingImage' && floating.enabled && product.spec.floatingImage.src}}" class="fb-product-floating" style="{{floatingStyle}};{{regionStyles.floatingImage}}" src="{{product.spec.floatingImage.src}}" mode="aspectFit" data-link="{{product.spec.floatingImage.link}}" catchtap="onPresentationLink" />
+		<view wx:if="{{caption.enabled !== 0 && (!query._productPart || query._productPart === 'title' || query._productPart === 'price' || query._productPart === 'originalPrice' || query._productPart === 'code' || query._productPart === 'subtitle')}}" data-fb-region="caption" class="fb-caption" style="{{regionStyles.caption}}">
+			<view wx:if="{{!query._productPart || query._productPart === 'title'}}" class="fb-caption-main" bindtap="onCaptionTap" style="text-align:{{caption.align}}">
+				<text wx:if="{{caption.showTitle !== 0}}" data-fb-region="title" class="fb-caption-title" style="font-size:{{caption.size * 2}}rpx;color:{{caption.color}};{{regionStyles.title}}">{{product.name || album.name}}</text>
+			</view>
+			<view wx:if="{{price && (!query._productPart || query._productPart === 'price' || query._productPart === 'originalPrice')}}" class="fb-price">
+				<text wx:if="{{!query._productPart || query._productPart === 'price'}}" class="fb-price-sale" style="{{regionStyles.price}}">{{price.currency == 'CNY' ? '¥' : price.currency}}{{price.value}}</text>
+				<text wx:if="{{price.original && (!query._productPart || query._productPart === 'originalPrice')}}" class="fb-price-origin" style="{{regionStyles.originalPrice}}">¥{{price.original}}</text>
+			</view>
+			<view wx:if="{{(!query._productPart || query._productPart === 'code' || query._productPart === 'subtitle') && (caption.showSubtitle !== 0 || (caption.showCode !== 0 && product.code))}}" class="fb-caption-sub" bindtap="onCaptionTap" style="text-align:{{caption.align}};{{subtitleStyle}}"><text wx:if="{{caption.showCode !== 0 && product.code && (!query._productPart || query._productPart === 'code')}}" data-fb-region="code" class="fb-code-tag" style="{{regionStyles.code}}">{{product.code}}</text><text wx:if="{{caption.showSubtitle !== 0 && (!query._productPart || query._productPart === 'subtitle')}}" data-fb-region="subtitle" style="{{regionStyles.subtitle}}">{{product.summary}}</text></view>
+		</view>
+
+		<scroll-view wx:if="{{skuImages.length && (!query._productPart || query._productPart === 'thumbs')}}" class="fb-thumbs" scroll-x="true" scroll-into-view="{{thumbInto}}" scroll-with-animation="true" style="{{regionStyles.thumbs}}">
+			<view class="fb-thumb-row">
+				<view class="fb-thumb-item {{item.slideIndex == current ? 'is-current' : ''}}" wx:for="{{skuImages}}" wx:key="key" id="thumb{{item.slideIndex}}" data-index="{{item.slideIndex}}" bindtap="onPickPage" style="{{regionStyles.thumbItem}}">
+					<image class="fb-thumb-img" src="{{item.image}}" mode="aspectFill" style="{{regionStyles.thumbImage}}"></image>
+					<view wx:if="{{item.type == 'video'}}" class="fb-thumb-play">
+						<view class="fb-icon fb-icon-play"></view>
+					</view>
+				</view>
+			</view>
+			</scroll-view>
+
+
+  <view wx:if="{{(tradeEnabled || customer.enabled) && (!query._productPart || query._productPart === 'buyButton' || query._productPart === 'customerButton')}}" class="fb-product-trade-actions" style="{{regionStyles.tradeActions}}"><button wx:if="{{tradeEnabled && (!query._productPart || query._productPart === 'buyButton')}}" class="fb-product-trade-action" style="{{regionStyles.buyButton}}" bindtap="onBuy">{{tradeText}}</button><button wx:if="{{customer.enabled && (!query._productPart || query._productPart === 'customerButton')}}" class="fb-product-trade-action" style="{{regionStyles.customerButton}}" open-type="contact" session-from="{{customer.sessionFrom}}" show-message-card="{{customer.sendCard}}" send-message-title="{{product.name}}" send-message-path="{{customerPath}}" send-message-img="{{product.cover}}">{{customer.title}}</button></view>
+
+		<view wx:if="{{!query._productPart && !query._separateHighlights && highlights.length}}" class="fb-detail-block" style="{{regionStyles.highlights}}">
+			<view class="fb-detail-head" style="{{regionStyles.highlightHead}}">
+				<text class="fb-detail-headtitle" style="{{regionStyles.highlightTitle}}">产品卖点</text>
+				<text class="fb-detail-headsub" style="{{regionStyles.highlightCode}}">{{product.code}}</text>
+			</view>
+			<view class="fb-detail-shots" style="{{regionStyles.highlightList}}">
+				<view class="fb-detail-shot" wx:for="{{highlights}}" wx:key="key" data-index="{{index}}" bindtap="onPreviewHighlight" style="{{regionStyles.highlightItem}}">
+					<image class="fb-detail-shot-image" src="{{item.image}}" mode="widthFix" style="{{regionStyles.highlightImage}}"></image>
+					<text wx:if="{{item.text}}" class="fb-detail-shotcap" style="{{regionStyles.highlightText}}">{{item.text}}</text>
+				</view>
+			</view>
+		</view>
+
+		<view wx:if="{{!query._productPart && !query._separateDetails && details.length}}" class="fb-detail-block" style="{{regionStyles.details}}">
+			<view class="fb-detail-head" style="{{regionStyles.detailHead}}">
+				<text class="fb-detail-headtitle" style="{{regionStyles.detailTitle}}">细节展示</text>
+			</view>
+			<view class="fb-detail-shots" style="{{regionStyles.detailList}}">
+				<view class="fb-detail-shot" wx:for="{{details}}" wx:key="key" data-index="{{index}}" bindtap="onPreviewDetail" style="{{regionStyles.detailItem}}">
+					<image class="fb-detail-shot-image" src="{{item.image}}" mode="widthFix" style="{{regionStyles.detailImage}}"></image>
+					<text wx:if="{{item.title}}" class="fb-detail-shotcap" style="{{regionStyles.detailText}}">{{item.title}}</text>
+				</view>
+			</view>
+		</view>
+
+		<view wx:if="{{!query._productPart && !query._separateProductInfo && (spec.colors.length || spec.sizes.length || spec.sizetable.length)}}" id="spec" class="fb-spec-block">
+			<view wx:if="{{spec.sizetable.length}}" class="fb-detail-head">
+				<text class="fb-detail-headtitle">尺码与规格</text>
+			</view>
+			<view wx:if="{{spec.colors.length}}" class="fb-spec-row">
+				<text class="fb-spec-label">颜色</text>
+				<view class="fb-spec-chips">
+					<view class="fb-spec-chip" wx:for="{{spec.colors}}" wx:key="*this">{{item}}</view>
+				</view>
+			</view>
+			<view wx:if="{{spec.sizes.length}}" class="fb-spec-row">
+				<text class="fb-spec-label">尺码</text>
+				<view class="fb-spec-chips">
+					<view class="fb-spec-chip" wx:for="{{spec.sizes}}" wx:key="*this">{{item}}</view>
+				</view>
+			</view>
+			<view wx:if="{{spec.model || spec.fit}}" class="fb-spec-row">
+				<text class="fb-spec-label">版型</text>
+				<view class="fb-spec-chips">
+					<text wx:if="{{spec.fit}}" class="fb-spec-text">{{spec.fit}}</text>
+					<text wx:if="{{spec.model}}" class="fb-spec-text">{{spec.model}}</text>
+				</view>
+			</view>
+			<view wx:if="{{spec.sizetable.length}}" class="fb-spec-table">
+				<view class="fb-spec-tr {{ri == 0 ? 'is-head' : ''}}" wx:for="{{spec.sizetable}}" wx:for-item="row" wx:for-index="ri" wx:key="ri">
+					<text class="fb-spec-td" wx:for="{{row}}" wx:for-item="cell" wx:key="*this">{{cell}}</text>
+				</view>
+				<text wx:if="{{spec.sizeTableNote}}" class="fb-spec-text">{{spec.sizeTableNote}}</text>
+			</view>
+		</view>
+	</block>
+
+	<block wx:elif="{{!query._productPart || query._productPart === 'gallery'}}"><view wx:if="{{status == 1}}" class="fb-empty" style="{{regionStyles.empty}}">
+		
+	</view>
+
+	<view wx:elif="{{status == 3}}" class="fb-empty" style="{{regionStyles.empty}}">
+		<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">内容已下架</text>
+		<text class="fb-empty-text" style="{{regionStyles.emptyText}}">去发现更多内容</text>
+		<button class="fb-btn" bindtap="onBack" style="{{regionStyles.button}}">返回发现</button>
+	</view>
+
+	<view wx:else class="fb-empty" style="{{regionStyles.empty}}">
+		<text class="fb-empty-title" style="{{regionStyles.emptyTitle}}">加载失败</text>
+		<text class="fb-empty-text" style="{{regionStyles.emptyText}}">请检查网络或接口地址</text>
+		<button class="fb-btn" bindtap="onRetry" style="{{regionStyles.button}}">重新加载</button>
+	</view>
+	</block>
+</scroll-view>
+
+<fb-toast wx:if="{{!query._productPart || query._productPart === 'gallery'}}" />

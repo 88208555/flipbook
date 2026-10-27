@@ -1,0 +1,23 @@
+<div data-fb-region="gallery" class="fb-screen" data-fb-stage>
+ <div class="fb-hero fb-web-hero" data-fb-web-hero>
+ <!--{loop $fb[heroes] $i $album}-->
+ <div class="fb-web-hero-item{if $i == 0} is-active{/if}" data-fb-stage-item="{$i}" data-fb-product="{eval echo flipbook\front_view::first_productid($album['albumid']);}" data-fb-id="{$album[albumid]}" data-title="{$album[name]}" data-subtitle="{$album[subtitle]}" data-fb-fav-on="{$album[favorited]}" data-fb-style="{$album[styleurl]}">
+  <!--{if $album[hasvideo]}--><video class="fb-hero-video" src="{$album[video]}" poster="{$album[cover]}" autoplay muted playsinline></video><!--{else}--><img class="fb-hero-img" src="{$album[cover]}" alt="{$album[name]}" /><!--{/if}-->
+  <a class="fb-web-hero-enter" href="{$album[url]}" aria-label="查看 {$album[name]}"></a>
+
+
+  <!--{if $fb[captionOptions][enabled]}--><a data-fb-region="caption" class="fb-hero-info" style="{$fb[captionStyle]}" href="{if $fb[captionOptions][link]}{eval echo flipbook\front_helper::e(flipbook\front_micro::link_url($fb['captionOptions']['link']));}{else}{$album[url]}{/if}">
+  <!--{if $fb[captionOptions][showTitle]}--><strong data-fb-region="title" class="fb-hero-name" style="font-size:inherit;color:inherit">{$album[name]}</strong><!--{/if}-->
+  <!--{if $fb[captionOptions][showSubtitle] || $fb[captionOptions][showCode]}--><span class="fb-hero-sub" style="font-size:{$fb[captionOptions][subSize]}px;color:{$fb[captionOptions][subColor]}"><!--{if $fb[captionOptions][showCode] && $album[code]}--><span data-fb-region="code" class="fb-code-tag">{$album[code]}</span><!--{/if}--><!--{if $fb[captionOptions][showSubtitle]}--><span data-fb-region="subtitle">{$album[subtitle]}</span><!--{/if}--></span><!--{/if}-->
+  <!--{if $fb[captionOptions][showExtra]}--><!--{loop $album[overlayLines] $line}--><span data-fb-region="extra" class="fb-hero-sub">{$line}</span><!--{/loop}--><!--{/if}--></a><!--{/if}-->
+  <!--{if $fb[floatingOptions][enabled] && $album[floatingImage][src]}--><a data-fb-region="floatingImage" class="fb-product-floating" style="{$fb[floatingStyle]}" href="{$album[floatingImage][href]}"><img src="{$album[floatingImage][src]}" alt="商品悬浮图片"></a><!--{/if}-->
+ </div>
+ <!--{/loop}-->
+ </div>
+ <div class="fb-stage-rail">
+  <button class="fb-rail-btn" data-fb-favorite="album" aria-label="收藏"><!--{eval echo flipbook\front_icon::svg('bookmark');}--></button>
+  <button class="fb-rail-btn" data-fb-share="album" aria-label="分享"><!--{eval echo flipbook\front_icon::svg('share');}--></button>
+ </div>
+</div>
+<!--{if !$fb[heroes]}--><div data-fb-region="empty" class="fb-empty"><p>暂无画册</p></div><!--{/if}-->
+<!--{subtemplate flipbook:share}-->

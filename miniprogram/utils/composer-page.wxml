@@ -1,0 +1,11 @@
+<view class="fc-native-page" style="{{textStyle}};background:{{theme.bg}};color:{{theme.color}};font-size:{{pageFont}};padding-bottom:{{footerHeight}}px">
+ <view class="fc-native-status" style="height:{{statusBar}}px;background:{{theme.bg}}"/>
+ <view wx:if="{{chrome.enabled || chrome.logo.enabled || chrome.back.show}}" class="fc-native-nav" style="{{chrome.style}};{{!chrome.enabled ? 'top:' + statusBar + 'px;' : ''}}">
+  <view wx:if="{{chrome.back.show}}" style="{{chrome.back.style}}" bindtap="onBack"><view style="{{chrome.back.iconStyle}}"/></view>
+  <view wx:if="{{chrome.logo.enabled}}" class="fc-native-logo" style="{{chrome.logo.style}}" bindtap="onLogo"><image wx:if="{{chrome.logo.type === 'image' && chrome.logo.image}}" src="{{chrome.logo.image}}" mode="heightFix" style="{{chrome.logo.imageStyle}}"/><text wx:else>{{chrome.logo.text}}</text></view>
+ </view>
+ <scroll-view scroll-y="{{!feedLocked}}" class="fc-native-scroll" lower-threshold="0" bindscrolltolower="onListLower" enhanced show-scrollbar="{{false}}"><view class="fc-native-main" style="{{mainStyle}}"><view wx:if="{{error}}" class="fc-native-list-retry" aria-role="button" bindtap="onRetry">页面加载失败，点击重试</view><fb-render wx:for="{{nodes}}" wx:key="id" node="{{item}}"/><view wx:if="{{listError}}" class="fc-native-list-retry" bindtap="onRetryList">加载失败，点击重试</view></view></scroll-view>
+ <view wx:if="{{chrome.footer.enabled}}" class="fc-native-footer" style="{{chrome.footer.style}}"><view wx:for="{{chrome.footer.items}}" wx:key="id" class="fc-native-tab" style="color:{{item.color}}" data-index="{{index}}" bindtap="onTabbar"><view class="fc-native-icon" style="{{item.iconStyle}}"/><text class="{{item.selected ? 'fc-native-active' : ''}}">{{item.label}}</text></view></view>
+</view>
+<fb-share id="product-share" visible="{{shareVisible}}" productid="{{shareProduct.productid || 0}}" bindclose="onCloseShare" bindchange="onShareChange"/>
+<fb-page-loading id="page-loading" visible="{{pageLoadingVisible}}" logo="{{pageLoadingLogo}}"/>

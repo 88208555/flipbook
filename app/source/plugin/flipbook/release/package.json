@@ -1,0 +1,15 @@
+{
+  "name": "flipbook-wechat-release-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "画册小程序编译检查上传服务",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node worker.cjs"
+  },
+  "dependencies": {
+    "miniprogram-ci": "2.1.48"
+  }
+}

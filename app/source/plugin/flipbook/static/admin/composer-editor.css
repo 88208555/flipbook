@@ -1,0 +1,51 @@
+/* Editor controls only; front component appearance is supplied by composer-core. */
+body[data-fb-editor]{margin-bottom:0}
+/* The scaled frame lives in normal canvas flow; no dependency on the retired iframe shell. */
+.fbmp-canvas-stage{position:relative;isolation:isolate}
+.fbmp-canvas{position:relative;overflow:auto;isolation:isolate;margin-right:52px}
+#fbmp-viewport.fbmp-viewport{position:relative;left:auto;top:auto;transform:none;overflow:visible;margin:0 auto}
+.fc-editor-frame{position:relative;display:flex;flex-direction:column;min-height:0;box-sizing:border-box;flex:none;overflow:hidden}
+.fc-editor-body{display:flex;flex:1;flex-direction:column;position:relative;min-height:0;overflow:auto;overscroll-behavior:contain}
+.fc-editor-frame .fc-node{cursor:pointer;position:relative}
+.fc-editor-frame .fc-node:hover{outline:2px solid #16a34a;outline-offset:-1px}
+.fc-editor-frame .fc-selected{outline:2px solid #16a34a;outline-offset:-1px}
+.fc-editor-frame .fc-selected::before{content:attr(data-label);position:absolute;left:0;top:0;transform:translateY(-100%);font:12px/1.5 system-ui;background:#16a34a;color:#fff;text-align:center;width:100%;box-sizing:border-box;z-index:400;pointer-events:none}
+.fc-editor-frame .fc-node:empty{min-height:1em}
+.fc-editor-frame .fc-page-footer{position:relative;flex:none;left:auto;right:auto;bottom:auto;width:100%;max-width:none;z-index:200;transform:none}
+.fc-editor-field{display:flex;flex-direction:column;gap:5px;min-width:0;font-size:12px}
+.fc-editor-field input,.fc-editor-field textarea,.fc-editor-field select{box-sizing:border-box;max-width:100%;width:100%}
+.fc-editor-field input[type=checkbox]{width:auto}
+.fc-editor-field textarea{min-height:80px}
+.fbmp-component-tools{position:absolute;z-index:500;display:flex;flex-direction:column;width:36px;background:transparent;color:var(--fbmp-text);border-radius:4px;box-shadow:none}
+.fbmp-component-tools[hidden]{display:none}
+.fbmp-component-tools button{height:36px;width:36px;border:0;background:transparent;cursor:pointer}
+.fbmp-config-tabs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+.fbmp-config-tabs [aria-selected=true]{border-color:currentColor;box-shadow:inset 0 -2px currentColor}
+
+.fc-editor-frame .fc-node:not(.fc-selected):hover:has(.fc-node:hover){outline:0}
+.fbmp-config{padding:16px}
+#fbmp-inspector{display:flex;flex-direction:column;gap:16px}
+#fbmp-inspector>.fbmp-group-title{margin:0;min-height:18px;font-size:12px;line-height:18px}
+#fbmp-inspector>.fbmp-config-tabs{margin:0;padding:0 0 12px}
+.fbmp-config-subtabs{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+body[data-fb-editor] #fbmp-inspector :is(.fbmp-config-tabs,.fbmp-config-subtabs) [aria-selected=true]{background:var(--fbmp-panel-2)!important;border-color:var(--fbmp-accent)!important;color:var(--fbmp-accent)!important;box-shadow:none!important}
+#fbmp-inspector .fbmp-fields{gap:16px}
+#fbmp-inspector .fc-editor-field{gap:8px;line-height:18px}
+.fbmp-inspector-actions{display:flex;gap:8px;flex-wrap:wrap}
+#fbmp-inspector .fbmp-fields>.fbmp-group-title{grid-column:1/-1;margin:0;padding-top:8px}
+#fbmp-inspector .fbmp-fields>.fbmp-group-title:first-child{padding-top:0}
+#fbmp-inspector textarea[data-icon-source]{grid-column:1/-1}
+
+.fbmp-role-note{font-size:12px;line-height:18px;color:var(--fbmp-text-2)}
+.fbmp-color-row{display:flex;align-items:center;gap:8px;min-width:0}
+.fc-editor-field .fbmp-color-row input[type=color]{flex:none;width:36px;height:36px;padding:2px}
+.fc-editor-field .fbmp-color-row input[type=text]{flex:1;min-width:0;width:0}
+.fc-editor-dropzone{box-sizing:border-box;display:flex;flex:1;flex-direction:column;justify-content:center;align-items:center;gap:6px;min-width:0;min-height:72px;width:100%;padding:12px;border:1px dashed #eab308;color:#a16207;background:#facc150a;font:12px/1.5 system-ui;text-align:center;cursor:pointer}
+.fc-editor-dropzone.is-drop-target{background:#facc1526}
+.fc-editor-frame .fc-node.fc-container.fc-selected,.fc-editor-frame .fc-node.fc-repeat.fc-selected{outline:1px dashed #eab308}
+.fbmp-container-path{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:12px}
+.fbmp-container-path button{padding:3px 6px;min-height:24px;font:inherit}
+.fbmp-container-path [aria-current]{color:var(--fbmp-text-2)}
+.fbmp-container-columns,.fbmp-container-actions{display:flex;flex-wrap:wrap;gap:8px}
+.fbmp-container-columns button,.fbmp-container-actions button{flex:1;white-space:nowrap}
+body[data-fb-editor] #fbmp-inspector :is(.fbmp-container-columns,.fbmp-container-actions) [aria-pressed=true]{background:var(--fbmp-panel-2)!important;border-color:var(--fbmp-accent)!important;color:var(--fbmp-accent)!important;box-shadow:none!important}

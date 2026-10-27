@@ -1,0 +1,23 @@
+画册小程序版本推送 · 构建服务说明
+
+此服务使用微信官方 miniprogram-ci 2.1.48。自有小程序上传私钥可上传开发版本；审核与正式上线仍在微信公众平台完成。本地自动检查包括项目结构、JS/JSON 语法、微信代码质量扫描及编译，不等同于完整真机业务回归。
+
+准备 Node.js 20 或更高版本，在本目录执行 npm install --omit=dev，然后按实际环境设置并启动：
+
+FLIPBOOK_CI_SOURCE_ROOT=/absolute/path/to/flipbook/miniprogram
+FLIPBOOK_CI_DATA=/private/path/outside/webroot/flipbook-ci
+FLIPBOOK_CI_APPID=自己的小程序AppID
+FLIPBOOK_CI_TOKEN=与后台配置一致的至少32位随机通信密钥
+FLIPBOOK_CI_HOST=127.0.0.1
+FLIPBOOK_CI_PORT=8096
+node worker.cjs
+
+构建源码目录包含 project.config.json、app.json、config.js 及页面文件。云端发布对该目录制作隔离副本；本地发布上传完整源码 ZIP。构建只在隔离副本填入 AppID、HTTPS API_BASE 和编译配置，原源码不变。ZIP 支持常规存储/Deflate，禁止跨目录、符号链接、重复文件、加密及超大解压内容。
+
+通过 HTTPS 反向代理连接该服务，在画册后台“版本推送 → 上传代码”填写其地址与相同通信密钥，上传微信公众平台下载的代码上传私钥。私钥在插件设置中加密存储；构建任务通过认证的服务连接传递，构建完成后清理临时副本，私钥不写入日志或代码包。构建服务的数据目录应放在网站目录之外。
+
+把实际构建服务器的公网出口 IP 加入微信代码上传白名单。此项目指定 106.55.0.61；若服务的出口不同，需使用实际出口。小程序接口地址填写已加入微信合法域名的 HTTPS 站点。
+
+发布记录保留自动检查、编译、上传状态和真实失败原因。移除记录仅隐藏构建服务中的记录，不操作微信代码。重启时未完成任务标记“结果待核对”，不会自动重复上传。需要先在微信公众平台确认真实结果。
+
+官方接口说明：https://github.com/wechat-miniprogram/miniprogram-ci-dist

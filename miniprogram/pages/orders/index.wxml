@@ -1,0 +1,14 @@
+<view class="fb-commerce-page" style="padding-top:{{statusBar}}px">
+ <view class="fb-commerce-nav"><button bindtap="onBack">‹</button><text>我的订单</text><button wx:if="{{order}}" bindtap="onAll">全部订单</button></view>
+ <text wx:if="{{error}}" class="fb-commerce-error">{{error}}</text>
+ <block wx:if="{{order}}">
+  <view class="fb-commerce-card"><text class="fb-commerce-title">{{order.statusText}}</text><text class="fb-commerce-subtitle">{{order.number}}</text><image class="fb-commerce-detail-image" src="{{order.snapshot.image}}" mode="aspectFit"/><text class="fb-commerce-title">{{order.title}}</text><text class="fb-commerce-subtitle">{{order.skuText}}</text><view class="fb-commerce-row"><text>数量</text><text>{{order.quantity}}</text></view><view class="fb-commerce-row"><text>合计</text><text class="fb-commerce-amount">¥{{order.total}}</text></view><text class="fb-commerce-description">{{order.address.name}} {{order.address.phone}} {{order.address.province}} {{order.address.city}} {{order.address.district}} {{order.address.detail}}</text><text wx:if="{{order.tracking}}" class="fb-commerce-description">{{order.carrier}} · {{order.tracking}}</text><text class="fb-commerce-description">{{order.createdText}}</text></view>
+  <view class="fb-commerce-row"><button bindtap="onRefresh" loading="{{busy}}" disabled="{{busy}}">刷新支付状态</button><button wx:if="{{order.status === 'pending'}}" bindtap="onPay" loading="{{busy}}" disabled="{{busy}}">继续支付</button><button wx:if="{{order.status === 'pending'}}" bindtap="onClose" disabled="{{busy}}">关闭订单</button></view>
+ </block>
+ <block wx:else>
+  <scroll-view class="fb-commerce-tabs" scroll-x enable-flex><button wx:for="{{statusOptions}}" wx:key="key" class="{{status === item.key ? 'is-active' : ''}}" data-status="{{item.key}}" bindtap="onStatus">{{item.label}}</button></scroll-view>
+  <view class="fb-commerce-card" wx:for="{{items}}" wx:key="id" data-id="{{item.id}}" bindtap="onOrder"><view class="fb-commerce-row"><text>{{item.number}}</text><text>{{item.statusText}}</text></view><text class="fb-commerce-title">{{item.title}}</text><text class="fb-commerce-subtitle">{{item.skuText}}</text><view class="fb-commerce-row"><text>{{item.quantity}} 件</text><text>¥{{item.total}}</text></view></view>
+  <text wx:if="{{!loading && !items.length && !error}}" class="fb-commerce-description">暂无订单</text><button bindtap="onRefresh" loading="{{loading}}">刷新列表</button>
+ </block>
+</view>
+<fb-page-loading id="page-loading" visible="{{pageLoadingVisible}}" logo="{{pageLoadingLogo}}"/>

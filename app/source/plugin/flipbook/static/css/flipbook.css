@@ -1,0 +1,2548 @@
+@charset "utf-8";
+
+/**
+ * 工装画册 · 前台样式
+ *
+ * 约束与来源：
+ * 1. 颜色只取黑、白、中性灰，全部收敛在下方 :root 令牌中；业务选择器只允许引用变量，
+ *    不出现直接颜色值，从而让色板可追溯、可整体替换。
+ * 2. 页面不写元素 style 属性，不写私有临时样式，全部走本文件的组件类。
+ * 3. 图标统一由 front_icon 渲染的 SVG 精灵提供，尺寸/线宽/颜色也只在本文件定义。
+ * 4. 摄影素材保留人物与材质表现，不做整体去色，UI 外壳自身即黑白灰。
+ */
+
+/* ============================================================
+   1. 设计令牌（唯一取值来源）
+   ============================================================ */
+:root {
+	--fb-black: #000000;
+	--fb-ink: #0d0d0f;
+	--fb-ink-raised: #17171a;
+	--fb-ink-raised-2: #202024;
+	--fb-ink-raised-3: #2a2a2f;
+	--fb-line: #2c2c31;
+	--fb-line-strong: #3d3d44;
+	--fb-white: #ffffff;
+	--fb-text: #f4f4f5;
+	--fb-text-2: #a1a1a6;
+	--fb-text-3: #79797f;
+	--fb-text-4: #52525a;
+	--fb-scrim: rgba(0, 0, 0, 0.62);
+	--fb-scrim-soft: rgba(0, 0, 0, 0.38);
+	--fb-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+	--fb-focus: #ffffff;
+
+	--fb-font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+	--fb-fs-xs: 11px;
+	--fb-fs-s: 12px;
+	--fb-fs-m: 14px;
+	--fb-fs-l: 17px;
+	--fb-fs-xl: 22px;
+	--fb-fs-xxl: 28px;
+	--fb-lh: 1.5;
+	--fb-ls: 0.01em;
+
+	--fb-gap-1: 4px;
+	--fb-gap-2: 8px;
+	--fb-gap-3: 12px;
+	--fb-gap-4: 16px;
+	--fb-gap-5: 24px;
+
+	--fb-radius-s: 6px;
+	--fb-radius-m: 12px;
+	--fb-radius-l: 18px;
+	--fb-radius-pill: 999px;
+
+	--fb-nav-h: 54px;
+	--fb-topbar-h: 48px;
+	--fb-shell: 480px;
+	--fb-ease: 180ms ease;
+	--fb-icon: 20px;
+	--fb-icon-stroke: 1.7;
+}
+
+/* ============================================================
+   2. 原生外壳适配（仅画册页面）
+   ============================================================ */
+body.pg_flipbook,
+body.fb-body {
+	background: var(--fb-black);
+	color: var(--fb-text);
+	font-family: var(--fb-font);
+	line-height: var(--fb-lh);
+}
+
+html,
+body.fb-body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	background: var(--fb-black);
+}
+
+body.fb-body a,
+body.fb-body a:link,
+body.fb-body a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+body.fb-body img {
+	border: 0;
+}
+
+body.pg_flipbook #hd,
+body.pg_flipbook #nv,
+body.pg_flipbook #ft,
+body.pg_flipbook #flk,
+body.pg_flipbook #frt,
+body.pg_flipbook #scrolltop {
+	display: none;
+}
+
+body.pg_flipbook #wp {
+	padding: 0;
+	max-width: none;
+	min-height: 0;
+	background: var(--fb-black);
+}
+
+body.pg_flipbook a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body.pg_flipbook img {
+	border: 0;
+}
+
+/* ============================================================
+   3. 应用外壳
+   ============================================================ */
+.fb-app {
+	max-width: var(--fb-shell);
+	margin: 0 auto;
+	background: var(--fb-black);
+	color: var(--fb-text);
+	font-family: var(--fb-font);
+	font-size: var(--fb-fs-m);
+	letter-spacing: var(--fb-ls);
+	padding-bottom: calc(var(--fb-nav-h) + var(--fb-gap-3) + env(safe-area-inset-bottom, 0px));
+	-webkit-font-smoothing: antialiased;
+}
+
+.fb-sprite {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.fb-main {
+	display: block;
+}
+
+.fb-icon {
+	width: var(--fb-icon);
+	height: var(--fb-icon);
+	flex: none;
+	stroke: currentColor;
+	fill: none;
+	stroke-width: var(--fb-icon-stroke);
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.fb-icon-s {
+	--fb-icon: 16px;
+}
+
+.fb-icon-l {
+	--fb-icon: 24px;
+}
+
+/* ============================================================
+   4. 顶栏 / 页签 / 图标按钮
+   ============================================================ */
+.fb-topbar {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	min-height: var(--fb-topbar-h);
+	padding: var(--fb-gap-2) var(--fb-gap-4);
+	background: var(--fb-black);
+}
+
+.fb-topbar-title {
+	font-size: var(--fb-fs-l);
+	font-weight: 600;
+}
+
+.fb-topbar-side {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-1);
+}
+
+.fb-tabs {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-5);
+}
+
+.fb-tab {
+	position: relative;
+	padding: var(--fb-gap-2) 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-m);
+	background: none;
+	border: 0;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+.fb-tab.is-active {
+	color: var(--fb-text);
+	font-weight: 600;
+}
+
+.fb-tab.is-active::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 2px;
+	background: var(--fb-white);
+}
+
+.fb-iconbtn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	padding: 0;
+	color: var(--fb-text);
+	background: none;
+	border: 0;
+	border-radius: var(--fb-radius-pill);
+	cursor: pointer;
+}
+
+.fb-iconbtn:hover,
+.fb-iconbtn:focus-visible {
+	background: var(--fb-ink-raised);
+	outline: none;
+}
+
+.fb-iconbtn:focus-visible {
+	box-shadow: 0 0 0 1px var(--fb-focus);
+}
+
+/* ============================================================
+   5. 阅读舞台
+   ============================================================ */
+.fb-stage {
+	position: relative;
+	margin: 0 var(--fb-gap-4);
+	overflow: hidden;
+	border-radius: var(--fb-radius-l);
+	background: var(--fb-ink);
+}
+
+.fb-stage-frame {
+	position: relative;
+	aspect-ratio: 3 / 4;
+}
+
+.fb-stage-item {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--fb-ease);
+}
+
+.fb-stage-item.is-active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.fb-stage-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.fb-stage-rail {
+	position: absolute;
+	right: var(--fb-gap-3);
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	gap: var(--fb-gap-2);
+}
+
+.fb-rail-btn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--fb-gap-1);
+	width: 52px;
+	padding: var(--fb-gap-2) var(--fb-gap-1);
+	color: var(--fb-text);
+	background: var(--fb-scrim);
+	border: 0;
+	border-radius: var(--fb-radius-m);
+	font-size: var(--fb-fs-xs);
+	font-family: inherit;
+	cursor: pointer;
+}
+
+.fb-rail-btn.is-on {
+	color: var(--fb-black);
+	background: var(--fb-white);
+}
+
+.fb-dots {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--fb-gap-2);
+	padding: var(--fb-gap-3) 0;
+}
+
+.fb-dot {
+	width: 6px;
+	height: 6px;
+	border-radius: var(--fb-radius-pill);
+	background: var(--fb-line-strong);
+}
+
+.fb-dot.is-active {
+	background: var(--fb-white);
+}
+
+.fb-info {
+	padding: 0 var(--fb-gap-4) var(--fb-gap-3);
+}
+
+.fb-info-title {
+	margin: 0;
+	font-size: var(--fb-fs-xl);
+	font-weight: 600;
+}
+
+.fb-info-sub {
+	margin: var(--fb-gap-1) 0 0;
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-m);
+}
+
+.fb-info-desc {
+	margin: var(--fb-gap-2) 0 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-eyebrow {
+	display: block;
+	margin: 0 0 var(--fb-gap-1);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-xs);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.fb-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--fb-gap-2);
+	margin-top: var(--fb-gap-3);
+}
+
+.fb-tag {
+	padding: 3px var(--fb-gap-2);
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-xs);
+	border: 1px solid var(--fb-line);
+	border-radius: var(--fb-radius-pill);
+}
+
+/* ============================================================
+   6. 缩略图轨道 / 进度
+   ============================================================ */
+.fb-thumbs {
+	display: flex;
+	gap: var(--fb-gap-2);
+	overflow-x: auto;
+	padding: 0 var(--fb-gap-4) var(--fb-gap-3);
+	scrollbar-width: none;
+}
+
+.fb-thumbs::-webkit-scrollbar {
+	display: none;
+}
+
+.fb-thumb {
+	flex: none;
+	width: 62px;
+	height: 78px;
+	padding: 0;
+	overflow: hidden;
+	background: var(--fb-ink-raised);
+	border: 1px solid transparent;
+	border-radius: var(--fb-radius-s);
+	cursor: pointer;
+}
+
+.fb-thumb-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.fb-thumb.is-current {
+	border-color: var(--fb-white);
+}
+
+.fb-footbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	padding: 0 var(--fb-gap-4) var(--fb-gap-3);
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-footbar-hint {
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-xs);
+}
+
+.fb-footbar-stack {
+	flex-direction: column;
+	align-items: stretch;
+	gap: var(--fb-gap-2);
+}
+
+.fb-footbar-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+}
+
+.fb-footbar-stack .fb-footbar-hint {
+	text-align: center;
+}
+
+.fb-counter {
+	color: var(--fb-text);
+	font-size: var(--fb-fs-m);
+	font-variant-numeric: tabular-nums;
+}
+
+.fb-progress {
+	display: block;
+	width: 100%;
+	height: 2px;
+	margin: var(--fb-gap-2) 0;
+	overflow: hidden;
+	appearance: none;
+	background: var(--fb-line);
+	border: 0;
+	border-radius: var(--fb-radius-pill);
+}
+
+.fb-progress::-webkit-progress-bar {
+	background: var(--fb-line);
+	border-radius: var(--fb-radius-pill);
+}
+
+.fb-progress::-webkit-progress-value {
+	background: var(--fb-white);
+	border-radius: var(--fb-radius-pill);
+}
+
+.fb-progress::-moz-progress-bar {
+	background: var(--fb-white);
+	border-radius: var(--fb-radius-pill);
+}
+
+/* ============================================================
+   7. 卡片网格（分类 / 收藏 / 继续阅读）
+   ============================================================ */
+.fb-search {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-2);
+	margin: 0 var(--fb-gap-4) var(--fb-gap-3);
+	padding: 0 var(--fb-gap-3);
+	background: var(--fb-ink-raised);
+	border-radius: var(--fb-radius-m);
+	color: var(--fb-text-3);
+}
+
+.fb-search input {
+	flex: 1;
+	height: 40px;
+	color: var(--fb-text);
+	background: none;
+	border: 0;
+	outline: none;
+	font-family: inherit;
+	font-size: var(--fb-fs-m);
+}
+
+.fb-search input::placeholder {
+	color: var(--fb-text-4);
+}
+
+.fb-filterbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	padding: 0 var(--fb-gap-4) var(--fb-gap-3);
+}
+
+.fb-chips {
+	display: flex;
+	gap: var(--fb-gap-4);
+	overflow-x: auto;
+	scrollbar-width: none;
+}
+
+.fb-chips::-webkit-scrollbar {
+	display: none;
+}
+
+.fb-chip {
+	flex: none;
+	padding: var(--fb-gap-1) 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-m);
+	background: none;
+	border: 0;
+	border-bottom: 2px solid transparent;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+.fb-chip.is-active {
+	color: var(--fb-text);
+	font-weight: 600;
+	border-bottom-color: var(--fb-white);
+}
+
+.fb-select {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--fb-gap-1);
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--fb-gap-3);
+	padding: 0 var(--fb-gap-4) var(--fb-gap-4);
+}
+
+.fb-grid-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.fb-card {
+	position: relative;
+	display: block;
+}
+
+.fb-card-cover {
+	position: relative;
+	aspect-ratio: 3 / 4;
+	overflow: hidden;
+	border-radius: var(--fb-radius-m);
+	background: var(--fb-ink-raised);
+}
+
+.fb-card-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.fb-card.is-current .fb-card-cover {
+	outline: 2px solid var(--fb-white);
+	outline-offset: -2px;
+}
+
+.fb-card-body {
+	padding: var(--fb-gap-2) 0 0;
+}
+
+.fb-card-title {
+	margin: 0;
+	color: var(--fb-text);
+	font-size: var(--fb-fs-m);
+	font-weight: 600;
+}
+
+.fb-card-meta {
+	margin: var(--fb-gap-1) 0 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-card-flag {
+	position: absolute;
+	top: var(--fb-gap-2);
+	right: var(--fb-gap-2);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	color: var(--fb-black);
+	background: var(--fb-white);
+	border-radius: var(--fb-radius-pill);
+}
+
+.fb-card-check {
+	position: absolute;
+	top: var(--fb-gap-2);
+	left: var(--fb-gap-2);
+	width: 22px;
+	height: 22px;
+	border-radius: var(--fb-radius-pill);
+	border: 1px solid var(--fb-line-strong);
+	background: var(--fb-scrim-soft);
+}
+
+.fb-card-check .fb-icon {
+	display: none;
+}
+
+.fb-card-check.is-checked {
+	color: var(--fb-black);
+	background: var(--fb-white);
+	border-color: var(--fb-white);
+}
+
+.fb-card-check.is-checked .fb-icon {
+	display: block;
+}
+
+.fb-card-check {
+	display: none;
+}
+
+.fb-card .fb-card-flag {
+	display: inline-flex;
+}
+
+body.is-manage .fb-card-check {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+body.is-manage .fb-card .fb-card-flag {
+	display: none;
+}
+
+body.is-manage .fb-card.is-picked .fb-card-cover {
+	outline: 2px solid var(--fb-white);
+	outline-offset: -2px;
+}
+
+/* 顶部文字动作（收藏页“管理”） */
+.fb-topbar-action {
+	padding: var(--fb-gap-1) 0;
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-m);
+	font-family: inherit;
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+
+/* 记录页管理模式 */
+.fb-history-check {
+	display: none;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	color: var(--fb-black);
+	border: 1px solid var(--fb-line-strong);
+	border-radius: var(--fb-radius-pill);
+}
+
+.fb-history-check .fb-icon {
+	display: none;
+}
+
+body.is-manage .fb-history-check {
+	display: inline-flex;
+}
+
+.fb-history-row.is-checked .fb-history-check {
+	background: var(--fb-white);
+	border-color: var(--fb-white);
+}
+
+.fb-history-row.is-checked .fb-history-check .fb-icon {
+	display: block;
+}
+
+.fb-history-row.is-checked {
+	background: var(--fb-ink-raised);
+}
+
+.fb-topbar-action.is-active {
+	color: var(--fb-text);
+	font-weight: 600;
+}
+
+/* 排序：原生 select，由样式表包裹，不写内联样式 */
+.fb-sort {
+	display: flex;
+	justify-content: flex-end;
+	padding: 0 var(--fb-gap-4) var(--fb-gap-3);
+}
+
+.fb-sort-field {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--fb-gap-1);
+	color: var(--fb-text-3);
+}
+
+.fb-sort-field select {
+	color: var(--fb-text-2);
+	font-family: inherit;
+	font-size: var(--fb-fs-s);
+	background: none;
+	border: 0;
+	appearance: none;
+}
+
+.fb-sort-field select option {
+	color: var(--fb-text);
+	background: var(--fb-ink-raised);
+}
+
+/* 管理模式底部操作条 */
+.fb-managebar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 40;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	max-width: var(--fb-shell);
+	margin: 0 auto;
+	padding: var(--fb-gap-3) var(--fb-gap-4) calc(var(--fb-gap-3) + env(safe-area-inset-bottom, 0px));
+	background: var(--fb-ink-raised);
+	border-top: 1px solid var(--fb-line);
+}
+
+.fb-managebar[hidden] {
+	display: none;
+}
+
+.fb-managebar-count {
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-btn[disabled] {
+	opacity: 0.45;
+	cursor: default;
+}
+
+/* ============================================================
+   8. 分段控件 / 规格
+   ============================================================ */
+.fb-segment {
+	display: flex;
+	gap: var(--fb-gap-5);
+	margin: 0 var(--fb-gap-4) var(--fb-gap-3);
+	border-bottom: 1px solid var(--fb-line);
+}
+
+.fb-segment-item {
+	padding: var(--fb-gap-2) 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-m);
+	background: none;
+	border: 0;
+	border-bottom: 2px solid transparent;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+.fb-segment-item.is-active {
+	color: var(--fb-text);
+	font-weight: 600;
+	border-bottom-color: var(--fb-white);
+}
+
+.fb-pane {
+	display: none;
+	padding: 0 var(--fb-gap-4) var(--fb-gap-4);
+}
+
+.fb-pane.is-active {
+	display: block;
+}
+
+.fb-sellpoint {
+	display: grid;
+	grid-template-columns: 96px 1fr;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) 0;
+	border-bottom: 1px solid var(--fb-line);
+}
+
+.fb-sellpoint:last-child {
+	border-bottom: 0;
+}
+
+.fb-sellpoint-media {
+	position: relative;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	border-radius: var(--fb-radius-m);
+	background: var(--fb-ink-raised);
+}
+
+.fb-sellpoint-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.fb-sellpoint-title {
+	margin: 0;
+	font-size: var(--fb-fs-m);
+	font-weight: 600;
+}
+
+.fb-sellpoint-text {
+	margin: var(--fb-gap-1) 0 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-zoom {
+	position: absolute;
+	right: var(--fb-gap-1);
+	bottom: var(--fb-gap-1);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	color: var(--fb-text);
+	background: var(--fb-scrim);
+	border: 0;
+	border-radius: var(--fb-radius-s);
+	cursor: pointer;
+}
+
+.fb-spec-block {
+	padding: var(--fb-gap-3) 0;
+	border-bottom: 1px solid var(--fb-line);
+}
+
+.fb-spec-block:last-child {
+	border-bottom: 0;
+}
+
+.fb-label {
+	display: block;
+	margin-bottom: var(--fb-gap-2);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-swatches {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--fb-gap-2);
+}
+
+.fb-swatch {
+	padding: var(--fb-gap-1) var(--fb-gap-3);
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+	background: none;
+	border: 1px solid var(--fb-line);
+	border-radius: var(--fb-radius-pill);
+	font-family: inherit;
+	cursor: pointer;
+}
+
+.fb-swatch.is-active {
+	color: var(--fb-black);
+	background: var(--fb-white);
+	border-color: var(--fb-white);
+	font-weight: 600;
+}
+
+.fb-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: var(--fb-fs-s);
+}
+
+.fb-table th,
+.fb-table td {
+	padding: var(--fb-gap-2) var(--fb-gap-3);
+	text-align: left;
+	border-bottom: 1px solid var(--fb-line);
+	color: var(--fb-text-2);
+	font-weight: 400;
+}
+
+.fb-table th {
+	color: var(--fb-text-3);
+}
+
+.fb-table td:first-child,
+.fb-table th:first-child {
+	color: var(--fb-text);
+}
+
+.fb-params {
+	display: grid;
+	grid-template-columns: 88px 1fr;
+	gap: var(--fb-gap-2) var(--fb-gap-3);
+	margin: 0;
+	font-size: var(--fb-fs-s);
+}
+
+.fb-params dt {
+	color: var(--fb-text-3);
+}
+
+.fb-params dd {
+	margin: 0;
+	color: var(--fb-text);
+}
+
+/* ============================================================
+   9. 统计 / 菜单行 / 继续阅读
+   ============================================================ */
+.fb-member {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-4);
+}
+
+.fb-member-id {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-3);
+	min-width: 0;
+}
+
+.fb-avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 54px;
+	height: 54px;
+	color: var(--fb-text-2);
+	background: var(--fb-ink-raised);
+	border: 1px solid var(--fb-line);
+	border-radius: var(--fb-radius-pill);
+}
+
+.fb-member-name {
+	margin: 0;
+	font-size: var(--fb-fs-l);
+	font-weight: 600;
+}
+
+.fb-member-note {
+	margin: var(--fb-gap-1) 0 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	padding: 0 var(--fb-gap-4) var(--fb-gap-4);
+}
+
+.fb-stat {
+	text-align: center;
+	border-right: 1px solid var(--fb-line);
+}
+
+.fb-stat:last-child {
+	border-right: 0;
+}
+
+.fb-stat-value {
+	display: block;
+	font-size: var(--fb-fs-xl);
+	font-weight: 600;
+}
+
+.fb-stat-label {
+	display: block;
+	margin-top: var(--fb-gap-1);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-section {
+	padding: var(--fb-gap-4);
+	border-top: 1px solid var(--fb-line);
+}
+
+.fb-section-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	margin-bottom: var(--fb-gap-3);
+}
+
+.fb-section-title {
+	margin: 0;
+	font-size: var(--fb-fs-l);
+	font-weight: 600;
+}
+
+.fb-resume {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-3);
+}
+
+.fb-resume-cover {
+	flex: none;
+	width: 64px;
+	height: 80px;
+	overflow: hidden;
+	border-radius: var(--fb-radius-m);
+	background: var(--fb-ink-raised);
+}
+
+.fb-resume-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.fb-resume-body,
+.fb-resume-main {
+	flex: 1;
+	min-width: 0;
+	display: block;
+}
+
+.fb-resume-action {
+	flex: none;
+	display: inline-flex;
+	align-items: center;
+	gap: var(--fb-gap-1);
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+	white-space: nowrap;
+}
+
+.fb-resume-title {
+	display: block;
+	margin: 0;
+	font-size: var(--fb-fs-m);
+	font-weight: 600;
+}
+
+.fb-resume-meta {
+	display: block;
+	margin: var(--fb-gap-1) 0 var(--fb-gap-2);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-resume-body .fb-menu-note {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-1);
+}
+
+.fb-menu {
+	border-top: 1px solid var(--fb-line);
+}
+
+.fb-menu-row {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-4);
+	color: var(--fb-text);
+	border-bottom: 1px solid var(--fb-line);
+}
+
+.fb-menu-label {
+	flex: 1;
+}
+
+.fb-menu-note {
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-timeline {
+	display: block;
+}
+
+.fb-timeline-day {
+	margin: var(--fb-gap-4) var(--fb-gap-4) var(--fb-gap-2);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-history-row {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) var(--fb-gap-4);
+	border-bottom: 1px solid var(--fb-line);
+}
+
+.fb-history-time {
+	flex: none;
+	width: 52px;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-xs);
+}
+
+/* ============================================================
+   10. 底部四项导航
+   ============================================================ */
+.fb-navbar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 30;
+	display: flex;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--fb-shell);
+	margin: 0 auto;
+	padding-bottom: env(safe-area-inset-bottom, 0px);
+	background: var(--fb-black);
+	border-top: 1px solid var(--fb-line);
+}
+
+.fb-nav-item {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: var(--fb-nav-h);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-m);
+}
+
+.fb-nav-item.is-active {
+	color: var(--fb-white);
+	font-weight: 600;
+}
+
+/* ============================================================
+   11. 底部面板 / 遮罩
+   ============================================================ */
+.fb-mask {
+	position: fixed;
+	inset: 0;
+	z-index: 40;
+	background: var(--fb-scrim);
+	border: 0;
+	padding: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--fb-ease);
+}
+
+.fb-mask.is-open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.fb-sheet {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 41;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--fb-shell);
+	max-height: 82vh;
+	margin: 0 auto;
+	overflow-y: auto;
+	background: var(--fb-ink);
+	border-top: 1px solid var(--fb-line);
+	border-radius: var(--fb-radius-l) var(--fb-radius-l) 0 0;
+	transform: translateY(102%);
+	transition: transform var(--fb-ease);
+}
+
+.fb-sheet.is-open {
+	transform: translateY(0);
+}
+
+.fb-sheet-head {
+	position: sticky;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) var(--fb-gap-4);
+	background: var(--fb-ink);
+	border-bottom: 1px solid var(--fb-line);
+}
+
+.fb-sheet-title {
+	margin: 0;
+	font-size: var(--fb-fs-l);
+	font-weight: 600;
+}
+
+.fb-sheet-body {
+	padding: var(--fb-gap-4);
+}
+
+.fb-sheet-foot {
+	position: sticky;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) var(--fb-gap-4) calc(var(--fb-gap-3) + env(safe-area-inset-bottom, 0px));
+	background: var(--fb-ink);
+	border-top: 1px solid var(--fb-line);
+}
+
+.fb-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--fb-gap-2);
+	height: 40px;
+	padding: 0 var(--fb-gap-4);
+	color: var(--fb-black);
+	background: var(--fb-white);
+	border: 1px solid var(--fb-white);
+	border-radius: var(--fb-radius-m);
+	font-family: inherit;
+	font-size: var(--fb-fs-m);
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.fb-btn-ghost {
+	color: var(--fb-text);
+	background: none;
+	border-color: var(--fb-line-strong);
+}
+
+.fb-btn-block {
+	width: 100%;
+}
+
+.fb-share-row {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) 0;
+	color: var(--fb-text);
+	border-bottom: 1px solid var(--fb-line);
+}
+
+/* ============================================================
+   12. 全屏查看器
+   ============================================================ */
+.fb-viewer {
+	position: fixed;
+	inset: 0;
+	z-index: 60;
+	display: flex;
+	flex-direction: column;
+	background: var(--fb-black);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--fb-ease);
+}
+
+.fb-viewer.is-open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.fb-viewer-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) var(--fb-gap-4);
+}
+
+.fb-viewer-title {
+	margin: 0;
+	font-size: var(--fb-fs-m);
+	font-weight: 600;
+}
+
+.fb-viewer-count {
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+	font-variant-numeric: tabular-nums;
+}
+
+.fb-viewer-stage {
+	position: relative;
+	flex: 1;
+	min-height: 0;
+	margin: 0 var(--fb-gap-4);
+}
+
+.fb-viewer-img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+.fb-viewer-foot {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) var(--fb-gap-4) calc(var(--fb-gap-3) + env(safe-area-inset-bottom, 0px));
+}
+
+.fb-viewer-dots {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--fb-gap-2);
+	min-height: 14px;
+	padding: var(--fb-gap-2) 0;
+}
+
+.fb-viewer-dot {
+	width: 6px;
+	height: 6px;
+	padding: 0;
+	background: var(--fb-line-strong);
+	border: 0;
+	border-radius: var(--fb-radius-pill);
+	cursor: pointer;
+}
+
+.fb-viewer-dot.is-active {
+	background: var(--fb-white);
+}
+
+.fb-viewer-thumbs {
+	display: flex;
+	gap: var(--fb-gap-2);
+	overflow-x: auto;
+	padding: 0 var(--fb-gap-4) var(--fb-gap-2);
+	scrollbar-width: none;
+}
+
+.fb-viewer-thumbs::-webkit-scrollbar {
+	display: none;
+}
+
+.fb-viewer-thumb {
+	flex: none;
+	width: 62px;
+	height: 78px;
+	padding: 0;
+	overflow: hidden;
+	background: var(--fb-ink-raised);
+	border: 1px solid transparent;
+	border-radius: var(--fb-radius-s);
+	cursor: pointer;
+}
+
+.fb-viewer-thumb.is-current {
+	border-color: var(--fb-white);
+}
+
+.fb-viewer-thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* ============================================================
+   13. 异常与空状态
+   ============================================================ */
+.fb-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--fb-gap-3);
+	padding: calc(var(--fb-gap-5) * 2) var(--fb-gap-4);
+	color: var(--fb-text-3);
+	text-align: center;
+}
+
+.fb-empty-title {
+	margin: 0;
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-m);
+}
+
+.fb-empty-text {
+	margin: 0;
+	font-size: var(--fb-fs-s);
+	color: var(--fb-text-4);
+}
+
+.fb-notice {
+	margin: 0 var(--fb-gap-4) var(--fb-gap-3);
+	padding: var(--fb-gap-3);
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+	background: var(--fb-ink-raised);
+	border: 1px solid var(--fb-line);
+	border-radius: var(--fb-radius-m);
+}
+
+.fb-toast {
+	position: fixed;
+	left: 50%;
+	bottom: calc(var(--fb-nav-h) + var(--fb-gap-5));
+	z-index: 70;
+	max-width: 80%;
+	padding: var(--fb-gap-2) var(--fb-gap-4);
+	color: var(--fb-black);
+	font-size: var(--fb-fs-s);
+	background: var(--fb-white);
+	border-radius: var(--fb-radius-pill);
+	transform: translate(-50%, var(--fb-gap-2));
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--fb-ease), transform var(--fb-ease);
+}
+
+.fb-toast.is-open {
+	opacity: 1;
+	visibility: visible;
+	transform: translate(-50%, 0);
+}
+
+.fb-sr {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ============================================================
+   14. 参考图 1:1 对齐补充
+   ============================================================ */
+.fb-topbar-center {
+	display: grid;
+	grid-template-columns: 1fr minmax(0, auto) 1fr;
+}
+
+.fb-topbar-center .fb-topbar-title {
+	text-align: center;
+}
+
+.fb-topbar-center .fb-topbar-side {
+	justify-self: start;
+}
+
+.fb-topbar-center .fb-topbar-side-end {
+	justify-self: end;
+}
+
+.fb-iconbtn-more {
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+}
+
+.fb-app-action {
+	padding-bottom: calc(64px + var(--fb-gap-4) + env(safe-area-inset-bottom, 0px));
+}
+
+/* 发现页：主视觉满幅、圆点压在图上 */
+.fb-stage {
+	margin: 0;
+	border-radius: 0;
+}
+
+.fb-dots-overlay {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: var(--fb-gap-4);
+	z-index: 2;
+	padding: 0;
+	pointer-events: none;
+}
+
+.fb-dots-overlay .fb-dot {
+	width: 7px;
+	height: 7px;
+	pointer-events: auto;
+	background: var(--fb-scrim-soft);
+	box-shadow: 0 0 0 1px var(--fb-scrim);
+}
+
+.fb-dots-overlay .fb-dot.is-active {
+	background: var(--fb-white);
+}
+
+.fb-info-title a {
+	color: inherit;
+}
+
+/* 目录抽屉：标题居中 + 副标题 */
+.fb-sheet-heading {
+	flex: 1;
+	min-width: 0;
+	text-align: center;
+}
+
+.fb-sheet-sub {
+	margin: var(--fb-gap-1) 0 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-footbar-action {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--fb-gap-1);
+	padding: 0;
+	color: var(--fb-text-2);
+	font-family: inherit;
+	font-size: var(--fb-fs-s);
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+
+/* 分享面板：目标卡 + 两列宫格 */
+.fb-sheet-share .fb-sheet-body {
+	padding-top: var(--fb-gap-2);
+}
+
+.fb-share-target {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-2) 0 var(--fb-gap-4);
+}
+
+.fb-share-cover {
+	flex: none;
+	width: 44px;
+	height: 58px;
+	overflow: hidden;
+	background: var(--fb-ink-raised);
+	border-radius: var(--fb-radius-s);
+}
+
+.fb-share-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.fb-share-target-body {
+	display: flex;
+	flex-direction: column;
+	gap: var(--fb-gap-1);
+	min-width: 0;
+}
+
+.fb-share-target-title {
+	display: block;
+	overflow: hidden;
+	color: var(--fb-text);
+	font-size: var(--fb-fs-l);
+	font-weight: 600;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.fb-share-target-meta {
+	display: block;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-segment-wide {
+	gap: 0;
+	margin-bottom: var(--fb-gap-4);
+}
+
+.fb-segment-wide .fb-segment-item {
+	flex: 1;
+	text-align: center;
+}
+
+.fb-share-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	border-top: 1px solid var(--fb-line);
+	border-left: 1px solid var(--fb-line);
+}
+
+.fb-share-cell {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--fb-gap-2);
+	padding: var(--fb-gap-4) var(--fb-gap-2);
+	color: var(--fb-text);
+	font-family: inherit;
+	font-size: var(--fb-fs-s);
+	background: none;
+	border: 0;
+	border-right: 1px solid var(--fb-line);
+	border-bottom: 1px solid var(--fb-line);
+	cursor: pointer;
+}
+
+.fb-share-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 46px;
+	height: 46px;
+	color: var(--fb-text);
+	background: var(--fb-ink-raised-2);
+	border-radius: var(--fb-radius-pill);
+}
+
+.fb-share-label {
+	color: var(--fb-text-2);
+	text-align: center;
+	line-height: 1.35;
+}
+
+.fb-share-cell:hover .fb-share-icon,
+.fb-share-cell:focus-visible .fb-share-icon {
+	background: var(--fb-ink-raised-3);
+}
+
+.fb-sheet-foot-block {
+	justify-content: stretch;
+}
+
+/* 海报全屏层 */
+.fb-poster {
+	position: fixed;
+	inset: 0;
+	z-index: 70;
+	display: flex;
+	flex-direction: column;
+	background: var(--fb-black);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--fb-ease);
+}
+
+.fb-poster.is-open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.fb-poster-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) var(--fb-gap-4);
+}
+
+.fb-poster-stage {
+	flex: 1;
+	min-height: 0;
+	padding: 0 var(--fb-gap-5);
+	text-align: center;
+}
+
+.fb-poster-img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+	border-radius: var(--fb-radius-s);
+}
+
+.fb-poster-foot {
+	padding: var(--fb-gap-3) var(--fb-gap-4) calc(var(--fb-gap-3) + env(safe-area-inset-bottom, 0px));
+}
+
+.fb-poster-foot [data-fb-poster-retry] {
+	display: block;
+	margin-top: var(--fb-gap-2);
+}
+
+.fb-poster-foot [data-fb-poster-retry][hidden] {
+	display: none;
+}
+
+.fb-poster-foot [data-fb-poster-cancel] {
+	display: block;
+	margin: var(--fb-gap-2) auto 0;
+	padding: var(--fb-gap-2);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+	font-family: inherit;
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+
+.fb-poster-foot [data-fb-poster-cancel][hidden] {
+	display: none;
+}
+
+/* 款式详情：产品头部与三段页签 */
+.fb-product-head {
+	padding: var(--fb-gap-2) var(--fb-gap-4) var(--fb-gap-4);
+}
+
+.fb-product-name {
+	margin: 0;
+	font-size: var(--fb-fs-xxl);
+	font-weight: 600;
+	letter-spacing: 0.01em;
+}
+
+.fb-product-meta {
+	margin: var(--fb-gap-2) 0 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-segment-3 {
+	gap: 0;
+}
+
+.fb-segment-3 .fb-segment-item {
+	flex: 1;
+	text-align: center;
+}
+
+/* 卖点行 */
+.fb-point {
+	display: grid;
+	grid-template-columns: 44% 1fr;
+	gap: var(--fb-gap-4);
+	align-items: center;
+	padding: var(--fb-gap-4) 0;
+	border-bottom: 1px solid var(--fb-line);
+}
+
+.fb-point:first-child {
+	padding-top: var(--fb-gap-2);
+}
+
+.fb-point-media {
+	position: relative;
+	aspect-ratio: 4 / 5;
+	overflow: hidden;
+	padding: 0;
+	background: var(--fb-ink-raised);
+	border: 0;
+	border-radius: var(--fb-radius-m);
+	cursor: pointer;
+}
+
+.fb-point-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.fb-point-title {
+	margin: 0 0 var(--fb-gap-2);
+	font-size: var(--fb-fs-l);
+	font-weight: 600;
+}
+
+.fb-point-text {
+	margin: 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+	line-height: 1.6;
+}
+
+.fb-link {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: var(--fb-gap-1);
+	padding: var(--fb-gap-4) 0 0;
+	color: var(--fb-text-2);
+	font-family: inherit;
+	font-size: var(--fb-fs-s);
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+
+/* 细节卡片 */
+.fb-grid-flat {
+	padding: 0;
+}
+
+.fb-detail {
+	min-width: 0;
+}
+
+.fb-detail .fb-card-cover {
+	width: 100%;
+	padding: 0;
+	border: 0;
+	cursor: pointer;
+}
+
+.fb-detail-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-2);
+	margin-top: var(--fb-gap-2);
+}
+
+.fb-detail-title {
+	margin: 0;
+	font-size: var(--fb-fs-m);
+	font-weight: 600;
+}
+
+.fb-plus {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	padding: 0;
+	color: var(--fb-text-2);
+	font-size: 15px;
+	line-height: 1;
+	background: none;
+	border: 1px solid var(--fb-line-strong);
+	border-radius: var(--fb-radius-pill);
+	cursor: pointer;
+}
+
+.fb-detail-text {
+	margin: var(--fb-gap-1) 0 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-hint {
+	margin: var(--fb-gap-4) 0 0;
+	color: var(--fb-text-4);
+	font-size: var(--fb-fs-s);
+	text-align: center;
+}
+
+/* 尺码页 */
+.fb-colors {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--fb-gap-3);
+}
+
+.fb-color {
+	display: flex;
+	flex-direction: column;
+	gap: var(--fb-gap-1);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-xs);
+}
+
+.fb-color-chip {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 64px;
+	height: 48px;
+	color: var(--fb-black);
+	border: 1px solid var(--fb-line-strong);
+	border-radius: var(--fb-radius-s);
+}
+
+.fb-tone-0 {
+	background: var(--fb-white);
+}
+
+.fb-tone-1 {
+	background: var(--fb-text-2);
+}
+
+.fb-tone-2 {
+	background: var(--fb-text-3);
+}
+
+.fb-tone-3 {
+	background: var(--fb-ink-raised-3);
+	color: var(--fb-white);
+}
+
+.fb-color.is-active .fb-color-chip {
+	outline: 1px solid var(--fb-white);
+	outline-offset: 1px;
+}
+
+.fb-color.is-active .fb-color-name {
+	color: var(--fb-text);
+}
+
+.fb-sizes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--fb-gap-2);
+}
+
+.fb-size {
+	min-width: 52px;
+	padding: var(--fb-gap-2) 0;
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+	text-align: center;
+	border: 1px solid var(--fb-line);
+	border-radius: var(--fb-radius-s);
+}
+
+.fb-size.is-active {
+	color: var(--fb-black);
+	background: var(--fb-white);
+	border-color: var(--fb-white);
+	font-weight: 600;
+}
+
+.fb-note {
+	margin: var(--fb-gap-2) 0 0;
+	color: var(--fb-text-4);
+	font-size: var(--fb-fs-xs);
+}
+
+.fb-model {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) 0;
+}
+
+.fb-model-avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	overflow: hidden;
+	color: var(--fb-text-3);
+	background: var(--fb-ink-raised);
+	border-radius: var(--fb-radius-pill);
+}
+
+.fb-model-avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.fb-model-text {
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+}
+
+/* 底部操作栏（款式详情） */
+.fb-actionbar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 30;
+	display: flex;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--fb-shell);
+	margin: 0 auto;
+	padding-bottom: env(safe-area-inset-bottom, 0px);
+	background: var(--fb-ink);
+	border-top: 1px solid var(--fb-line);
+}
+
+.fb-action {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--fb-gap-1);
+	height: 64px;
+	padding: 0;
+	color: var(--fb-text-2);
+	font-family: inherit;
+	font-size: var(--fb-fs-xs);
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+
+.fb-action.is-on {
+	color: var(--fb-white);
+}
+
+/* 收藏排序左对齐 */
+.fb-sort {
+	justify-content: flex-start;
+}
+
+/* 我的：访客登录入口 */
+.fb-member-link {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--fb-gap-1);
+	flex: none;
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+}
+
+/* 记录页 */
+.fb-history {
+	display: block;
+}
+
+.fb-history-day {
+	margin: var(--fb-gap-4) var(--fb-gap-4) var(--fb-gap-1);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-history-row {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-3);
+	padding: var(--fb-gap-3) var(--fb-gap-4);
+	border-bottom: 1px solid var(--fb-line);
+}
+
+.fb-history-cover {
+	flex: none;
+	width: 52px;
+	height: 68px;
+	overflow: hidden;
+	background: var(--fb-ink-raised);
+	border-radius: var(--fb-radius-s);
+}
+
+.fb-history-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.fb-history-body {
+	flex: 1;
+	min-width: 0;
+}
+
+.fb-history-title {
+	display: block;
+	overflow: hidden;
+	color: var(--fb-text);
+	font-size: var(--fb-fs-m);
+	font-weight: 600;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.fb-history-meta {
+	display: block;
+	margin-top: var(--fb-gap-1);
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-xs);
+}
+
+.fb-history-body .fb-progress {
+	margin: var(--fb-gap-2) 0 0;
+}
+
+.fb-history-go {
+	display: inline-flex;
+	align-items: center;
+	flex: none;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-segment-count .fb-count {
+	margin-left: var(--fb-gap-1);
+	color: var(--fb-text-4);
+	font-size: var(--fb-fs-xs);
+	font-variant-numeric: tabular-nums;
+}
+
+/* 偏好页 */
+.fb-pref-group {
+	padding: var(--fb-gap-2) var(--fb-gap-4) var(--fb-gap-4);
+	border-bottom: 1px solid var(--fb-line);
+}
+
+.fb-pref-title {
+	margin: 0 0 var(--fb-gap-3);
+	color: var(--fb-text);
+	font-size: var(--fb-fs-l);
+	font-weight: 600;
+}
+
+.fb-pref-note {
+	margin: 0;
+	color: var(--fb-text-3);
+	font-size: var(--fb-fs-s);
+}
+
+.fb-segment-flat {
+	margin: 0;
+}
+
+.fb-segment-2 .fb-segment-item {
+	flex: 1;
+	text-align: center;
+}
+
+.fb-switch-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--fb-gap-3);
+}
+
+.fb-switch {
+	position: relative;
+	flex: none;
+	width: 44px;
+	height: 26px;
+	cursor: pointer;
+}
+
+.fb-switch-track {
+	position: absolute;
+	inset: 0;
+	background: var(--fb-line-strong);
+	border-radius: var(--fb-radius-pill);
+	transition: background var(--fb-ease);
+}
+
+.fb-switch-track::after {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 20px;
+	height: 20px;
+	background: var(--fb-white);
+	border-radius: var(--fb-radius-pill);
+	transition: transform var(--fb-ease);
+}
+
+.fb-switch input:checked + .fb-switch-track {
+	background: var(--fb-white);
+}
+
+.fb-switch input:checked + .fb-switch-track::after {
+	background: var(--fb-black);
+	transform: translateX(18px);
+}
+
+.fb-chips {
+	flex-wrap: wrap;
+	overflow: visible;
+}
+
+.fb-chip-btn {
+	padding: var(--fb-gap-2) var(--fb-gap-4);
+	color: var(--fb-text-2);
+	font-size: var(--fb-fs-s);
+	text-align: center;
+	background: none;
+	border: 1px solid var(--fb-line);
+	border-radius: var(--fb-radius-s);
+	cursor: pointer;
+}
+
+.fb-chip-btn.is-active {
+	color: var(--fb-black);
+	background: var(--fb-white);
+	border-color: var(--fb-white);
+	font-weight: 600;
+}
+
+/* 查看器底部：提示在上、保存通栏 */
+.fb-viewer-foot {
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.fb-center {
+	text-align: center;
+}
+
+/* ============================================================
+   16. 微页面：导航、组件、标签页、底部导航
+   ------------------------------------------------------------
+   配置值（尺寸/颜色/间距/圆角）由后台以行内样式输出，
+   本段只定义不可配置的结构，避免每个页面各写一套。
+   ============================================================ */
+.fb-mc-nav {
+	position: sticky;
+	top: 0;
+	z-index: 36;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--fb-shell);
+	margin: 0 auto;
+}
+
+.fb-mc-back {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	color: var(--fb-text);
+}
+
+.fb-mc-logo {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.fb-mc-logo img {
+	display: block;
+	max-width: 100%;
+}
+
+.fb-mc-main {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--fb-shell);
+	margin: 0 auto;
+}
+
+.fb-mc-block {
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.fb-mc-blocklink {
+	display: block;
+	color: inherit;
+}
+
+.fb-mc-carousel,
+.fb-mc-hero {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.fb-mc-track {
+	display: flex;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+}
+
+.fb-mc-track::-webkit-scrollbar {
+	display: none;
+}
+
+.fb-mc-slide {
+	position: relative;
+	flex: 0 0 100%;
+	width: 100%;
+	height: 100%;
+	scroll-snap-align: start;
+	background: var(--fb-ink-raised);
+}
+
+.fb-mc-slide img,
+.fb-mc-slide video {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.fb-mc-slide-link {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+}
+
+.fb-mc-dots {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: var(--fb-gap-4);
+	z-index: 3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	pointer-events: none;
+}
+
+.fb-mc-dot {
+	width: 6px;
+	height: 6px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.4);
+	pointer-events: auto;
+}
+
+.fb-mc-dot.is-active {
+	width: 16px;
+	border-radius: 3px;
+	background: var(--fb-white);
+}
+
+.fb-mc-lines,
+.fb-mc-hotspots {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	pointer-events: none;
+}
+
+.fb-mc-line {
+	position: absolute;
+	transform: translateY(-50%);
+	max-width: 88%;
+	line-height: 1.3;
+	pointer-events: auto;
+}
+
+.fb-mc-line a {
+	color: inherit;
+}
+
+.fb-mc-hotspot {
+	position: absolute;
+	display: block;
+}
+
+.fb-mc-spacer {
+	width: 100%;
+}
+
+.fb-mc-image {
+	display: block;
+	width: 100%;
+}
+
+.fb-mc-image-empty {
+	width: 100%;
+	height: 180px;
+	background: var(--fb-ink-raised);
+}
+
+.fb-mc-text {
+	width: 100%;
+	word-break: break-word;
+}
+
+.fb-mc-search {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-2);
+}
+
+.fb-mc-search-input {
+	flex: 1;
+	min-width: 0;
+	height: 40px;
+	padding: 0 var(--fb-gap-4);
+	border: 0;
+	border-radius: var(--fb-radius-pill);
+	font-family: var(--fb-font);
+	font-size: var(--fb-fs-m);
+	outline: none;
+	-webkit-appearance: none;
+}
+
+.fb-mc-search-btn {
+	flex: none;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--fb-ink-raised-2);
+	color: var(--fb-text);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.fb-mc-divider {
+	height: 0;
+}
+
+.fb-mc-tabhead {
+	display: flex;
+	align-items: center;
+	gap: var(--fb-gap-5);
+	overflow-x: auto;
+	padding: 0 0 var(--fb-gap-2);
+}
+
+.fb-mc-tabbtn {
+	position: relative;
+	flex: none;
+	padding: 0;
+	border: 0;
+	background: none;
+	font-family: var(--fb-font);
+	font-weight: 500;
+}
+
+.fb-mc-tabbtn.is-active::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -8px;
+	height: 2px;
+	background: currentColor;
+	border-radius: 1px;
+}
+
+.fb-mc-tabpanel {
+	width: 100%;
+}
+
+.fb-mc-tabbar {
+	--fb-fs-xs: calc(22 * var(--fb-rpx, .5px));
+	--fb-icon-size: calc(32 * var(--fb-rpx, .5px));
+	--fb-line: #2A2A2E;
+	border-top-width: calc(1 * var(--fb-rpx, .5px));
+}
+
+.fb-mc-tabbar .fb-nav-item {
+	flex-direction: column;
+	align-self: stretch;
+	height: auto;
+	gap: calc(6 * var(--fb-rpx, .5px));
+	font-size: var(--fb-fs-xs);
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+.fb-mc-tabbar .fb-nav-item .fb-icon {
+	--fb-icon: var(--fb-icon-size);
+}
+
+.fb-mc-tabbar .fb-nav-item span {
+	line-height: inherit;
+}
+
+/* 微页面内复用业务内容；页面导航统一由微页面壳负责。 */
+.fb-mc-business > .fb-topbar { display:none; }
+.fb-mc-business { min-width:0; }
+.fb-mc-main { min-height:calc(100dvh - 54px); }
+.fb-mc-no-indicator .fb-mc-tabbtn.is-active::after { display:none; }
+.fb-mc-blocklink { cursor:pointer; }
+
+/* 首屏间距仅由 nav.firstGap 提供，业务模块不再重复添加。 */
+.fb-mc-business > .fb-stage,
+.fb-mc-business > .fb-search,
+.fb-mc-business > .fb-segment,
+.fb-mc-business > .fb-member,
+.fb-mc-business > .fb-product-head,
+.fb-mc-business > .fb-reader { margin-top:0; padding-top:0; }
+.fb-mc-video-wrap { position:relative; }
+.fb-mc-video-link { position:absolute; inset:0 0 48px; display:block; z-index:2; }
+.fb-mc-business .fb-stage-video { width:100%; height:100%; object-fit:cover; }
+.fb-mc-business .fb-stage-video-link { position:absolute; inset:0 0 48px; z-index:1; }
+
+.fb-micro-manage { position:absolute; top:0; right:16px; z-index:2; }
+.fb-mc-business[data-source="favorites"] { position:relative; }
+/* 媒体菜单共用左下角 20px 定位，音量按钮排在分享下面。 */
+.fb-media-actions { position:absolute; left:20px; right:auto; bottom:20px; z-index:8; display:flex; flex-direction:column; gap:10px; }
+.fb-media-actions-list { display:none; flex-direction:column; gap:10px; }
+.fb-media-actions.is-open .fb-media-actions-list { display:flex; }
+.fb-media-actions .fb-rail-btn { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; padding:0; background:rgba(11,11,12,.7); color:#fff; }
+.fb-media-actions .fb-rail-btn span { display:none; }
+.fb-media-toggle { font-size:24px; }
+.fb-mc-video-link, .fb-mc-business .fb-stage-video-link { bottom:0; }
+.fb-pull-spinner { position:fixed; top:8px; left:calc(50% - 9px); z-index:1000; width:18px; height:18px; border:2px solid #555; border-top-color:#fff; border-radius:50%; animation:fb-pull-spin .7s linear infinite; }
+.fb-pull-spinner[hidden] { display:none; }
+@keyframes fb-pull-spin { to { transform:rotate(360deg); } }
+
+.fb-mc-business[data-source="history"], .fb-mc-business[data-source="preference"] { position:relative; }
+.fb-micro-save { position:absolute; top:0; right:16px; z-index:2; }
+.fb-mc-business #fb-pref-form > .fb-pref-group:first-of-type { margin-top:0; padding-top:0; }

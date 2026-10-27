@@ -1,0 +1,20 @@
+.fb-page { padding-top:0; padding-bottom:0; min-height:0; }
+.fb-read-page { height:auto; min-height:1000rpx; }
+.fb-tab-page { padding-bottom:0; }
+
+.fb-content { margin-top:0; }
+.fb-member, .fb-fav-tabs, .fb-read-stage, .fb-hero, .fb-screen { margin-top:0; padding-top:0; }
+.fb-screen { height:calc(100vh - 320rpx); min-height:720rpx; position:relative; }
+.fb-hero { height:100%; }
+.fb-hero-enter { position:absolute; top:0; left:0; right:0; bottom:96rpx; z-index:1; }
+
+.fb-detail-shot{overflow:visible;background:transparent;border-radius:0}
+.fb-detail-shot-image{border-radius:var(--fb-radius-m)}
+.fb-detail-shotcap{display:block;position:relative;width:100%;box-sizing:border-box}
+
+.fb-product-trade-actions{display:flex;gap:20rpx;margin:24rpx 0}
+.fb-product-trade-actions .fb-product-trade-action{flex:1;margin:0;font-size:28rpx;line-height:1.5;padding:20rpx}
+
+.fb-read-part{height:auto;min-height:0;overflow:visible;background:transparent}
+.fb-read-part .fb-caption{padding:0;gap:0}
+.fb-read-part .fb-caption-sub{width:auto}
